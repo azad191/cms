@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Bacakend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class sliderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view('backend.modules.menu.index');
+        return view('backend.modules.slider.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('backend.modules.menu.create');
+        //
     }
 
     /**

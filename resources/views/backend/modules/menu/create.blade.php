@@ -1,5 +1,7 @@
 @extends('backend.components.app');
 @section('content')
+    <input type="text" name="primary key"  class="form-control" id="primaryMenu" placeholder="Enter primary menu name">
+    <button id="send" class="btn btn-danger btn-sm">send</button>
     <form>
     <div class="card">
         <div class="card-header">
@@ -17,8 +19,7 @@
                        <div class="form-group">
                            <label for="exampleInputEmail1">Primary Menu</label>
                            <div class="d-flex">
-                               <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter primary menu name">
-                               <button class="btn btn-danger btn-sm">send</button>
+
                            </div>
                        </div>
                        <div class="form-group">
@@ -86,4 +87,20 @@
         <button type="submit" class="btn btn-info float-right">Submit</button>
     </form>
     <!-- /.card -->
+
+    <script>
+        let sendId = document.getElementById('send');
+        let primaryValue = document.getElementById('primaryMenu').value();
+        console.log(primaryValue)
+        sendId.addEventListener('click', function (event) {
+         //   alert(document.getElementById('primaryMenu').value())
+            axios.post('/menu/create/main',{
+                main:'azad'
+            }).then(res =>console.log(res))
+
+            event.preventDefault()
+        })
+
+
+    </script>
 @endsection

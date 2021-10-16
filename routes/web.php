@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\Bacakend\MenuController;
+use App\Http\Controllers\Backend\MenuController;
+use App\Http\Controllers\Backend\sliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,9 @@ Route::get('/', function () {
 Route::get('cats', [CategoryController::class, 'index']);
 Route::get('menu', [MenuController::class, 'index'])->name('menu');
 Route::get('menu/create', [MenuController::class, 'create'])->name('menu.create');
+Route::post('/menu/create/main', [MenuController::class, 'mainMenuStore']);
+Route::prefix('slider')->name('slider.')->group(function(){
+    Route::get('/all', [sliderController::class, 'index'])->name('index');
+});
+
 

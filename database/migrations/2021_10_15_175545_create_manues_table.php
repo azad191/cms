@@ -15,8 +15,17 @@ class CreateManuesTable extends Migration
     {
         Schema::create('manues', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->bigInteger('parent_id');
             $table->string('name');
+            $table->string('slug');
+            $table->string('target')->nullable();
+            $table->text('url')->nullable();
+            $table->string('menu_type')->nullable();
+            $table->text('external_link')->nullable();
+            $table->tinyInteger('status')->default(1);
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
