@@ -15,6 +15,8 @@ class CreateManuesTable extends Migration
     {
         Schema::create('manues', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('parent_id');
+            $table->string('name');
             $table->timestamps();
         });
     }

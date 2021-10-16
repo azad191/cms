@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Bacakend\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::get('/', function () {
 });
 
 Route::get('cats', [CategoryController::class, 'index']);
+Route::get('menu', [MenuController::class, 'index'])->name('menu');
+Route::get('menu/create', [MenuController::class, 'create'])->name('menu.create');
+
