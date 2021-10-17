@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\sliderController;
+use App\Http\Controllers\Backend\logoCongtroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,7 @@ Route::post('/menu/create/main', [MenuController::class, 'mainMenuStore']);
 Route::prefix('slider')->name('slider.')->group(function(){
     Route::get('/all', [sliderController::class, 'index'])->name('index');
 });
-
+Route::prefix('logo')->name('logo.')->group(function(){
+    Route::get('/all', [logoCongtroller::class, 'index'])->name('index');
+});
 
