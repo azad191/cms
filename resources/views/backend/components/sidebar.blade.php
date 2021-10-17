@@ -71,7 +71,7 @@
                     </ul>
                 </li><!--End slider-->
                 <!--Start Others-->
-                <li class="nav-item">
+                <li class="{{request()->is('logo/all') ? 'nav-item  menu-open' : ''}}">
                     <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
