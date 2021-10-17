@@ -49,15 +49,59 @@
                 </div>
                 <div class="modal-body">
                     <from>
-                        <input type="file" name="slider_name" id="">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Select 3rd Level Menu<span class="text-secondary font-italic">(optional)</span></label>
-                            <select name="" id="" class="form-control">
-                                <option value="" >one</option>
-                                <option value="">two</option>
-                                <option value="">three</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="ext">Title<span class="text-secondary font-italic">(optional)</span></label>
+                                    <input type="text" class="form-control" name="external_link" placeholder="Enter external link">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="ext">Sub-Title<span class="text-secondary font-italic">(optional)</span></label>
+                                    <input type="text" class="form-control" name="external_link" placeholder="Enter external link">
+                                </div>
+                            </div>
                         </div>
+                        <div class="form-group">
+                            <label for="ext">Sort Description<span class="text-secondary font-italic">(optional)</span></label>
+                            <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label for="status">Status<span class="text-secondary font-italic">*</span></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Active</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Inactive</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Sequence<span class="text-secondary font-italic">(optional)</span></label>
+                                    <select name="" id="" class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Slider Image<span class="text-secondary font-italic">(jpg, png, jpeg)</span></label>
+                            <input type="file" class="form-control" name="slider_name" id="sliderImg">
+
+                        </div>
+                        <img class="img-fluid mt-3" id="blah" src="#" alt="your image" />
                     </from>
                 </div>
                 <div class="modal-footer justify-content-between">
@@ -70,4 +114,12 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.card -->
+    <script>
+        sliderImg.onchange = evt => {
+            const [file] = sliderImg.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
 @endsection
