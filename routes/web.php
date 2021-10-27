@@ -19,7 +19,8 @@ use App\Http\Controllers\Backend\logoCongtroller;
 
 Route::get('/', function () {
   //  return view('welcome');
-    return view('backend.dashboard');
+  //  return view('backend.dashboard');
+    return view('frontend.pages.search_project');
 });
 
 Route::get('cats', [CategoryController::class, 'index']);
