@@ -5,6 +5,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\sliderController;
 use App\Http\Controllers\Backend\logoCongtroller;
+use App\Http\Controllers\Backend\loginController;
+    use App\Http\Controllers\Backend\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +34,14 @@ Route::prefix('slider')->name('slider.')->group(function(){
 Route::prefix('logo')->name('logo.')->group(function(){
     Route::get('/all', [logoCongtroller::class, 'index'])->name('index');
 });
+Route::prefix('user')->name('user.')->group(function(){
+    Route::get('/all', [userController::class, 'index'])->name('index');
+    Route::post('/store', [userController::class, 'store']);
+    Route::get('/test', [userController::class, 'testData']);
+});
+Route::get('/roles', [userController::class, 'roles']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

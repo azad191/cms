@@ -70,6 +70,24 @@
                         </li>
                     </ul>
                 </li><!--End slider-->
+                <!--Start User-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            User
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('user.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add User</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End user-->
                 <!--Start Others-->
                 <li class="{{request()->is('logo/all') ? 'nav-item  menu-open' : ''}}">
                     <a href="#" class="nav-link ">
