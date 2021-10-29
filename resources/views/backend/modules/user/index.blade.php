@@ -49,13 +49,13 @@
                 </div>
 
                 <div class="modal-body">
-                    <from id="addSub">
+                    <form id="addSub">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="ext">Name</label>
-                                    <input type="text" class="form-control" id="names" name="names" placeholder="Enter name">
+                                    <input type="text" class="form-control" id="fName" name="firstName" placeholder="Enter name">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -69,7 +69,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">User Role</label>
-                                    <select name="user_id" id="roles" class="form-control">
+                                    <select name="role_id" id="roles" class="form-control">
 
 {{--                                        @foreach($data as $item)--}}
 {{--                                            <option value="{{$item->id}}" class="text-capitalize">{{$item->name}}</option>--}}
@@ -81,11 +81,11 @@
                                 <div class="form-group">
                                     <label for="status">Status<span class="text-secondary font-italic">*</span></label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="1">
                                         <label class="form-check-label" for="inlineRadio1">Active</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="0">
                                         <label class="form-check-label" for="inlineRadio2">Inactive</label>
                                     </div>
                                 </div>
@@ -97,13 +97,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="ext">Password</label>
-                                    <input type="password" class="form-control" name="password" placeholder="password">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="password">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="ext">Confirm Password</label>
-                                    <input type="password" class="form-control" name="confirm_password" placeholder="confirm password">
+                                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="confirm password">
                                 </div>
                             </div>
                         </div>
@@ -116,10 +116,10 @@
 {{--                        </div>--}}
 {{--                        <img class="img-fluid mt-3" id="blah" src="#" alt="your image" style="display: none" />--}}
 
-                            <input type="submit" id="oksss"  class="btn btn-primary">Save changes</input>
+                            <button type="submit" id="oksss"  class="btn btn-primary">Save changes</button>
 
 
-                    </from>
+                    </form>
                 </div>
 
 
@@ -133,6 +133,7 @@
     let add = document.getElementById('ok');
     let role = document.getElementById('roles');
     let submits = document.getElementById('oksss');
+
 
 //user role select in modal
 
@@ -156,20 +157,34 @@
             });
     })
     var forms =   document.getElementById('addSub');
-    var names = document.getElementById('names').value;
-    var email = document.getElementById('email').value;
-    submits.addEventListener('click', function (e) {
-        console.log(e.target.value)
-        const formData = new FormData()
+
+
+    forms.addEventListener('submit', function (e) {
+   // $("#addSub").submit(function (e){
         e.preventDefault();
-        // axios.post('/user/store', {
-        //     name: names.value,
-        //    // email: email.value
-        // })
+        var name = document.getElementById('fName').value
+        var email = document.getElementById('email').value;
+        var role_id = document.getElementById('roles').value;
+      //  var status = (input[type='radio'][name='status'].checked).value;
+        var status =   document.querySelector('input[name = status]:checked').value
+
+        var password = document.getElementById('password').value
+        var confirm_password = document.getElementById('confirm_password').value
+
+
+
+
+
+    //     const formData = new FormData()
+
+    //     // axios.post('/user/store', {
+    //     //     name: names.value,
+    //     //    // email: email.value
+    //     // })
         axios({
             method: 'post',
             url: '/user/store',
-            data: {names, email},
+            data: {name, email, role_id, status, password, confirm_password},
 
     })
             .then(function (response) {
@@ -178,6 +193,7 @@
             .catch(function (error) {
                 console.log(error);
             });
+
     })
 
 
