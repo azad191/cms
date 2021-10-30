@@ -19,11 +19,6 @@ use App\Http\Controllers\freelancerListController;
 |
 */
 
-Route::get('/', function () {
-  //  return view('welcome');
-    return view('homepage');
-   // return view('frontend.pages.job-list');
-});
 
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details', [jobListController::class, 'details'])->name('job.details');
