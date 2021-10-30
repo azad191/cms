@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\loginController;
 |
 */
 
+Route::group(['middleware' => 'auth'], function(){
 Route::get('/', function () {
   //  return view('welcome');
     return view('backend.dashboard');
@@ -41,7 +42,9 @@ Route::prefix('user')->name('user.')->group(function(){
 });
 Route::get('/roles', [userController::class, 'roles']);
 
+});
 
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
