@@ -15,6 +15,12 @@ class CreateUserProfilesTable extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->unique();
+            $table->string('user_name')->unique();
+            $table->string('user_type');
+            $table->string('buyer')->nullable();
+            $table->string('phone_number');
+            $table->string('location');
             $table->timestamps();
         });
     }

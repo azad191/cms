@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\sliderController;
 use App\Http\Controllers\Backend\logoCongtroller;
 use App\Http\Controllers\jobListController;
 use App\Http\Controllers\freelancerListController;
+use App\Http\Controllers\Backend\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,18 @@ use App\Http\Controllers\freelancerListController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+Route::get('/', function () {
+    //  return view('welcome');
+    return view('homepage');
+    // return view('frontend.pages.job-list');
+});
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details', [jobListController::class, 'details'])->name('job.details');
 
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
 Route::get('freelancer/details', [freelancerListController::class, 'details'])->name('freelancer.details');
+
+Route::group(['middleware' => 'auth'], function(){
 
 Route::get('cats', [CategoryController::class, 'index']);
 Route::get('menu', [MenuController::class, 'index'])->name('menu');
@@ -43,7 +49,9 @@ Route::prefix('user')->name('user.')->group(function(){
 });
 Route::get('/roles', [userController::class, 'roles']);
 
+});
 
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
