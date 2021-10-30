@@ -75,8 +75,8 @@
 
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="index.html" >Home</a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="#" > How It Works </a></li>
-                                    <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="search-project.html" > Find Jobs </a></li>
-                                    <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="search-freelancers.html" >Find Freelancers</a></li>
+                                    <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('job.list')}}" >Find Jobs </a></li>
+                                    <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('freelancer.list')}}" >Find Freelancers</a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="search-freelancers/index.html" >Freelancer Registration</a></li>
                                 </ul>
                             </div>
