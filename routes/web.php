@@ -21,8 +21,8 @@ use App\Http\Controllers\userRegistrationController;
 */
 Route::get('/', function () {
     //  return view('welcome');
-   // return view('homepage');
-     return view('frontend.pages.registration');
+    return view('homepage');
+    // return view('frontend.pages.registration');
 });
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details', [jobListController::class, 'details'])->name('job.details');

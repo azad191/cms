@@ -1187,24 +1187,25 @@
                         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 float-left">
                             <div class="wt-userlistingholder wt-haslayout">
 
+                                @foreach($data as $item)
 
-                                <div class="wt-userlistinghold ">
+                                 <div class="wt-userlistinghold ">
                                     <figure class="wt-userlistingimg">
-                                        <a href="freelancers-details.html"><img src="wp-content/uploads/freelancers/3.jpg" alt="We Help You Invent the Future"></a>
+                                        <a href="freelancers-details.html"><img src="{{asset('frontend/wp-content/uploads/freelancers/3.jpg')}}" alt="Future"></a>
                                         <div class="wt-userdropdown wt-away template-content tipso_style wt-tipso" data-tipso="Offline"></div>
                                     </figure>
                                     <div class="wt-userlistingcontent">
                                         <div class="wt-contenthead">
                                             <div class="wt-title">
                                                 <a href="#">
-                                                    <i class="fa fa-check-circle"></i>&nbsp;Farhana Haq  </a>
+                                                    <i class="fa fa-check-circle"></i>&nbsp;{{$item->name}}  </a>
                                                 <h2><a href="freelancers-details.html">E-commerce design & developer</a></h2>
                                             </div>
                                             <ul class="wt-userlisting-breadcrumb ">
-                                                <li><span><i class="fa fa-money"></i>Tk. 500.00&nbsp;/&nbsp;hr</span></li>
+{{--                                                <li><span><i class="fa fa-money"></i>Tk. 500.00&nbsp;/&nbsp;hr</span></li>--}}
                                                 <li>
                                                    <span>
-                                                   <em><img class="wt-checkflag" src="wp-content/uploads/2019/03/img-05-1.png" alt="//amentotech.com/projects/wpworkreap/wp-content/uploads/2019/03/img-01-2.png"></em>Bangladesh                                                         </span>
+                                                   <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.png')}}" alt="//amentotech.com/projects/wpworkreap/wp-content/uploads/2019/03/img-01-2.png"></em>Bangladesh                                                         </span>
                                                 </li>
                                                 <li>            <a href="javascript:;" class="wt-clicksave wt-savefreelancer" data-id="351" data-text="Saved"><i class="fa fa-heart" ></i><span>Click to Save</span></a></li>
                                             </ul>
@@ -1229,137 +1230,7 @@
                                     </div>
                                 </div>
 
-
-                                <div class="wt-userlistinghold ">
-                                    <figure class="wt-userlistingimg">
-                                        <a href="#"><img src="wp-content/uploads/freelancers/2.jpg" alt="We Help You Invent the Future"></a>
-                                        <div class="wt-userdropdown wt-away template-content tipso_style wt-tipso" data-tipso="Offline"></div>
-                                    </figure>
-                                    <div class="wt-userlistingcontent">
-                                        <div class="wt-contenthead">
-                                            <div class="wt-title">
-                                                <a href="#">
-                                                    <i class="fa fa-check-circle"></i>&nbsp;Farhana Haq  </a>
-                                                <h2><a href="#">E-commerce design & developer</a></h2>
-                                            </div>
-                                            <ul class="wt-userlisting-breadcrumb ">
-                                                <li><span><i class="fa fa-money"></i>Tk. 500.00&nbsp;/&nbsp;hr</span></li>
-                                                <li>
-                                                   <span>
-                                                   <em><img class="wt-checkflag" src="wp-content/uploads/2019/03/img-05-1.png" alt="//amentotech.com/projects/wpworkreap/wp-content/uploads/2019/03/img-01-2.png"></em>Bangladesh                                                         </span>
-                                                </li>
-                                                <li>            <a href="javascript:;" class="wt-clicksave wt-savefreelancer" data-id="351" data-text="Saved"><i class="fa fa-heart" ></i><span>Click to Save</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="wt-rightarea user-stars-v2">
-                                            <span class="wt-stars"><span style="width: 0%;"></span></span><span class="wt-starcontent">0.0<sub>/5</sub><em>(0&nbsp;Feedback)</em></span>
-                                        </div>
-                                    </div>
-                                    <div class="wt-description">
-                                        <p>Excepteur sint occaecat cupidatat non proident, saeunt in culpa qui officia deserunt mollit anim id est laborum. Seden utem perspiciatis undesieu omnis iste natus error&hellip;</p>
-                                    </div>
-                                    <div class="wt-tag wt-widgettag">
-                                        <a  class="skills_351" href="#">Content Writing</a>
-                                        <a  class="skills_351" href="#">CSS</a>
-                                        <a  class="skills_351" href="#">Graphic Design</a>
-                                        <a  class="skills_351" href="#">HTML 5</a>
-                                        <a  class="skills_351" href="#">Jquery</a>
-                                        <a href="javascript:;" class="showmore_skills" data-id="351">...</a>                          <a style="display: none;" class="skills_351" href="#">My SQL</a>
-                                        <a style="display: none;" class="skills_351" href="#">PHP</a>
-                                        <a style="display: none;" class="skills_351" href="#">Website Design</a>
-                                        <a style="display: none;" class="skills_351" href="#">WordPress</a>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="wt-userlistinghold ">
-                                    <figure class="wt-userlistingimg">
-                                        <a href="#"><img src="wp-content/uploads/freelancers/1.jpg" alt="We Help You Invent the Future"></a>
-                                        <div class="wt-userdropdown wt-away template-content tipso_style wt-tipso" data-tipso="Offline"></div>
-                                    </figure>
-                                    <div class="wt-userlistingcontent">
-                                        <div class="wt-contenthead">
-                                            <div class="wt-title">
-                                                <a href="#">
-                                                    <i class="fa fa-check-circle"></i>&nbsp;Farhana Haq  </a>
-                                                <h2><a href="#">E-commerce design & developer</a></h2>
-                                            </div>
-                                            <ul class="wt-userlisting-breadcrumb ">
-                                                <li><span><i class="fa fa-money"></i>Tk. 500.00&nbsp;/&nbsp;hr</span></li>
-                                                <li>
-                                                   <span>
-                                                   <em><img class="wt-checkflag" src="wp-content/uploads/2019/03/img-05-1.png" alt="//amentotech.com/projects/wpworkreap/wp-content/uploads/2019/03/img-01-2.png"></em>Bangladesh                                                         </span>
-                                                </li>
-                                                <li>            <a href="javascript:;" class="wt-clicksave wt-savefreelancer" data-id="351" data-text="Saved"><i class="fa fa-heart" ></i><span>Click to Save</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="wt-rightarea user-stars-v2">
-                                            <span class="wt-stars"><span style="width: 0%;"></span></span><span class="wt-starcontent">0.0<sub>/5</sub><em>(0&nbsp;Feedback)</em></span>
-                                        </div>
-                                    </div>
-                                    <div class="wt-description">
-                                        <p>Excepteur sint occaecat cupidatat non proident, saeunt in culpa qui officia deserunt mollit anim id est laborum. Seden utem perspiciatis undesieu omnis iste natus error&hellip;</p>
-                                    </div>
-                                    <div class="wt-tag wt-widgettag">
-                                        <a  class="skills_351" href="#">Content Writing</a>
-                                        <a  class="skills_351" href="#">CSS</a>
-                                        <a  class="skills_351" href="#">Graphic Design</a>
-                                        <a  class="skills_351" href="#">HTML 5</a>
-                                        <a  class="skills_351" href="#">Jquery</a>
-                                        <a href="javascript:;" class="showmore_skills" data-id="351">...</a>                          <a style="display: none;" class="skills_351" href="#">My SQL</a>
-                                        <a style="display: none;" class="skills_351" href="#">PHP</a>
-                                        <a style="display: none;" class="skills_351" href="#">Website Design</a>
-                                        <a style="display: none;" class="skills_351" href="#">WordPress</a>
-                                    </div>
-                                </div>
-
-
-                                <div class="wt-userlistinghold ">
-                                    <figure class="wt-userlistingimg">
-                                        <a href="#"><img src="wp-content/uploads/freelancers/5.jpg" alt="We Help You Invent the Future"></a>
-                                        <div class="wt-userdropdown wt-away template-content tipso_style wt-tipso" data-tipso="Offline"></div>
-                                    </figure>
-                                    <div class="wt-userlistingcontent">
-                                        <div class="wt-contenthead">
-                                            <div class="wt-title">
-                                                <a href="#">
-                                                    <i class="fa fa-check-circle"></i>&nbsp;Farhana Haq  </a>
-                                                <h2><a href="#">E-commerce design & developer</a></h2>
-                                            </div>
-                                            <ul class="wt-userlisting-breadcrumb ">
-                                                <li><span><i class="fa fa-money"></i>Tk. 500.00&nbsp;/&nbsp;hr</span></li>
-                                                <li>
-                                                   <span>
-                                                   <em><img class="wt-checkflag" src="wp-content/uploads/2019/03/img-05-1.png" alt="//amentotech.com/projects/wpworkreap/wp-content/uploads/2019/03/img-01-2.png"></em>Bangladesh                                                         </span>
-                                                </li>
-                                                <li>            <a href="javascript:;" class="wt-clicksave wt-savefreelancer" data-id="351" data-text="Saved"><i class="fa fa-heart" ></i><span>Click to Save</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="wt-rightarea user-stars-v2">
-                                            <span class="wt-stars"><span style="width: 0%;"></span></span><span class="wt-starcontent">0.0<sub>/5</sub><em>(0&nbsp;Feedback)</em></span>
-                                        </div>
-                                    </div>
-                                    <div class="wt-description">
-                                        <p>Excepteur sint occaecat cupidatat non proident, saeunt in culpa qui officia deserunt mollit anim id est laborum. Seden utem perspiciatis undesieu omnis iste natus error&hellip;</p>
-                                    </div>
-                                    <div class="wt-tag wt-widgettag">
-                                        <a  class="skills_351" href="#">Content Writing</a>
-                                        <a  class="skills_351" href="#">CSS</a>
-                                        <a  class="skills_351" href="#">Graphic Design</a>
-                                        <a  class="skills_351" href="#">HTML 5</a>
-                                        <a  class="skills_351" href="#">Jquery</a>
-                                        <a href="javascript:;" class="showmore_skills" data-id="351">...</a>                          <a style="display: none;" class="skills_351" href="#">My SQL</a>
-                                        <a style="display: none;" class="skills_351" href="#">PHP</a>
-                                        <a style="display: none;" class="skills_351" href="#">Website Design</a>
-                                        <a style="display: none;" class="skills_351" href="#">WordPress</a>
-                                    </div>
-                                </div>
-
-
-
-
+                                @endforeach
 
                                 <div class='wt-paginationvtwo'>
                                     <nav class="wt-pagination">

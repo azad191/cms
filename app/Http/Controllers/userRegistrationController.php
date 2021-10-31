@@ -47,6 +47,7 @@ class userRegistrationController extends Controller
           $data['user_id'] = $user_id;
 
           freelancer_profile::create($data);
+
           return redirect()->back();
     }
 

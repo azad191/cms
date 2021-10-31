@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class freelancerListController extends Controller
@@ -13,7 +14,22 @@ class freelancerListController extends Controller
      */
     public function index()
     {
-        return view('frontend.pages.freelancer_list');
+       // $data =  User::without('freelancerProfile')->get();
+       // return $data;
+       $data = User::with('freelancerProfile')->whereHas('freelancerProfile', function( $query ){
+            $query->whereNotNull('user_id');
+        })->get();
+
+
+
+//      $dd =  User::with('freelancerProfile')->whereHas('freelancerProfile', function (  $query) {
+//            $query->where('user_name');
+//        })->get();
+//      dd($dd);
+
+
+
+        return view('frontend.pages.freelancer_list', compact('data'));
     }
 
     /**
