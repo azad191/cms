@@ -100,4 +100,13 @@ class freelancerListController extends Controller
     public function details(){
         return view('frontend.pages.freelancer_details');
     }
+
+    public function filter(Request $request){
+        return $request->all();
+        //User::with(['freelancerProfile', 'specialization'])->get();
+        $data = User::with('freelancerProfile')->whereHas('freelancerProfile', function( $query ){
+            $query->whereNotNull('user_id');
+        })->get();
+        return view('frontend.pages.freelancer_list', compact('data'));
+    }
 }

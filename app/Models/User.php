@@ -49,4 +49,7 @@ class User extends Authenticatable
     function freelancerProfile(){
         return $this->hasOne(freelancer_profile::class, 'user_id');
     }
+    public function specialization(){
+        return $this->hasOne(specialization::class, 'user_id');
+    }
 }

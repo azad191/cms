@@ -27,11 +27,16 @@ Route::get('/', function () {
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details', [jobListController::class, 'details'])->name('job.details');
 
+//***************************** Freelancer   ****************************
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
 Route::get('freelancer/details', [freelancerListController::class, 'details'])->name('freelancer.details');
+Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->name('freelancer.filter');
 
 Route::get('user/registration', [userRegistrationController::class, 'create'])->name('user.reg');
 Route::post('user/registration', [userRegistrationController::class, 'store'])->name('user.store');
+
+
+
 
 //***************************** start backend side *****************************
 

@@ -83,7 +83,8 @@
                                 <div class="floating-mobile-filter">
                                     <div class="wt-filter-scroll">
                                         <a class="wt-mobile-close" href="javascript:;"><i class="lnr lnr-cross"></i></a>
-                                        <form method="get" name="serach-projects" action="#">
+                                        <form method="post"  name="serach-projects" action="{{route('freelancer.filter')}}">
+                                            @csrf
                                             <!-- <div class="wt-widget wt-startsearch ">
                                                <div class="wt-widgettitle">
                                                   <h2>Search By Geo Location</h2>
@@ -136,7 +137,7 @@
                                                         <fieldset>
                                                             <div class="wt-checkboxholder wt-filterscroll">
                                                             <span class="wt-checkbox">
-                                                            <input id="freelancerindependent" type="checkbox" name="type[]" value="independent" >
+                                                            <input id="freelancerindependent" type="checkbox" name="freelancer_type[]" value="independent" >
                                                             <label for="freelancerindependent">Independent Freelancers</label>
                                                             </span>
                                                                 <span class="wt-checkbox">
