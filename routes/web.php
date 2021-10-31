@@ -21,8 +21,8 @@ use App\Http\Controllers\Backend\userController;
 */
 Route::get('/', function () {
     //  return view('welcome');
-    return view('homepage');
-    // return view('frontend.pages.job-list');
+   // return view('homepage');
+     return view('frontend.pages.registration');
 });
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details', [jobListController::class, 'details'])->name('job.details');

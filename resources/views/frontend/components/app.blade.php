@@ -136,6 +136,7 @@
 <div id="wt-wrapper" class="wt-wrapper wt-haslayout">
 
     @include('frontend.components.header')
+
     @yield('subBanner')
 
     <main id="wt-main" class="wt-main wt-haslayout">
