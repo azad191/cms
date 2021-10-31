@@ -50,7 +50,8 @@
                                                                             </div>
                                                                             <div class="wt-joinforms">
 
-                                                                                <form class="wt-formtheme wt-formregister">
+                                                                                <form action="{{route('user.store')}}" method="post" class="wt-formtheme wt-formregister">
+                                                                                    @csrf
                                                                                     <fieldset class="wt-registerformgroup">
                                                                                         <div class="form-group wt-form-group-dropdown form-group-half">
                                                                               <span class="wt-select">
@@ -59,20 +60,20 @@
                                                                                     <option value="female">mrs</option>
                                                                                  </select>
                                                                               </span>
-                                                                                            <input type="text" name="first_name" class="form-control" value="" placeholder="First Name">
+                                                                                        <input type="text" name="first_name" class="form-control" value="" placeholder="First Name">
                                                                                         </div>
                                                                                         <div class="form-group form-group-half">
                                                                                             <input type="text" name="last_name" value="" class="form-control" placeholder="Last Name">
                                                                                         </div>
                                                                                         <div class="form-group form-group-half">
-                                                                                            <input type="text" name="username" class="form-control" value="" placeholder="username">
+                                                                                            <input type="text" name="user_name" class="form-control" value="" placeholder="username ">
                                                                                         </div>
                                                                                         <div class="form-group form-group-half">
                                                                                             <input type="email" name="email" class="form-control" value="" placeholder="Email">
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <select name="location" id="location-dp" class="item-location-dpss chosen-select" style="display: none;">
-                                                                                                <option value="0">Select Location</option>
+                                                                                                <option value="">Select Location</option>
                                                                                                 <option style="" class=" level-0" value="barisal">Barisal</option>
                                                                                                 <option style="" class=" level-0" value="chittagong">Chittagong</option>
                                                                                                 <option style="" class=" level-0" value="dhaka">Dhaka</option>
@@ -96,26 +97,26 @@
                                                                                             <ul class="wt-accordionhold wt-formaccordionhold accordion">
                                                                                                 <li>
                                                                                                     <div class="wt-accordiontitle wt-ragister-option">
-                                                                                       <span class="wt-radio">
-                                                                                       <input id="wt-freelancer" class="register-radio" type="radio" name="user_type" value="freelancer" checked="checked">
-                                                                                       <label for="wt-freelancer">Freelancer<span> (Signup as freelancer &amp; get hired)</span></label>
-                                                                                       </span>
+                                                                                                       <span class="wt-radio">
+                                                                                                       <input id="wt-freelancer" class="register-radio" type="radio" name="role_id" value="3" checked="checked">
+                                                                                                       <label for="wt-freelancer">Freelancer<span> (Signup as freelancer &amp; get hired)</span></label>
+                                                                                                       </span>
                                                                                                     </div>
                                                                                                 </li>
                                                                                                 <li>
-                                                                                                    <div class="wt-accordiontitle wt-ragister-option">
-                                                                                       <span class="wt-radio">
-                                                                                       <input id="wt-company" class="register-radio" type="radio" name="user_type" value="employer">
-                                                                                       <label for="wt-company">Employer <span> (Signup as company/service seeker &amp; post jobs)</span></label>
-                                                                                       </span>
-                                                                                                    </div>
+                                                                                          <div class="wt-accordiontitle wt-ragister-option">
+                                                                                               <span class="wt-radio">
+                                                                                               <input id="wt-company" class="register-radio" type="radio" name="role_id" value="2">
+                                                                                               <label for="wt-company">Buyer <span> (Signup as company/service seeker &amp; post jobs)</span></label>
+                                                                                               </span>
+                                                                                            </div>
                                                                                                     <div class="wt-accordiondetails wt-emp-register">
                                                                                                         <div class="wt-radioboxholder">
                                                                                                             <div class="wt-title">
                                                                                                                 <h4>Your Department?</h4>
                                                                                                             </div>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department1" checked="checked" type="radio" name="department" value="57">
+                                                                                          <input id="wt-department1"  type="radio" name="department" value="57">
                                                                                           <label for="wt-department1">Accounting and Finance</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
@@ -158,54 +159,54 @@
                                                                                           <input id="wt-department11" type="radio" name="department" value="61">
                                                                                           <label for="wt-department11">Sales</label>
                                                                                           </span>
-                                                                                                        </div>
-                                                                                                        <div class="wt-radioboxholder">
-                                                                                                            <div class="wt-title">
-                                                                                                                <h4>No. of employees you have</h4>
-                                                                                                            </div>
-                                                                                                            <span class="wt-radio">
-                                                                                          <input id="wt-just1" checked="checked" type="radio" name="employees" value="1">
-                                                                                          <label for="wt-just1">Its Just Me</label>
-                                                                                          </span>
-                                                                                                            <span class="wt-radio">
-                                                                                          <input id="wt-just2" type="radio" name="employees" value="10">
-                                                                                          <label for="wt-just2">2 - 9 Employees</label>
-                                                                                          </span>
-                                                                                                            <span class="wt-radio">
-                                                                                          <input id="wt-just3" type="radio" name="employees" value="100">
-                                                                                          <label for="wt-just3">10 - 99 Employees</label>
-                                                                                          </span>
-                                                                                                            <span class="wt-radio">
-                                                                                          <input id="wt-just4" type="radio" name="employees" value="500">
-                                                                                          <label for="wt-just4">100 - 499 Employees</label>
-                                                                                          </span>
-                                                                                                            <span class="wt-radio">
-                                                                                          <input id="wt-just5" type="radio" name="employees" value="1000">
-                                                                                          <label for="wt-just5">500 - 1000 Employees</label>
-                                                                                          </span>
-                                                                                                            <span class="wt-radio">
-                                                                                          <input id="wt-just6" type="radio" name="employees" value="5000">
-                                                                                          <label for="wt-just6">More Than 1000 Employees</label>
-                                                                                          </span>
-                                                                                                        </div>
+                                                                                             </div>
+                                                                                                <div class="wt-radioboxholder">
+                                                                                                    <div class="wt-title">
+                                                                                                        <h4>No. of employees you have</h4>
+                                                                                                    </div>
+                                                                                                    <span class="wt-radio">
+                                                                                                      <input id="wt-just1" type="radio" name="employees" value="1">
+                                                                                                      <label for="wt-just1">Its Just Me</label>
+                                                                                                      </span>
+                                                                                                                        <span class="wt-radio">
+                                                                                                      <input id="wt-just2" type="radio" name="employees" value="10">
+                                                                                                      <label for="wt-just2">2 - 9 Employees</label>
+                                                                                                      </span>
+                                                                                                                        <span class="wt-radio">
+                                                                                                      <input id="wt-just3" type="radio" name="employees" value="100">
+                                                                                                      <label for="wt-just3">10 - 99 Employees</label>
+                                                                                                      </span>
+                                                                                                                        <span class="wt-radio">
+                                                                                                      <input id="wt-just4" type="radio" name="employees" value="500">
+                                                                                                      <label for="wt-just4">100 - 499 Employees</label>
+                                                                                                      </span>
+                                                                                                                        <span class="wt-radio">
+                                                                                                      <input id="wt-just5" type="radio" name="employees" value="1000">
+                                                                                                      <label for="wt-just5">500 - 1000 Employees</label>
+                                                                                                      </span>
+                                                                                                                        <span class="wt-radio">
+                                                                                                      <input id="wt-just6" type="radio" name="employees" value="5000">
+                                                                                                      <label for="wt-just6">More Than 1000 Employees</label>
+                                                                                                      </span>
+                                                                                                </div>
                                                                                                     </div>
                                                                                                 </li>
                                                                                             </ul>
                                                                                         </fieldset>
                                                                                         <fieldset class="wt-termsconditions">
                                                                                             <div class="wt-checkboxholder">
-                                                                                 <span class="wt-checkbox">
-                                                                                 <input id="termsconditions" type="checkbox" name="termsconditions" value="checked">
-                                                                                 <label for="termsconditions">I accept the terms and policies                                                                            <a target="_blank" href="https://instantkaj.com/terms-and-conditions/">Terms &amp; Conditions</a>
-                                                                                 </label>
-                                                                                 </span>
-
-                                                                                                <a href="#" onclick="event_preventDefault(event);" class="wt-btn wt-model-reg2">Submit</a>
+                                                                                                 <span class="wt-checkbox">
+                                                                                                 <input id="termsconditions" type="checkbox" name="terms" value="checked">
+                                                                                                 <label for="termsconditions">I accept the terms and policies                                                                        <a target="_blank" href="https://instantkaj.com/terms-and-conditions/">Terms &amp; Conditions</a>
+                                                                                                 </label>
+                                                                                                 </span>
+                                                                                                <button type="submit" class="wt-btn">Submit</button>
                                                                                             </div>
                                                                                         </fieldset>
 
                                                                                     </fieldset>
-                                                                                    <input type="hidden" id="workreap_register_step_one_nounce" name="workreap_register_step_one_nounce" value="6d928633d1" /><input type="hidden" name="_wp_http_referer" value="/projects/wpworkreap/authentication/" />
+
+{{--                                                                                    <input type="hidden" id="workreap_register_step_one_nounce" name="workreap_register_step_one_nounce" value="6d928633d1" /><input type="hidden" name="_wp_http_referer" value="/projects/wpworkreap/authentication/" />--}}
                                                                                 </form>
                                                                                 <div class="wt-joinnowholder">
                                                                                     <div class="wt-title">

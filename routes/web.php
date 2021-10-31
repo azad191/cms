@@ -8,7 +8,7 @@ use App\Http\Controllers\Backend\logoCongtroller;
 use App\Http\Controllers\jobListController;
 use App\Http\Controllers\freelancerListController;
 use App\Http\Controllers\Backend\userController;
-
+use App\Http\Controllers\userRegistrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,11 @@ Route::get('job/details', [jobListController::class, 'details'])->name('job.deta
 
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
 Route::get('freelancer/details', [freelancerListController::class, 'details'])->name('freelancer.details');
+
+Route::get('user/registration', [userRegistrationController::class, 'create'])->name('user.reg');
+Route::post('user/registration', [userRegistrationController::class, 'store'])->name('user.store');
+
+//***************************** start backend side *****************************
 
 Route::group(['middleware' => 'auth'], function(){
 

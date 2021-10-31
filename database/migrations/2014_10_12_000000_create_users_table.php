@@ -18,9 +18,11 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('gender', 10);
             $table->string('status')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('verify_code')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
