@@ -102,11 +102,15 @@ class freelancerListController extends Controller
     }
 
     public function filter(Request $request){
-        return $request->all();
-        //User::with(['freelancerProfile', 'specialization'])->get();
-        $data = User::with('freelancerProfile')->whereHas('freelancerProfile', function( $query ){
-            $query->whereNotNull('user_id');
-        })->get();
+      //  return $request->all();
+        User::with(['freelancerProfile', 'specialization'])->get();
+//        return  $data = User::with(['freelancerProfile','specialization'])->whereHas('freelancerProfile', function( $query ){
+//            $query->whereNotNull('user_id')->orWhere('english_level', 'like', 'Basics')->orWhere('freelancer_type', 'like', 'Independent Freelancers');
+//        })->orWhereHas('specialization', function($query){
+//            $query->where('sp_name', 'like', 'Asset Management');
+//        })->get();
+
+
         return view('frontend.pages.freelancer_list', compact('data'));
     }
 }

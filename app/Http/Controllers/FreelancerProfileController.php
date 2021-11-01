@@ -14,7 +14,7 @@ class FreelancerProfileController extends Controller
      */
     public function index()
     {
-        //
+        return view('frontend.module.buyer.dashboard');
     }
 
     /**

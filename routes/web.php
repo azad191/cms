@@ -9,6 +9,7 @@ use App\Http\Controllers\jobListController;
 use App\Http\Controllers\freelancerListController;
 use App\Http\Controllers\Backend\userController;
 use App\Http\Controllers\userRegistrationController;
+use App\Http\Controllers\FreelancerProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,12 @@ Route::get('job/details', [jobListController::class, 'details'])->name('job.deta
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
 Route::get('freelancer/details', [freelancerListController::class, 'details'])->name('freelancer.details');
 Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->name('freelancer.filter');
+
+Route::get('freelancer/profile', [FreelancerProfileController::class, 'index'])->name('freelancer.profile');
+
+
+
+
 
 Route::get('user/registration', [userRegistrationController::class, 'create'])->name('user.reg');
 Route::post('user/registration', [userRegistrationController::class, 'store'])->name('user.store');
