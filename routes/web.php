@@ -35,7 +35,7 @@ Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->n
 
 Route::get('freelancer/profile', [FreelancerProfileController::class, 'index'])->name('freelancer.profile');
 
-
+Route::post('freelancer/update/{id}', [FreelancerProfileController::class, 'update'])->name('freelancer.update');
 
 
 

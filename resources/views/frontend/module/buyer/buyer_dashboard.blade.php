@@ -61,10 +61,11 @@
                                         <div class="wt-tabscontenttitle">
                                             <h2>Your basics</h2>
                                         </div>
-                                      <form action="{{route('profile.update', 6)}}">
-                                        <div class="wt-formtheme wt-userform">
-                                            <fieldset>
-                                                <div class="form-group form-group-half">
+                                        <form action="{{route('freelancer.update', 6)}}" method="post">
+                                            @csrf
+                                            <div class="wt-formtheme wt-userform">
+                                                <fieldset>
+                                                    <div class="form-group form-group-half">
                                                          <span class="wt-select">
                                                             <select name="basics[gender]" class="chosen-select" style="display: none;">
                                                                <option value="" disabled="">Select Gender</option>
@@ -74,28 +75,28 @@
                                                             </select>
 
                                                          </span>
-                                                </div>
-                                                <div class="form-group form-group-half toolip-wrapo">
-                                                    <input type="text" value="" name="basics[first_name]" class="form-control" placeholder="First Name">
-                                                    <span class="wt-element-hint"><i data-tipso-title="" data-tipso="Add your first name" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
-                                                </div>
-                                                <div class="form-group form-group-half toolip-wrapo">
-                                                    <input type="text" value="" name="basics[last_name]" class="form-control" placeholder="Last Name">
-                                                    <span class="wt-element-hint"><i data-tipso-title="" data-tipso="Add your last name" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
-                                                </div>
-                                                <div class="form-group form-group-half toolip-wrapo">
-                                                    <input type="text" name="basics[display_name]" class="form-control" value=" " placeholder="Display name">
-                                                    <span class="wt-element-hint"><i data-tipso-title="" data-tipso="This will be your display name on the site" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
-                                                </div>
-                                                <div class="form-group toolip-wrapo">
-                                                    <input type="text" value="" name="basics[user_phone_number]" class="form-control" placeholder="Phone number">
-                                                </div>
-                                                <div class="form-group toolip-wrapo">
-                                                    <input type="text" name="basics[tag_line]" class="form-control count_tagline" value="" placeholder="Add your tagline here">
-                                                    <span class="wt-element-hint"><i data-tipso-title="" data-tipso="Your tagline goes here" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
-                                                </div>
-                                            </fieldset>
-                                        </div>
+                                                    </div>
+                                                    <div class="form-group form-group-half toolip-wrapo">
+                                                        <input type="text" value="" name="f_name" class="form-control" placeholder="First Name">
+                                                        <span class="wt-element-hint"><i data-tipso-title="" data-tipso="Add your first name" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
+                                                    </div>
+                                                    <div class="form-group form-group-half toolip-wrapo">
+                                                        <input type="text" value="" name="l_name" class="form-control" placeholder="Last Name">
+                                                        <span class="wt-element-hint"><i data-tipso-title="" data-tipso="Add your last name" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
+                                                    </div>
+                                                    <div class="form-group form-group-half toolip-wrapo">
+                                                        <input type="text" name="user_name" class="form-control" value=" " placeholder="Display name"  placeholder="username">
+                                                        <span class="wt-element-hint"><i data-tipso-title="" data-tipso="This will be your display name on the site" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
+                                                    </div>
+                                                    <div class="form-group toolip-wrapo">
+                                                        <input type="text" value="" name="phone_number" class="form-control" placeholder="Phone number">
+                                                    </div>
+                                                    <div class="form-group toolip-wrapo">
+                                                        <input type="text" name="title" class="form-control count_tagline" value="" placeholder="Add your tagline here">
+                                                        <span class="wt-element-hint"><i data-tipso-title="" data-tipso="Your tagline goes here" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
                                     </div>
                                     <div class="wt-tabsinfo">
                                         <div class="wt-tabscontenttitle">
@@ -104,7 +105,7 @@
 
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Large textarea</label>
-                                            <textarea class="form-control rounded-0" placeholder="description" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                            <textarea class="form-control rounded-0" name="description" placeholder="description" id="exampleFormControlTextarea1" rows="5"></textarea>
                                         </div>
 
 
@@ -116,9 +117,9 @@
                                         <div class="wt-settingscontent">
                                             <div class="wt-formtheme wt-userform">
                                                 <div class="form-group">
-                                                    <select data-placeholder="Select english level" name="settings[english_level]" class="chosen-select" style="display: none;">
+                                                    <select data-placeholder="Select english level" name="english_level" class="chosen-select" style="display: none;">
                                                         <option value="">Select english level</option>
-                                                        <option selected="selected" value="basic">Basic</option>
+                                                        <option selected="basic" value="basic">Basic</option>
                                                         <option value="conversational">Conversational</option>
                                                         <option value="fluent">Fluent</option>
                                                         <option value="professional">Professional</option>
@@ -133,7 +134,7 @@
                                         <div class="wt-settingscontent">
                                             <div class="wt-formtheme wt-userform">
                                                 <div class="form-group">
-                                                    <select data-placeholder="Select freelancer type" name="settings[freelancer_type]" class="chosen-select" style="display: none;">
+                                                    <select data-placeholder="Select freelancer type" name="freelancer_type" class="chosen-select" style="display: none;">
                                                         <option value="">Select freelancer type</option>
                                                         <option value="independent">Independent Freelancers</option>
                                                         <option selected="selected" value="rising_talent">New Rising Talent</option>
@@ -156,7 +157,7 @@
                                                     <div class="form-group form-group-label" id="wt-image-container-9654" style="position: relative;">
                                                         <div class="wt-labelgroup" id="image-drag-9654" style="position: relative;">
                                                             <label for="file" class="wt-image-file">
-                                                                <span class="wt-btn btn-file">     SELECT FILE <input  type="file"  onchange="readURL(this);"> </span>
+                                                                <span class="wt-btn btn-file">     SELECT FILE <input  type="file" name="profile_image"  onchange="readURL(this);"> </span>
 
 
                                                                 <style>
@@ -203,7 +204,7 @@
                                                     <div class="form-group form-group-label" id="wt-image-container-26755" style="position: relative;">
                                                         <div class="wt-labelgroup" id="image-drag-26755" style="position: relative;">
                                                             <label for="file" class="wt-image-file">
-                                                                <span class="wt-btn btn-file">     SELECT FILE <input  type="file"  onchange="readURL(this);"> </span>
+                                                                <span class="wt-btn btn-file">     SELECT FILE <input  type="file" name="banner_photo"  onchange="readURL(this);"> </span>
                                                             </label>
                                                             <span>Drop files here to upload</span>
                                                             <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>
@@ -227,7 +228,7 @@
                                                     <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
                                                         <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
                                                             <label for="file" class="wt-image-file">
-                                                                <span class="wt-btn btn-file">     SELECT FILE <input  type="file"  onchange="readURL(this);"> </span>
+                                                                <span class="wt-btn btn-file">     SELECT FILE <input  type="file" name="gallery_photo" onchange="readURL(this);"> </span>
                                                             </label>
                                                             <span>Drop files here to upload</span>
                                                             <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>
@@ -250,7 +251,7 @@
                                             <fieldset>
                                                 <div class="form-group form-group-half">
                                                          <span class="wt-select">
-                                                            <select name="basics[country]" id="location-dp" class="item-location-dpss chosen-select" style="display: none;">
+                                                            <select name="country" id="location-dp" class="item-location-dpss chosen-select" style="display: none;">
                                                                <option value="0">Select Location</option>
                                                                <option style="" class=" level-0" value="barisal">Barisal</option>
                                                                <option style="" class=" level-0" value="chittagong" selected="selected">Chittagong</option>
@@ -392,7 +393,7 @@
                                             <button type="submit" class="wt-btn wt-add-skill-box">Save & update</button>
                                         </div>
                                     </div>
-                                </form>
+                                    </form>
                                     <script type="text/template" id="tmpl-load-skill">
                                         <li class="wt-skill-list ">
                                             <div class="wt-dragdroptool">
@@ -691,18 +692,18 @@
                                     </div>
                                     <script type="text/template" id="tmpl-load-spec">
                                         <li class="">
-                                        <div class="wt-dragdroptool">
-                                            <a href="javascript:" class="lnr lnr-menu"></a>
-                                        </div>
-                                        <span class="skill-dynamic-html"> (<em class="skill-val"></em>&nbsp;%)</span>
-                                        <span class="skill-dynamic-field">
+                                            <div class="wt-dragdroptool">
+                                                <a href="javascript:" class="lnr lnr-menu"></a>
+                                            </div>
+                                            <span class="skill-dynamic-html"> (<em class="skill-val"></em>&nbsp;%)</span>
+                                            <span class="skill-dynamic-field">
                            <input type="text" name="" value="">
                         <input type="hidden" name="" value="">
             </span>
-                                        <div class="wt-rightarea">
-                                            <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo" data-display_type="number"><i class="lnr lnr-pencil"></i></a>
-                                            <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill"><i class="lnr lnr-trash"></i></a>
-                                        </div>
+                                            <div class="wt-rightarea">
+                                                <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo" data-display_type="number"><i class="lnr lnr-pencil"></i></a>
+                                                <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill"><i class="lnr lnr-trash"></i></a>
+                                            </div>
                                         </li>
                                     </script>
                                 </div>
@@ -927,31 +928,31 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-default-image">--}}
-{{--                                        <ul class="wt-attachfile wt-attachfilevtwo">--}}
-{{--                                            <li class="award-new-item wt-uploadingholder wt-doc-parent" id="">--}}
-{{--                                                <div class="wt-uploadingbox">--}}
-{{--                                                    <figure><img class="img-thumb" src="https://instantkaj.com/wp-content/themes/workreap/images/profile.jpg" alt="sarker tarun"></figure>--}}
-{{--                                                    <div class="wt-uploadingbar wt-uploading">--}}
-{{--                                                        <span class="uploadprogressbar" style="width:{{data.percentage}}%"></span>--}}
-{{--                                                        <span>{{data.name}}</span>--}}
-{{--                                                        <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                    </script>--}}
-{{--                                    <script type="text/template" id="tmpl-load-profile-image">--}}
-{{--                                        <div class="wt-uploadingbox">--}}
-{{--                                            <figure><img class="img-thumb" src="{{data.url}}" alt="sarker tarun"></figure>--}}
-{{--                                            <div class="wt-uploadingbar">--}}
-{{--                                                <span class="uploadprogressbar"></span>--}}
-{{--                                                <span>{{data.name}}</span>--}}
-{{--                                                <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>--}}
-{{--                                                <input type="hidden" name="basics[avatar]" value="{{data.url}}">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-default-image">--}}
+                                    {{--                                        <ul class="wt-attachfile wt-attachfilevtwo">--}}
+                                    {{--                                            <li class="award-new-item wt-uploadingholder wt-doc-parent" id="">--}}
+                                    {{--                                                <div class="wt-uploadingbox">--}}
+                                    {{--                                                    <figure><img class="img-thumb" src="https://instantkaj.com/wp-content/themes/workreap/images/profile.jpg" alt="sarker tarun"></figure>--}}
+                                    {{--                                                    <div class="wt-uploadingbar wt-uploading">--}}
+                                    {{--                                                        <span class="uploadprogressbar" style="width:{{data.percentage}}%"></span>--}}
+                                    {{--                                                        <span>{{data.name}}</span>--}}
+                                    {{--                                                        <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>--}}
+                                    {{--                                                    </div>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </li>--}}
+                                    {{--                                        </ul>--}}
+                                    {{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-profile-image">--}}
+                                    {{--                                        <div class="wt-uploadingbox">--}}
+                                    {{--                                            <figure><img class="img-thumb" src="{{data.url}}" alt="sarker tarun"></figure>--}}
+                                    {{--                                            <div class="wt-uploadingbar">--}}
+                                    {{--                                                <span class="uploadprogressbar"></span>--}}
+                                    {{--                                                <span>{{data.name}}</span>--}}
+                                    {{--                                                <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>--}}
+                                    {{--                                                <input type="hidden" name="basics[avatar]" value="{{data.url}}">--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </script>--}}
                                     <div class="wt-profilephoto wt-tabsinfo wt-profile-banner">
                                         <div class="wt-tabscontenttitle">
                                             <h2>Banner Photo</h2>
@@ -974,31 +975,31 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-default-image">--}}
-{{--                                        <ul class="wt-attachfile wt-attachfilevtwo">--}}
-{{--                                            <li class="award-new-item wt-uploadingholder wt-doc-parent" id="thumb-{{data.id}}">--}}
-{{--                                                <div class="wt-uploadingbox">--}}
-{{--                                                    <figure><img class="img-thumb" src="https://instantkaj.com/wp-content/themes/workreap/images/profile.jpg" alt="sarker tarun"></figure>--}}
-{{--                                                    <div class="wt-uploadingbar wt-uploading">--}}
-{{--                                                        <span class="uploadprogressbar" style="width:{{data.percentage}}%"></span>--}}
-{{--                                                        <span>{{data.name}}</span>--}}
-{{--                                                        <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                    </script>--}}
-{{--                                    <script type="text/template" id="tmpl-load-banner-image">--}}
-{{--                                        <div class="wt-uploadingbox">--}}
-{{--                                            <figure><img class="img-thumb" src="{{data.url}}" alt="sarker tarun"></figure>--}}
-{{--                                            <div class="wt-uploadingbar">--}}
-{{--                                                <span class="uploadprogressbar"></span>--}}
-{{--                                                <span>{{data.name}}</span>--}}
-{{--                                                <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>--}}
-{{--                                                <input type="hidden" name="basics[banner]" value="{{data.url}}">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-default-image">--}}
+                                    {{--                                        <ul class="wt-attachfile wt-attachfilevtwo">--}}
+                                    {{--                                            <li class="award-new-item wt-uploadingholder wt-doc-parent" id="thumb-{{data.id}}">--}}
+                                    {{--                                                <div class="wt-uploadingbox">--}}
+                                    {{--                                                    <figure><img class="img-thumb" src="https://instantkaj.com/wp-content/themes/workreap/images/profile.jpg" alt="sarker tarun"></figure>--}}
+                                    {{--                                                    <div class="wt-uploadingbar wt-uploading">--}}
+                                    {{--                                                        <span class="uploadprogressbar" style="width:{{data.percentage}}%"></span>--}}
+                                    {{--                                                        <span>{{data.name}}</span>--}}
+                                    {{--                                                        <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>--}}
+                                    {{--                                                    </div>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </li>--}}
+                                    {{--                                        </ul>--}}
+                                    {{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-banner-image">--}}
+                                    {{--                                        <div class="wt-uploadingbox">--}}
+                                    {{--                                            <figure><img class="img-thumb" src="{{data.url}}" alt="sarker tarun"></figure>--}}
+                                    {{--                                            <div class="wt-uploadingbar">--}}
+                                    {{--                                                <span class="uploadprogressbar"></span>--}}
+                                    {{--                                                <span>{{data.name}}</span>--}}
+                                    {{--                                                <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>--}}
+                                    {{--                                                <input type="hidden" name="basics[banner]" value="{{data.url}}">--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </script>--}}
                                     <div class="wt-profilephoto wt-tabsinfo wt-profile-gallery">
                                         <div class="wt-tabscontenttitle">
                                             <h2>Gallery Photo</h2>
@@ -1023,29 +1024,29 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-gallery-image">--}}
-{{--                                        <li class="wt-uploadingholder wt-companyimg-user" id="thumb-{{data.id}}">--}}
-{{--                                            <div class="wt-uploadingbox">--}}
-{{--                                                <figure><img class="img-thumb" src="https://instantkaj.com/wp-content/themes/workreap/images/profile.jpg" alt="sarker tarun"></figure>--}}
-{{--                                                <div class="wt-uploadingbar wt-uploading">--}}
-{{--                                                    <span class="uploadprogressbar" style="width:{{data.percentage}}%"></span>--}}
-{{--                                                    <span>{{data.name}}</span>--}}
-{{--                                                    <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-gallery-image lnr lnr-cross"></a></em>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
-{{--                                    <script type="text/template" id="tmpl-load-append-gallery-image">--}}
-{{--                                        <div class="wt-uploadingbox">--}}
-{{--                                            <figure><img class="img-thumb" src="{{data.url}}" alt="sarker tarun"></figure>--}}
-{{--                                            <div class="wt-uploadingbar">--}}
-{{--                                                <span class="uploadprogressbar"></span>--}}
-{{--                                                <span>{{data.name}}</span>--}}
-{{--                                                <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-gallery-image lnr lnr-cross"></a></em>--}}
-{{--                                                <input type="hidden" name="basics[images_gallery_new][]" value="{{data.url}}">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-gallery-image">--}}
+                                    {{--                                        <li class="wt-uploadingholder wt-companyimg-user" id="thumb-{{data.id}}">--}}
+                                    {{--                                            <div class="wt-uploadingbox">--}}
+                                    {{--                                                <figure><img class="img-thumb" src="https://instantkaj.com/wp-content/themes/workreap/images/profile.jpg" alt="sarker tarun"></figure>--}}
+                                    {{--                                                <div class="wt-uploadingbar wt-uploading">--}}
+                                    {{--                                                    <span class="uploadprogressbar" style="width:{{data.percentage}}%"></span>--}}
+                                    {{--                                                    <span>{{data.name}}</span>--}}
+                                    {{--                                                    <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-gallery-image lnr lnr-cross"></a></em>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-append-gallery-image">--}}
+                                    {{--                                        <div class="wt-uploadingbox">--}}
+                                    {{--                                            <figure><img class="img-thumb" src="{{data.url}}" alt="sarker tarun"></figure>--}}
+                                    {{--                                            <div class="wt-uploadingbar">--}}
+                                    {{--                                                <span class="uploadprogressbar"></span>--}}
+                                    {{--                                                <span>{{data.name}}</span>--}}
+                                    {{--                                                <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="wt-remove-gallery-image lnr lnr-cross"></a></em>--}}
+                                    {{--                                                <input type="hidden" name="basics[images_gallery_new][]" value="{{data.url}}">--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </script>--}}
                                     <div class="wt-location wt-tabsinfo">
                                         <div class="wt-tabscontenttitle">
                                             <h2>Your Location</h2>
@@ -1219,54 +1220,54 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-skill">--}}
-{{--                                        <li class="wt-skill-list dbskill-{{data.name}}">--}}
-{{--                                            <div class="wt-dragdroptool">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="fa fa-arrows-alt"></a>--}}
-{{--                                            </div>--}}
-{{--                                            <span class="skill-dynamic-html">{{data.text}} (<em class="skill-val">{{data.value}}</em>&nbsp;%)</span>--}}
-{{--                                            <span class="skill-dynamic-field">--}}
-{{--                           <input type="text" name="settings[skills][{{data.counter}}][value]" value="{{data.value}}">--}}
-{{--                        <input type="hidden" name="settings[skills][{{data.counter}}][skill]" value="{{data.name}}">--}}
-{{--            </span>--}}
-{{--                                            <div class="wt-rightarea">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo" data-display_type="number"><i class="lnr lnr-pencil"></i></a>--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
-{{--                                    <script type="text/template" id="tmpl-load-custom-skill">--}}
-{{--                                        <li class="wt-skill-list">--}}
-{{--                                            <div class="wt-dragdroptool">--}}
-{{--                                                <a href="javascript:" class="fa fa-arrows-alt"></a>--}}
-{{--                                            </div>--}}
-{{--                                            <span class="skill-dynamic-html">{{data.text}} (<em class="skill-val">{{data.value}}</em>&nbsp;%)</span>--}}
-{{--                                            <span class="skill-dynamic-field">--}}
-{{--                           <input type="text" name="settings[custom_skills][{{data.counter}}][value]" value="{{data.value}}">--}}
-{{--                        <input type="hidden" name="settings[custom_skills][{{data.counter}}][skill]" value="{{data.name}}">--}}
-{{--            </span>--}}
-{{--                                            <div class="wt-rightarea">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo" data-display_type="number"><i class="lnr lnr-pencil"></i></a>--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
-{{--                                    <script type="text/template" id="tmpl-add-skill-custom">--}}
-{{--                                        <fieldset class="wt-skillsform wt-custom-skillsform">--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-skill">--}}
+                                    {{--                                        <li class="wt-skill-list dbskill-{{data.name}}">--}}
+                                    {{--                                            <div class="wt-dragdroptool">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="fa fa-arrows-alt"></a>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <span class="skill-dynamic-html">{{data.text}} (<em class="skill-val">{{data.value}}</em>&nbsp;%)</span>--}}
+                                    {{--                                            <span class="skill-dynamic-field">--}}
+                                    {{--                           <input type="text" name="settings[skills][{{data.counter}}][value]" value="{{data.value}}">--}}
+                                    {{--                        <input type="hidden" name="settings[skills][{{data.counter}}][skill]" value="{{data.name}}">--}}
+                                    {{--            </span>--}}
+                                    {{--                                            <div class="wt-rightarea">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo" data-display_type="number"><i class="lnr lnr-pencil"></i></a>--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill"><i class="lnr lnr-trash"></i></a>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-custom-skill">--}}
+                                    {{--                                        <li class="wt-skill-list">--}}
+                                    {{--                                            <div class="wt-dragdroptool">--}}
+                                    {{--                                                <a href="javascript:" class="fa fa-arrows-alt"></a>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <span class="skill-dynamic-html">{{data.text}} (<em class="skill-val">{{data.value}}</em>&nbsp;%)</span>--}}
+                                    {{--                                            <span class="skill-dynamic-field">--}}
+                                    {{--                           <input type="text" name="settings[custom_skills][{{data.counter}}][value]" value="{{data.value}}">--}}
+                                    {{--                        <input type="hidden" name="settings[custom_skills][{{data.counter}}][skill]" value="{{data.name}}">--}}
+                                    {{--            </span>--}}
+                                    {{--                                            <div class="wt-rightarea">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo" data-display_type="number"><i class="lnr lnr-pencil"></i></a>--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill"><i class="lnr lnr-trash"></i></a>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-add-skill-custom">--}}
+                                    {{--                                        <fieldset class="wt-skillsform wt-custom-skillsform">--}}
 
-{{--                                            <div class="form-group-holder">--}}
-{{--                                                <div class="form-group">--}}
-{{--                                                    <input type="text" class="form-control wt-custom-skill-title" placeholder="Enter Your Skill" validate="true">--}}
-{{--                                                </div>--}}
-{{--                                                <div class="form-group">--}}
-{{--                                                    <input type="number" class="form-control wt-custom-skill-val" min="0" max="100" placeholder="add % value e.g. 95" validate="true">--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="form-group wt-btnarea">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-btn wt-add-custom-skill-box" data-display_type="number">Add Skill</a>--}}
-{{--                                            </div>--}}
-{{--                                        </fieldset>--}}
-{{--                                    </script>--}}
+                                    {{--                                            <div class="form-group-holder">--}}
+                                    {{--                                                <div class="form-group">--}}
+                                    {{--                                                    <input type="text" class="form-control wt-custom-skill-title" placeholder="Enter Your Skill" validate="true">--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                                <div class="form-group">--}}
+                                    {{--                                                    <input type="number" class="form-control wt-custom-skill-val" min="0" max="100" placeholder="add % value e.g. 95" validate="true">--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="form-group wt-btnarea">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-btn wt-add-custom-skill-box" data-display_type="number">Add Skill</a>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </fieldset>--}}
+                                    {{--                                    </script>--}}
                                 </div>
                                 <div class="wt-faqholder tab-pane fade" id="wt-faq-profile">
                                     <div class="wt-faqdataholder wt-tabsinfo">
@@ -1276,32 +1277,32 @@
                                         </div>
                                         <ul class="wt-experienceaccordion accordion" id="faqsortable"></ul>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-faqs">--}}
-{{--                                        <li id="wt-faq-{{data.counter}}" data-id="{{data.counter}}" class="wt-placehoder-img">--}}
-{{--                                            <div class="wt-accordioninnertitle">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
-{{--                                                <div class="wt-projecttitle">--}}
-{{--                                                    <h3><span class="head-title">Question</span></h3>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="wt-rightarea">--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle" data-toggle="collapse" data-target="#innertitle-{{data.counter}}" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="wt-collapseexp collapse show" id="innertitle-{{data.counter}}" aria-labelledby="accordioninnertitle" data-parent="#accordion">--}}
-{{--                                                <div class="wt-formtheme wt-userform wt-formprojectinfo">--}}
-{{--                                                    <fieldset>--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <input type="text" name="settings[faq][{{data.counter}}][faq_question]" class="wt-input-title form-control" placeholder="Question">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <textarea class="form-control" name="settings[faq][{{data.counter}}][faq_answer]" placeholder="Answer"></textarea>--}}
-{{--                                                        </div>--}}
-{{--                                                    </fieldset>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-faqs">--}}
+                                    {{--                                        <li id="wt-faq-{{data.counter}}" data-id="{{data.counter}}" class="wt-placehoder-img">--}}
+                                    {{--                                            <div class="wt-accordioninnertitle">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
+                                    {{--                                                <div class="wt-projecttitle">--}}
+                                    {{--                                                    <h3><span class="head-title">Question</span></h3>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                                <div class="wt-rightarea">--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle" data-toggle="collapse" data-target="#innertitle-{{data.counter}}" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="wt-collapseexp collapse show" id="innertitle-{{data.counter}}" aria-labelledby="accordioninnertitle" data-parent="#accordion">--}}
+                                    {{--                                                <div class="wt-formtheme wt-userform wt-formprojectinfo">--}}
+                                    {{--                                                    <fieldset>--}}
+                                    {{--                                                        <div class="form-group">--}}
+                                    {{--                                                            <input type="text" name="settings[faq][{{data.counter}}][faq_question]" class="wt-input-title form-control" placeholder="Question">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group">--}}
+                                    {{--                                                            <textarea class="form-control" name="settings[faq][{{data.counter}}][faq_answer]" placeholder="Answer"></textarea>--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                    </fieldset>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
                                 </div>
                                 <div class="wt-educationholder tab-pane fade active show" id="wt-education">
                                     <div class="wt-userexperience wt-tabsinfo">
@@ -1346,42 +1347,42 @@
                                             </li>
                                         </ul>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-experience">--}}
-{{--                                        <li class="dateinit-{{data.counter}}">--}}
-{{--                                            <div class="wt-accordioninnertitle">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
-{{--                                                <span id="accordioninnertitle" data-toggle="collapse" data-target="#innertitle{{data.counter}}"><span class="wt-head-title">Experience title</span>&nbsp;<em>(Start date - End date)</em></span>--}}
-{{--                                                <div class="wt-rightarea">--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle" data-toggle="collapse" data-target="#innertitle{{data.counter}}" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="wt-collapseexp collapse show" id="innertitle{{data.counter}}" aria-labelledby="accordioninnertitle" data-parent="#accordion">--}}
-{{--                                                <div class="wt-formtheme wt-userform">--}}
-{{--                                                    <fieldset>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[experience][{{data.counter}}][title]" class="wt-head-input form-control" placeholder="Experience title">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[experience][{{data.counter}}][startdate]" class="form-control wt-start-pick" placeholder="Starting date">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[experience][{{data.counter}}][enddate]" class="form-control wt-end-pick" placeholder="Ending date *">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[experience][{{data.counter}}][job]" class="form-control wt-job-title" placeholder="Company title">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <textarea name="settings[experience][{{data.counter}}][details]" class="form-control" placeholder="Experience description"></textarea>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <span>* Leave ending date empty if its your current job</span>--}}
-{{--                                                        </div>--}}
-{{--                                                    </fieldset>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-experience">--}}
+                                    {{--                                        <li class="dateinit-{{data.counter}}">--}}
+                                    {{--                                            <div class="wt-accordioninnertitle">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
+                                    {{--                                                <span id="accordioninnertitle" data-toggle="collapse" data-target="#innertitle{{data.counter}}"><span class="wt-head-title">Experience title</span>&nbsp;<em>(Start date - End date)</em></span>--}}
+                                    {{--                                                <div class="wt-rightarea">--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle" data-toggle="collapse" data-target="#innertitle{{data.counter}}" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="wt-collapseexp collapse show" id="innertitle{{data.counter}}" aria-labelledby="accordioninnertitle" data-parent="#accordion">--}}
+                                    {{--                                                <div class="wt-formtheme wt-userform">--}}
+                                    {{--                                                    <fieldset>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[experience][{{data.counter}}][title]" class="wt-head-input form-control" placeholder="Experience title">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[experience][{{data.counter}}][startdate]" class="form-control wt-start-pick" placeholder="Starting date">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[experience][{{data.counter}}][enddate]" class="form-control wt-end-pick" placeholder="Ending date *">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[experience][{{data.counter}}][job]" class="form-control wt-job-title" placeholder="Company title">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group">--}}
+                                    {{--                                                            <textarea name="settings[experience][{{data.counter}}][details]" class="form-control" placeholder="Experience description"></textarea>--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group">--}}
+                                    {{--                                                            <span>* Leave ending date empty if its your current job</span>--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                    </fieldset>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
                                     <div class="wt-userexperience">
                                         <div class="wt-tabscontenttitle wt-addnew">
                                             <h2>Add Your Education</h2>
@@ -1424,42 +1425,42 @@
                                             </li>
                                         </ul>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-education">--}}
-{{--                                        <li class="dateinit-{{data.counter}}">--}}
-{{--                                            <div class="wt-accordioninnertitle">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
-{{--                                                <span id="accordioninnertitle1" data-toggle="collapse" data-target="#innertitle{{data.counter}}"><span class="wt-head-title">Education title</span>&nbsp;<em>(Start date - End date)</em></span>--}}
-{{--                                                <div class="wt-rightarea">--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle1" data-toggle="collapse" data-target="#innertitle{{data.counter}}" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="wt-collapseexp collapse show" id="innertitle{{data.counter}}" aria-labelledby="accordioninnertitle1" data-parent="#accordion">--}}
-{{--                                                <div class="wt-formtheme wt-userform">--}}
-{{--                                                    <fieldset>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[education][{{data.counter}}][degree]" class="wt-head-input form-control" placeholder="Degree title">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[education][{{data.counter}}][startdate]" class="wt-start-pick form-control" placeholder="Starting date">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[education][{{data.counter}}][enddate]" class="wt-end-pick form-control" placeholder="Ending date">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[education][{{data.counter}}][university]" class="form-control" placeholder="Institute name">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <textarea name="settings[education][{{data.counter}}][details]" class="form-control" placeholder="Description"></textarea>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <span>* Leave ending date empty if its your current degree</span>--}}
-{{--                                                        </div>--}}
-{{--                                                    </fieldset>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-education">--}}
+                                    {{--                                        <li class="dateinit-{{data.counter}}">--}}
+                                    {{--                                            <div class="wt-accordioninnertitle">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
+                                    {{--                                                <span id="accordioninnertitle1" data-toggle="collapse" data-target="#innertitle{{data.counter}}"><span class="wt-head-title">Education title</span>&nbsp;<em>(Start date - End date)</em></span>--}}
+                                    {{--                                                <div class="wt-rightarea">--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle1" data-toggle="collapse" data-target="#innertitle{{data.counter}}" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="wt-collapseexp collapse show" id="innertitle{{data.counter}}" aria-labelledby="accordioninnertitle1" data-parent="#accordion">--}}
+                                    {{--                                                <div class="wt-formtheme wt-userform">--}}
+                                    {{--                                                    <fieldset>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[education][{{data.counter}}][degree]" class="wt-head-input form-control" placeholder="Degree title">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[education][{{data.counter}}][startdate]" class="wt-start-pick form-control" placeholder="Starting date">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[education][{{data.counter}}][enddate]" class="wt-end-pick form-control" placeholder="Ending date">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[education][{{data.counter}}][university]" class="form-control" placeholder="Institute name">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group">--}}
+                                    {{--                                                            <textarea name="settings[education][{{data.counter}}][details]" class="form-control" placeholder="Description"></textarea>--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group">--}}
+                                    {{--                                                            <span>* Leave ending date empty if its your current degree</span>--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                    </fieldset>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
                                 </div>
 
                                 <div class="wt-awardsholder tab-pane fade" id="wt-projects">
@@ -1496,53 +1497,53 @@
                                             </li>
                                         </ul>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-project-image">--}}
-{{--                                        <ul class="wt-attachfile">--}}
-{{--                                            <li class="wt-uploading award-new-item wt-doc-parent" id="thumb-{{data.id}}">--}}
-{{--                                                <span class="uploadprogressbar" style="width:0%"></span>--}}
-{{--                                                <span>{{data.name}}</span>--}}
-{{--                                                <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="lnr lnr-cross wt-remove-award-image"></a></em>--}}
-{{--                                                <input type="hidden" name="settings[{{data.type}}][{{data.counter}}][image]" value="{{data.url}}">--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                    </script>--}}
-{{--                                    <script type="text/template" id="tmpl-load-project">--}}
-{{--                                        <li id="wt-award-{{data.counter}}" data-id="{{data.counter}}" class="wt-placehoder-img">--}}
-{{--                                            <div class="wt-accordioninnertitle">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
-{{--                                                <div class="wt-projecttitle collapsed" data-toggle="collapse" data-target="#innertitle-{{data.counter}}">--}}
-{{--                                                    <figure class="award-thumb"><img src="https://instantkaj.com/wp-content/themes/workreap/images/project-65x65.jpg" alt="Title"></figure>--}}
-{{--                                                    <h3><span class="head-title">Project Title Here</span><span class="head-sub-title">www.test.com</span></h3>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="wt-rightarea">--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" data-toggle="collapse" data-target="#innertitle-{{data.counter}}"><i class="lnr lnr-pencil"></i></a>--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="wt-collapseexp collapse" id="innertitle-{{data.counter}}" aria-labelledby="accordioninnertitle" data-parent="#accordion">--}}
-{{--                                                <div class="wt-formtheme wt-userform wt-formprojectinfo">--}}
-{{--                                                    <fieldset>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[project][{{data.counter}}][title]" class="wt-input-title form-control" placeholder="Project Title">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group form-group-half">--}}
-{{--                                                            <input type="text" name="settings[project][{{data.counter}}][link]" class="wt-input-subtitle form-control" placeholder="Project URL">--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group form-group-label" id="wt-award-container-{{data.counter}}">--}}
-{{--                                                            <div class="wt-labelgroup" id="award-drag-{{data.counter}}">--}}
-{{--                                                                <label for="file">--}}
-{{--                                                                    <span class="wt-btn" id="award-btn-{{data.counter}}">Select file</span>--}}
-{{--                                                                </label>--}}
-{{--                                                                <span>Drop files here to upload</span>--}}
-{{--                                                                <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-group uploaded-placeholder"></div>--}}
-{{--                                                    </fieldset>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-project-image">--}}
+                                    {{--                                        <ul class="wt-attachfile">--}}
+                                    {{--                                            <li class="wt-uploading award-new-item wt-doc-parent" id="thumb-{{data.id}}">--}}
+                                    {{--                                                <span class="uploadprogressbar" style="width:0%"></span>--}}
+                                    {{--                                                <span>{{data.name}}</span>--}}
+                                    {{--                                                <em>File size: {{data.size}}<a href="#" onclick="event_preventDefault(event);" class="lnr lnr-cross wt-remove-award-image"></a></em>--}}
+                                    {{--                                                <input type="hidden" name="settings[{{data.type}}][{{data.counter}}][image]" value="{{data.url}}">--}}
+                                    {{--                                            </li>--}}
+                                    {{--                                        </ul>--}}
+                                    {{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-project">--}}
+                                    {{--                                        <li id="wt-award-{{data.counter}}" data-id="{{data.counter}}" class="wt-placehoder-img">--}}
+                                    {{--                                            <div class="wt-accordioninnertitle">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
+                                    {{--                                                <div class="wt-projecttitle collapsed" data-toggle="collapse" data-target="#innertitle-{{data.counter}}">--}}
+                                    {{--                                                    <figure class="award-thumb"><img src="https://instantkaj.com/wp-content/themes/workreap/images/project-65x65.jpg" alt="Title"></figure>--}}
+                                    {{--                                                    <h3><span class="head-title">Project Title Here</span><span class="head-sub-title">www.test.com</span></h3>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                                <div class="wt-rightarea">--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" data-toggle="collapse" data-target="#innertitle-{{data.counter}}"><i class="lnr lnr-pencil"></i></a>--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="wt-collapseexp collapse" id="innertitle-{{data.counter}}" aria-labelledby="accordioninnertitle" data-parent="#accordion">--}}
+                                    {{--                                                <div class="wt-formtheme wt-userform wt-formprojectinfo">--}}
+                                    {{--                                                    <fieldset>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[project][{{data.counter}}][title]" class="wt-input-title form-control" placeholder="Project Title">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group form-group-half">--}}
+                                    {{--                                                            <input type="text" name="settings[project][{{data.counter}}][link]" class="wt-input-subtitle form-control" placeholder="Project URL">--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group form-group-label" id="wt-award-container-{{data.counter}}">--}}
+                                    {{--                                                            <div class="wt-labelgroup" id="award-drag-{{data.counter}}">--}}
+                                    {{--                                                                <label for="file">--}}
+                                    {{--                                                                    <span class="wt-btn" id="award-btn-{{data.counter}}">Select file</span>--}}
+                                    {{--                                                                </label>--}}
+                                    {{--                                                                <span>Drop files here to upload</span>--}}
+                                    {{--                                                                <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>--}}
+                                    {{--                                                            </div>--}}
+                                    {{--                                                        </div>--}}
+                                    {{--                                                        <div class="form-group uploaded-placeholder"></div>--}}
+                                    {{--                                                    </fieldset>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
                                 </div>
                                 <div class="wt-awardsholder tab-pane fade" id="wt-videos">
                                     <div class="wt-videosdataholder wt-tabsinfo">
@@ -1552,19 +1553,19 @@
                                         </div>
                                         <ul class="wt-experienceaccordion" id="videossortable"></ul>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-videos">--}}
-{{--                                        <li data-id="{{data.counter}}" class="wt-videos-item">--}}
-{{--                                            <div class="wt-accordioninnertitle">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
-{{--                                                <div class="form-group">--}}
-{{--                                                    <input type="text" name="settings[videos][]" class="wt-input-title form-control" placeholder="Video URL">--}}
-{{--                                                </div>--}}
-{{--                                                <div class="wt-rightarea">--}}
-{{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-videos">--}}
+                                    {{--                                        <li data-id="{{data.counter}}" class="wt-videos-item">--}}
+                                    {{--                                            <div class="wt-accordioninnertitle">--}}
+                                    {{--                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
+                                    {{--                                                <div class="form-group">--}}
+                                    {{--                                                    <input type="text" name="settings[videos][]" class="wt-input-title form-control" placeholder="Video URL">--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                                <div class="wt-rightarea">--}}
+                                    {{--                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
+                                    {{--                                                </div>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
                                 </div>
                                 <div class="wt-awardsholder tab-pane fade" id="wt-specialization">
                                     <div class="wt-skills">
@@ -1611,22 +1612,22 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <script type="text/template" id="tmpl-load-spec">--}}
-{{--                                        <li class="wt-skill-list dbskill-{{data.name}}"">--}}
-{{--                                        <div class="wt-dragdroptool">--}}
-{{--                                            <a href="javascript:" class="lnr lnr-menu"></a>--}}
-{{--                                        </div>--}}
-{{--                                        <span class="skill-dynamic-html">{{data.text}} (<em class="skill-val">{{data.value}}</em>&nbsp;%)</span>--}}
-{{--                                        <span class="skill-dynamic-field">--}}
-{{--                           <input type="text" name="settings[specialization][{{data.counter}}][value]" value="{{data.value}}">--}}
-{{--                        <input type="hidden" name="settings[specialization][{{data.counter}}][spec]" value="{{data.name}}">--}}
-{{--            </span>--}}
-{{--                                        <div class="wt-rightarea">--}}
-{{--                                            <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo" data-display_type="number"><i class="lnr lnr-pencil"></i></a>--}}
-{{--                                            <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                        </div>--}}
-{{--                                        </li>--}}
-{{--                                    </script>--}}
+                                    {{--                                    <script type="text/template" id="tmpl-load-spec">--}}
+                                    {{--                                        <li class="wt-skill-list dbskill-{{data.name}}"">--}}
+                                    {{--                                        <div class="wt-dragdroptool">--}}
+                                    {{--                                            <a href="javascript:" class="lnr lnr-menu"></a>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                        <span class="skill-dynamic-html">{{data.text}} (<em class="skill-val">{{data.value}}</em>&nbsp;%)</span>--}}
+                                    {{--                                        <span class="skill-dynamic-field">--}}
+                                    {{--                           <input type="text" name="settings[specialization][{{data.counter}}][value]" value="{{data.value}}">--}}
+                                    {{--                        <input type="hidden" name="settings[specialization][{{data.counter}}][spec]" value="{{data.name}}">--}}
+                                    {{--            </span>--}}
+                                    {{--                                        <div class="wt-rightarea">--}}
+                                    {{--                                            <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo" data-display_type="number"><i class="lnr lnr-pencil"></i></a>--}}
+                                    {{--                                            <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill"><i class="lnr lnr-trash"></i></a>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                        </li>--}}
+                                    {{--                                    </script>--}}
                                 </div>
                             </div>
                         </div>
@@ -1696,32 +1697,32 @@
                                         </li>
                                     </ul>
                                 </div>
-{{--                                <script type="text/template" id="tmpl-load-faqs">--}}
-{{--                                    <li id="wt-faq-{{data.counter}}" data-id="{{data.counter}}" class="wt-placehoder-img">--}}
-{{--                                        <div class="wt-accordioninnertitle">--}}
-{{--                                            <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
-{{--                                            <div class="wt-projecttitle">--}}
-{{--                                                <h3><span class="head-title">Question</span></h3>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="wt-rightarea">--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle" data-toggle="collapse" data-target="#innertitle-{{data.counter}}" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>--}}
-{{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="wt-collapseexp collapse show" id="innertitle-{{data.counter}}" aria-labelledby="accordioninnertitle" data-parent="#accordion">--}}
-{{--                                            <div class="wt-formtheme wt-userform wt-formprojectinfo">--}}
-{{--                                                <fieldset>--}}
-{{--                                                    <div class="form-group">--}}
-{{--                                                        <input type="text" name="settings[faq][{{data.counter}}][faq_question]" class="wt-input-title form-control" placeholder="Question">--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="form-group">--}}
-{{--                                                        <textarea class="form-control" name="settings[faq][{{data.counter}}][faq_answer]" placeholder="Answer"></textarea>--}}
-{{--                                                    </div>--}}
-{{--                                                </fieldset>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </li>--}}
-{{--                                </script>--}}
+                                {{--                                <script type="text/template" id="tmpl-load-faqs">--}}
+                                {{--                                    <li id="wt-faq-{{data.counter}}" data-id="{{data.counter}}" class="wt-placehoder-img">--}}
+                                {{--                                        <div class="wt-accordioninnertitle">--}}
+                                {{--                                            <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>--}}
+                                {{--                                            <div class="wt-projecttitle">--}}
+                                {{--                                                <h3><span class="head-title">Question</span></h3>--}}
+                                {{--                                            </div>--}}
+                                {{--                                            <div class="wt-rightarea">--}}
+                                {{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle" data-toggle="collapse" data-target="#innertitle-{{data.counter}}" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>--}}
+                                {{--                                                <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>--}}
+                                {{--                                            </div>--}}
+                                {{--                                        </div>--}}
+                                {{--                                        <div class="wt-collapseexp collapse show" id="innertitle-{{data.counter}}" aria-labelledby="accordioninnertitle" data-parent="#accordion">--}}
+                                {{--                                            <div class="wt-formtheme wt-userform wt-formprojectinfo">--}}
+                                {{--                                                <fieldset>--}}
+                                {{--                                                    <div class="form-group">--}}
+                                {{--                                                        <input type="text" name="settings[faq][{{data.counter}}][faq_question]" class="wt-input-title form-control" placeholder="Question">--}}
+                                {{--                                                    </div>--}}
+                                {{--                                                    <div class="form-group">--}}
+                                {{--                                                        <textarea class="form-control" name="settings[faq][{{data.counter}}][faq_answer]" placeholder="Answer"></textarea>--}}
+                                {{--                                                    </div>--}}
+                                {{--                                                </fieldset>--}}
+                                {{--                                            </div>--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </li>--}}
+                                {{--                                </script>--}}
                             </div>
                         </div>
                     </div>
