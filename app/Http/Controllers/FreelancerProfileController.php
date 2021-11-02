@@ -79,15 +79,37 @@ class FreelancerProfileController extends Controller
     {
       //  return $request->location;
          $request->all();
-        return $request->file('profile_image');
-
-         
+        $file = $request->file('profile_image');
+        $bannerFile = $request->file('banner_photo');
+    
+           
         $findData = User::find($id);
 
-        $fileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $file->getClientOriginalExtension();
-        $file->move('backend/uploads/freelancer/profile', $fileName );
+        $proFile = freelancer_profile::where('user_id', $id)->first();
 
-       $proFile = freelancer_profile::where('user_id', $id)->first();
+        if($request->hasFile('profile_image')){
+
+            $fileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $file->getClientOriginalExtension();
+            $file->move('backend/uploads/freelancer/profile', $fileName );
+
+            $proFile->profile_image = $fileName;
+            $proFile->save();
+            
+        }
+        if($request->hasFile('banner_photo')){
+
+            $bannerFileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $bannerFile->getClientOriginalExtension();
+            $bannerFile->move('backend/uploads/freelancer/banner', $bannerFileName );
+
+            $proFile->banner_photo = $bannerFileName;
+            $proFile->save();
+            
+        }
+
+
+       
+
+       
 
         $proFile->user_name = $request->user_name;
         $proFile->title = $request->title;

@@ -67,7 +67,7 @@
                                         <div class="wt-tabscontenttitle">
                                             <h2>Your basics</h2>
                                         </div>
-                                      <form action="{{route('freelancer.update', 6)}}" method="post">
+                                      <form action="{{route('freelancer.update', 6)}}" method="post" enctype="multipart/form-data">
                                           @csrf
                                         <div class="wt-formtheme wt-userform">
                                             <fieldset>
@@ -164,17 +164,29 @@
                                         <div class="wt-profilephotocontent">
                                         <div class="wt-formtheme wt-formprojectinfo wt-formcategory" id="wt-img-9654">
                                         <fieldset>
-                                            <div class="form-group form-group-label" id="wt-image-container-9654" style="position: relative;">
-                                                <div class="wt-labelgroup" id="image-drag-9654" style="position: relative;">
+                
+                                                    <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
+                                                        <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
+                                                            <input type="file"  name="profile_image">
+                                                        </div>
+                                                    </div>
+                                                  
+
+                                            <!-- <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
+                                                <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
                                                     <label for="file" class="wt-image-file">
-                                                    <span class="wt-btn" id="image-btn-9654" style="z-index: 1;">Select File</span>
+                                                        <span class="wt-btn btn-file">SELECT FILE <input  type="file" name="profile_image" onchange="readURL(this);"> </span>
                                                     </label>
                                                     <span>Drop files here to upload</span>
                                                     <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>
                                                 </div>
-                                                <div id="html5_1fjancr3n5gp1et1t129jqvufc_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 7px; left: 12px; width: 167px; height: 46px; overflow: hidden; z-index: 0;"><input id="html5_1fjancr3n5gp1et1t129jqvufc" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" accept="image/jpeg,.jpg,.jpeg,image/gif,.gif,image/png,.png"></div>
+                                                <div id="html5_1fjancr3t1drr16lb1j2h1kl41c0oi_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 7px; left: 12px; width: 167px; height: 46px; overflow: hidden; z-index: 0;">
+                                                <input id="html5_1fjancr3t1drr16lb1j2h1kl41c0oi" type="file" name="profile_image" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"  accept="image/jpeg,.jpg,.jpeg,image/gif,.gif,image/png,.png">
                                             </div>
-                                            <div class="form-group uploaded-placeholder"></div>
+                                            </div>
+                                            <div class="form-group uploaded-placeholder">
+                                                <ul class="wt-attachfile wt-attachfilevtwo wt-galler-images"></ul>
+                                            </div> -->
                                         </fieldset>
                                         </div>
                                     </div>
@@ -206,14 +218,12 @@
                                                     <div class="form-group form-group-label" id="wt-image-container-26755" style="position: relative;">
                                                         <div class="wt-labelgroup" id="image-drag-26755" style="position: relative;">
                                                             <label for="file" class="wt-image-file">
-                                                                <span class="wt-btn btn-file">SELECT FILE <input  type="file" name="banner_photo"  onchange="readURL(this);"> </span>
+                                                              <input type="file" name="banner_photo">
                                                             </label>
-                                                            <span>Drop files here to upload</span>
-                                                            <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>
+                                                           
                                                         </div>
-                                                        <div id="html5_1fjancr3r12lrkc01lo170i1ng5f_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 7px; left: 12px; width: 167px; height: 46px; overflow: hidden; z-index: 0;"><input id="html5_1fjancr3r12lrkc01lo170i1ng5f" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" accept="image/jpeg,.jpg,.jpeg,image/gif,.gif,image/png,.png"></div>
                                                     </div>
-                                                    <div class="form-group uploaded-placeholder"></div>
+                        
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -229,17 +239,10 @@
                                                 <fieldset>
                                                     <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
                                                         <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
-                                                            <label for="file" class="wt-image-file">
-                                                                <span class="wt-btn btn-file">SELECT FILE <input  type="file" name="gallery_photo" onchange="readURL(this);"> </span>
-                                                            </label>
-                                                            <span>Drop files here to upload</span>
-                                                            <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>
+                                                            <input type="file" multiple name="gallery_photo">
                                                         </div>
-                                                        <div id="html5_1fjancr3t1drr16lb1j2h1kl41c0oi_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 7px; left: 12px; width: 167px; height: 46px; overflow: hidden; z-index: 0;"><input id="html5_1fjancr3t1drr16lb1j2h1kl41c0oi" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple="" accept="image/jpeg,.jpg,.jpeg,image/gif,.gif,image/png,.png"></div>
                                                     </div>
-                                                    <div class="form-group uploaded-placeholder">
-                                                        <ul class="wt-attachfile wt-attachfilevtwo wt-galler-images"></ul>
-                                                    </div>
+                                                  
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -842,28 +845,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wt-profilephoto wt-tabsinfo wt-profile-avatar">
-                                        <div class="wt-tabscontenttitle">
-                                            <h2>Profile Photo</h2>
-                                        </div>
-                                        <div class="wt-profilephotocontent">
-                                            <div class="wt-formtheme wt-formprojectinfo wt-formcategory" id="wt-img-9654">
-                                                <fieldset>
-                                                    <div class="form-group form-group-label" id="wt-image-container-9654" style="position: relative;">
-                                                        <div class="wt-labelgroup" id="image-drag-9654" style="position: relative;">
-                                                            <label for="file" class="wt-image-file">
-                                                                <span class="wt-btn" id="image-btn-9654" style="z-index: 1;">Select File</span>
-                                                            </label>
-                                                            <span>Drop files here to upload</span>
-                                                            <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>
-                                                        </div>
-                                                        <div id="html5_1fjancr3n5gp1et1t129jqvufc_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 7px; left: 12px; width: 167px; height: 46px; overflow: hidden; z-index: 0;"><input id="html5_1fjancr3n5gp1et1t129jqvufc" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" accept="image/jpeg,.jpg,.jpeg,image/gif,.gif,image/png,.png"></div>
-                                                    </div>
-                                                    <div class="form-group uploaded-placeholder"></div>
-                                                </fieldset>
                                             </div>
                                         </div>
                                     </div>
