@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Image;
 
+
 class FreelancerProfileController extends Controller
 {
     /**
@@ -81,8 +82,8 @@ class FreelancerProfileController extends Controller
          $request->all();
         $file = $request->file('profile_image');
         $bannerFile = $request->file('banner_photo');
-    
-           
+
+
         $findData = User::find($id);
 
         $proFile = freelancer_profile::where('user_id', $id)->first();
@@ -94,7 +95,7 @@ class FreelancerProfileController extends Controller
 
             $proFile->profile_image = $fileName;
             $proFile->save();
-            
+
         }
         if($request->hasFile('banner_photo')){
 
@@ -103,13 +104,13 @@ class FreelancerProfileController extends Controller
 
             $proFile->banner_photo = $bannerFileName;
             $proFile->save();
-            
+
         }
 
 
-       
 
-       
+
+
 
         $proFile->user_name = $request->user_name;
         $proFile->title = $request->title;
@@ -117,13 +118,13 @@ class FreelancerProfileController extends Controller
         $proFile->description = $request->description;
         $proFile->freelancer_type = $request->freelancer_type;
         $proFile->english_level = $request->english_level;
-        $proFile->location = $request->location;   
+        $proFile->location = $request->location;
         $proFile->save();
 
         return redirect()->back();
 
      //  return $findData->with('freelancerProfile');
-       
+
 
 //        return view('frontend.module.buyer.dashboard');
     }
