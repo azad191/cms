@@ -30,17 +30,22 @@ Route::get('job/details', [jobListController::class, 'details'])->name('job.deta
 
 //***************************** Freelancer   ****************************
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
-Route::get('freelancer/details', [freelancerListController::class, 'details'])->name('freelancer.details');
+Route::get('freelancer/details/{id}', [freelancerListController::class, 'details'])->name('freelancer.details');
 Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->name('freelancer.filter');
 
 Route::get('freelancer/profile', [FreelancerProfileController::class, 'index'])->name('freelancer.profile');
 
 Route::post('freelancer/update/{id}', [FreelancerProfileController::class, 'update'])->name('freelancer.update');
 
-
+Route::post('/freelancer/skills', [FreelancerProfileController::class, 'skills']);
+Route::get('/freelancer/all/skill', [FreelancerProfileController::class, 'allSkills']);
+Route::get('/freelancer/skill/{id}', [FreelancerProfileController::class, 'SkillsById']);
 
 Route::get('user/registration', [userRegistrationController::class, 'create'])->name('user.reg');
 Route::post('user/registration', [userRegistrationController::class, 'store'])->name('user.store');
+
+
+
 
 
 

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class freelancerSkill extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'skill_name', 'skill_value'];
 }

@@ -120,6 +120,10 @@
     <link rel="icon" href="{{asset('frontend/wp-content/themes/workreap/images/favicon.ico')}}" sizes="192x192" />
     <link rel="apple-touch-icon-precomposed" href="wp-content/themes/workreap/images/favicon.ico" />
     <meta name="msapplication-TileImage" content="http://amentotech.com/projects/wpworkreap/wp-content/uploads/2019/05/cropped-favicon-270x270.png" />
+    <!--Axios-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body class="home page-template page-template-full-width-template page-template-full-width-template-php page page-id-258 wp-embed-responsive theme-workreap registration-enabled default-header woocommerce-no-js">
 <!--<div class="preloader-outer">-->

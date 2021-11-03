@@ -176,8 +176,6 @@
                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-1383038269 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/digital-marketing/" class="loclevel-0" value="digital-marketing"><label for="term-1383038269">Digital Marketing</label></span>
                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-232126349 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/fun-lifestyle/" class="loclevel-0" value="fun-lifestyle"><label for="term-232126349">Fun &amp; Lifestyle</label></span>
                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-1153090856 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/mobiles/" class="loclevel-0" value="mobiles"><label for="term-1153090856">Mobiles</label></span>
-
-
                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-547862955 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/writing-translation/" class="loclevel-0" value="writing-translation"><label for="term-547862955">Writing &amp; Translation</label></span>
                                                         </div>
                                                      </fieldset>
@@ -341,7 +339,7 @@
 
                                  <div class="wt-userlistinghold ">
                                     <figure class="wt-userlistingimg">
-                                        <a href="freelancers-details.html"><img src="{{asset('frontend/wp-content/uploads/freelancers/3.jpg')}}" alt="Future"></a>
+                                        <a href="freelancers-details.html"><img src="{{ $item->freelancerProfile->profile_image != null? asset('backend/uploads/freelancer/profile/'.$item->freelancerProfile->profile_image)  : asset('backend/uploads/freelancer/profile/default.png') }}" alt="Future"></a>
                                         <div class="wt-userdropdown wt-away template-content tipso_style wt-tipso" data-tipso="Offline"></div>
                                     </figure>
                                     <div class="wt-userlistingcontent">
@@ -349,7 +347,7 @@
                                             <div class="wt-title">
                                                 <a href="#">
                                                     <i class="fa fa-check-circle"></i>&nbsp;{{$item->name}}  </a>
-                                                <h2><a href="freelancers-details.html">E-commerce design & developer</a></h2>
+                                                <h2><a href="{{route('freelancer.details',$item->id)}}">E-commerce design & developer</a></h2>
                                             </div>
                                             <ul class="wt-userlisting-breadcrumb ">
 {{--                                                <li><span><i class="fa fa-money"></i>Tk. 500.00&nbsp;/&nbsp;hr</span></li>--}}

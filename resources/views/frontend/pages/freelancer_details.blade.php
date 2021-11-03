@@ -18,16 +18,19 @@
                                 <div class="row">
                                    <div class="wt-userprofile">
                                       <figure>
-                                         <img src="{{asset('frontend/wp-content/uploads/freelancers/1.jpg')}}" alt="freelancer">
+                                         <!-- <img src="{{asset('frontend/wp-content/uploads/freelancers/1.jpg')}}" alt="freelancer"> -->
+                                       
+                                         <img src="{{$data->freelancerProfile->profile_image !=null ? asset('backend/uploads/freelancer/profile/'.$data->freelancerProfile->profile_image) : asset('backend/uploads/freelancer/profile/default.png')}}" alt="freelancer">
                                          <div class="wt-userdropdown wt-away template-content tipso_style wt-tipso" data-tipso="Offline"></div>
                                       </figure>
                                       <div class="wt-title">
-                                         <h1><i class="fa fa-check-circle"></i> Farhana Haq  </h1>
+                                         <h1><i class="fa fa-check-circle"></i> {{$data->name}}  </h1>
                                          <div class="wt-sinle-pmeta">
                                             <div class="wt-proposalfeedback">
                                                <span class="wt-starcontent">0.0/<i>5</i>&nbsp;<em>(0&nbsp;Feedback)</em></span>
                                             </div>
-                                            Member since&nbsp;March 26, 2019                                    <a href="javascript:;">@ Farhana Haq  </a> 
+                                            Member since&nbsp;March 26, 2019                                    
+                                            <a href="javascript:;">@ {{$data->name}}  </a> 
                                          </div>
                                       </div>
                                    </div>
@@ -37,7 +40,7 @@
                                 <div class="row">
                                    <div class="wt-profile-content-holder">
                                       <div class="wt-proposalhead wt-userdetails">
-                                         <h2>x`</h2>
+                                         <h2>{{$data->freelancerProfile->title}}</h2>
                                          <ul class="wt-userlisting-breadcrumb wt-userlisting-breadcrumbvtwo">
                                             <li><span><i class="fa fa-money"></i>Tk. 10000.00&nbsp;/&nbsp;hr</span></li>
                                             <li>
@@ -47,10 +50,7 @@
                                             <li>            <a href="javascript:;" class="wt-clicksave wt-savefreelancer" data-id="351" data-text="Saved"><i class="fa fa-heart" ></i><span>Click to Save</span></a></li>
                                          </ul>
                                          <div class="wt-description">
-                                            <p>Excepteur sint occaecat cupidatat non proident, saeunt in culpa qui officia deserunt mollit anim id est laborum. Seden utem perspiciatis undesieu omnis iste natus error sit voluptatem.</p>
-                                            <p>Accusantium doque laudantium, totam rem aiam eaqueiu ipsa quae ab illoion inventore veritatisetm quasitea architecto beataea dictaed quia couuntur magni dolores eos quist ratione vtatem seque nesnt. Neque porro quamest quioremas ipsum quiatem dolor sitem amet conctetur adipisci velit sedate quianon.</p>
-                                            <p>Excepteur sint occaecat cupidatat non proident, saeunt in culpa qui officia deserunt mollit anim id est laborum. Seden utem perspiciatis undesieu omnis iste natus error sit voluptatem.</p>
-                                            <p>Accusantium doque laudantium, totam rem aiam eaqueiu ipsa quae ab illoion inventore veritatisetm quasitea architecto beataea dictaed quia couuntur magni dolores eos quist ratione vtatem seque nesnt. Neque porro quamest quioremas ipsum quiatem dolor sitem amet conctetur adipisci velit sedate quianon.</p>
+                                            {{ $data->freelancerProfile->description }}
                                          </div>
                                       </div>
                                       <div id="wt-statistics" class="wt-statistics wt-profilecounter">
@@ -423,60 +423,17 @@
                                       <h2>My Skills</h2>
                                    </div>
                                    <div class="wt-widgetcontent wt-skillscontent data-list">
-                                      <div class="wt-skillholder sp-load-item" data-percent="90%">
-                                         <span>PHP<em>90%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-skillholder sp-load-item" data-percent="55%">
-                                         <span>Website Design<em>55%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-skillholder sp-load-item" data-percent="99%">
-                                         <span>HTML 5<em>99%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-skillholder sp-load-item" data-percent="80%">
-                                         <span>Graphic Design<em>80%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-skillholder sp-load-item" data-percent="75%">
-                                         <span>WordPress<em>75%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-skillholder sp-load-item" data-percent="40%">
-                                         <span>My SQL<em>40%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-skillholder sp-load-item" data-percent="80%">
-                                         <span>Content Writing<em>80%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-skillholder sp-load-item" data-percent="80%">
-                                         <span>CSS<em>80%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-skillholder sp-load-item" data-percent="75%">
-                                         <span>Jquery<em>75%</em></span>
-                                         <div class="wt-skillbarholder">
-                                            <div class="wt-skillbar"></div>
-                                         </div>
-                                      </div>
+                                   @foreach ($data->skill as $item)
+ 
+                                             <div class="wt-skillholder sp-load-item" data-percent="{{$item->skill_value}}%">
+                                             <span>{{$item->skill_name}}<em>{{$item->skill_value}}%</em></span>
+                                             <div class="wt-skillbarholder">
+                                                <div class="wt-skillbar"></div>
+                                             </div>
+                                          </div>
+                                             
+                                       
+                                      @endforeach
                                       <div class="wt-btnarea"><a class="sp-loadMore" href="javascript:;">View More</a> </div>
                                    </div>
                                 </div>

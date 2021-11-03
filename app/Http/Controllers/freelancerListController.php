@@ -98,8 +98,11 @@ class freelancerListController extends Controller
     {
         //
     }
-    public function details(){
-        return view('frontend.pages.freelancer_details');
+    public function details($id){
+
+        $data = User::with('freelancerProfile', 'skill')->find($id);
+
+        return view('frontend.pages.freelancer_details', compact('data'));
     }
 
     public function filter(Request $request){

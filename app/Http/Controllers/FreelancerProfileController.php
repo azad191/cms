@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\freelancer_profile;
 use App\Models\specialization;
 use App\Models\User;
+use App\Models\freelancerSkill;
 use Illuminate\Http\Request;
 use Image;
 
@@ -139,4 +140,37 @@ class FreelancerProfileController extends Controller
     {
         //
     }
+
+    public function skills(Request $request){
+
+       $name =  $request->skillName;
+       $value = $request->skillValue;
+       freelancerSkill::create([
+           'user_id' => 6,
+           'skill_name' => $name,
+           'skill_value' => $value
+       ]);
+        
+        return response()->json(['result'=> $name]);
+    }
+    
+    public function allSkills(){
+        $user_id = 6;
+        $allSkills = freelancerSkill::where('user_id',$user_id)->get();
+        // $allSkills = User::with('skill')->whereHas('skill', function($q){
+        //     $q->where('user_id', 6);
+        // })->get();
+         
+         return response()->json(['result'=> $allSkills]);
+     }
+     public function SkillsById($id){
+    //    $skill = User::with('skill')->whereHas('skill', function($q){
+    //         $q->where('user_id', $id);
+    //    })->get();
+       $data = User::with('skill')->whereHas('skill', function( $query ){
+        $query->whereNotNull('user_id', );
+    })->get();
+
+        return response()->json(['result'=> $skill]);
+     }
 }

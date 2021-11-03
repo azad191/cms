@@ -17,15 +17,16 @@ class CreateBuyerProfilesTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('tag_line')->nullable();
-            $table->string('job_title')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('company_type')->nullable();
             $table->text('buyer_description')->nullable();
             $table->string('buyer_profile_image')->nullable();
             $table->string('buyer_banner_image')->nullable();
-            $table->string('buyer_department')->nullable();
             $table->string('number_of_employee')->nullable();
             $table->string('buyer_location')->nullable();
             $table->string('Brochures')->nullable();
             $table->string('terms');
+            $table->text('followers')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

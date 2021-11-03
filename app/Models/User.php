@@ -52,4 +52,7 @@ class User extends Authenticatable
     public function specialization(){
         return $this->hasOne(specialization::class, 'user_id');
     }
+    public function skill(){
+        return $this->hasMany(freelancerSkill::class, 'user_id');
+    }
 }

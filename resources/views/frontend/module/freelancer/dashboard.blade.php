@@ -311,6 +311,21 @@
                                                         </div>
 
                                                 </fieldset>
+                                                <div class="wt-myskills wt-listskill">
+                                                    <ul class="sortable list" id="skills_sortable">
+                                                    <!-- <li class="wt-skill-list dbskill-420" draggable="false">
+                                                            <div class="d-flex justify-content-between">
+                                                                <span class="skill-dynamic-html">YouTube (<em class="skill-val">12</em>&nbsp;%)</span>
+                                
+                                                                <div class="wt-rightarea">
+                                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo"><i class="lnr lnr-pencil"></i></a>
+                                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill" ><i class="lnr lnr-trash"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </li> -->
+                                                    </ul>
+                                                </div>
                                                 <script>
                                                    var skills = document.getElementById('addSkills');
                                                    var btnSkill = document.getElementById('skill_btn');
@@ -321,9 +336,98 @@
                                                        console.log(skillName);
                                                        console.log(skillValue);
                                                        e.preventDefault()
-                                                   })
+
+                                                    axios({
+                                                            method: 'post',
+                                                            url: '/freelancer/skills',
+                                                            data: {skillName, skillValue},
+
+                                                    })
+                                                    .then(function (response) {
+                                                        console.log(response.data)
+                                                        skillName.value = ''
+                                                        skillValue.value = ''
+                                                    })
+                                                    .catch(function (error) {
+                                                        console.log(error);
+                                                    });
+
+                                        
+                                                        })
+                                                      
+                                                    
+                                                    
+
+                                                    axios.get('/freelancer/all/skill')
+                                                    .then(function (response) {
+                                                        console.log(response.data.result)
+                                                        let data = response.data.result
+                                                        // let ul = document.getElementById('skills_sortable');
+                                                        // let li = document.createElement('li');
+                                                        // ul.appendChild(li)
+                                                        // li.innerHTML='ok' 
+                                                       data.forEach(element => {
+                                                        let ul = document.getElementById('skills_sortable');
+                                                        let li = document.createElement('li');
+                                                        let listItemDiv = document.createElement('div')
+                                                        let span = document.createElement('span')
+
+                                                        let iconDiv =  document.createElement('div')
+                                                        let button = document.createElement('button');
+                                                        let button1 = document.createElement('button');
+
+                                                        let hresf = document.createAttribute("href");
+                                    
+                                                            ul.appendChild(li)
+                                                            
+                                                            li.className = 'wt-skill-list dbskill-420 text-danger'
+                                                    
+                                                           
+
+                                                           li.appendChild(listItemDiv)
+                                                           listItemDiv.className = 'd-flex justify-content-between'
+                                                           listItemDiv.appendChild(span)
+                                                           span.className = 'skill-dynamic-html'
+
+                                                            span.innerHTML = element.skill_name +'->'+ element.skill_value+'%'
+                                                            
+                                                         //  span.innetHTML = element.skill_name+' '+`${element.skill_value}`+'%'
+                                                            
+                                                           listItemDiv.appendChild(iconDiv)
+                                                           iconDiv.className = 'wt-rightarea'
+
+                                                           iconDiv.appendChild(button)
+                                                           iconDiv.appendChild(button1)
+                                                           button.className = 'btn btn-success btn-sm mr-1'
+                                                           button1.className = 'btn btn-danger btn-sm'
+                                                           button.setAttribute('data-id', element.id)
+                                                           button.setAttribute('onclick',  `edit(${element.id})`)
+                                                           button.innerHTML = 'Edit'
 
 
+                                                           button1.innerHTML = 'Delete'
+
+
+
+                                                 
+                                                           console.log(iconDiv);
+
+
+                                                       });
+                                                    })
+                                                    .catch(function (error) {
+                                                        console.log(error);
+                                                    });
+                                                    function edit(id){
+                                                       
+                                                        axios.get(`/freelancer/skill/${id}`)
+                                                        .then(function (res){
+                                                            console.log(res.data.result);
+                                                        })
+                                                    }
+                                                    
+                                                          
+                                        
                                                 </script>
                                             </div>
 
