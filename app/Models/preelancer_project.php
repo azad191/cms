@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class preelancer_project extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'project_title', 'url', 'file'];
 }

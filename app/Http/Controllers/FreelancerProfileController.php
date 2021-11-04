@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\freelancer_profile;
+use App\Models\preelancer_project;
 use App\Models\specialization;
 use App\Models\User;
 use App\Models\freelancerSkill;
+use App\Models\freelancerEducation;
+use App\Models\freelancerExperience;
+use App\Models\freelancer_faq;
 use Illuminate\Http\Request;
 use Image;
 
@@ -150,17 +154,17 @@ class FreelancerProfileController extends Controller
            'skill_name' => $name,
            'skill_value' => $value
        ]);
-        
+
         return response()->json(['result'=> $name]);
     }
-    
+
     public function allSkills(){
         $user_id = 6;
         $allSkills = freelancerSkill::where('user_id',$user_id)->get();
         // $allSkills = User::with('skill')->whereHas('skill', function($q){
         //     $q->where('user_id', 6);
         // })->get();
-         
+
          return response()->json(['result'=> $allSkills]);
      }
      public function SkillsById($id){
@@ -172,5 +176,33 @@ class FreelancerProfileController extends Controller
     })->get();
 
         return response()->json(['result'=> $skill]);
+     }
+
+     public function education(Request $request, $id){
+        // return $request->all();
+       
+        $userId = $id;
+        $data = $request->all();
+        $data['user_id'] = $userId;
+       // freelancerEducation::where('user_id', $id)->first();
+       if($request->submit_type == 'education'){
+            freelancerEducation::create($data);
+       }elseif($request->submit_type == 'project'){
+           //return 'project';
+        
+           $files=   $request->file('files');
+    
+            $fileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $files->getClientOriginalExtension();
+            $files->move('backend/uploads/freelancer/project', $fileName );
+            $data['file'] = $fileName;
+            preelancer_project::create($data);
+       }elseif($request->submit_type == 'faq'){
+            freelancer_faq::create($data);
+       }
+       else{
+            freelancerExperience::create($data);
+       }
+
+        return redirect()->back();
      }
 }

@@ -17,11 +17,12 @@ class freelancerListController extends Controller
     {
        // $data =  User::without('freelancerProfile')->get();
        // return $data;
-       $data = User::with('freelancerProfile')->whereHas('freelancerProfile', function( $query ){
+       $data = User::with('freelancerProfile', 'skill')->whereHas('freelancerProfile', function( $query ){
             $query->whereNotNull('user_id');
         })->get();
+      //  return $data;
 
-
+        
 
 //      $dd =  User::with('freelancerProfile')->whereHas('freelancerProfile', function (  $query) {
 //            $query->where('user_name');

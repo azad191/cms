@@ -17,8 +17,9 @@ class CreateFreelancerEducationTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('education_title');
-            $table->string('session');
-            $table->string('edu_ending');
+            $table->string('session')->nullable();
+            $table->string('start');
+            $table->string('end')->nullable;
             $table->string('institute_name');
             $table->text('edu_description')->nullable();
             $table->timestamps();

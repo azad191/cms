@@ -86,7 +86,7 @@
 
 
                  
-
+<!-- 
 <div class="container">
    <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 float-left">
@@ -228,7 +228,7 @@
          </div>
       </div>
    </div>
-</div>
+</div> -->
 
 
 
@@ -414,6 +414,91 @@
                                       <div class="divheight"></div>
                                    </div>
                                 </div>
+
+                                <div class="wt-usersingle">
+                               <div class="wt-clientfeedback">
+                                  <div class="wt-usertitle wt-titlewithselect">
+                                     <h2>Client Feedback</h2>
+                                     <div class="form-group">
+                                        <span class="wt-select">
+                                           <select>
+                                              <option value="Show All">Show All</option>
+                                              <option value="One Page">One Page </option>
+                                              <option value="Two Page">Two Page</option>
+                                           </select>
+                                        </span>
+                                     </div>
+                                  </div>
+								  
+                                  <div class="wt-userlistinghold wt-userlistingsingle wt-bgcolor">
+                                     <figure class="wt-userlistingimg">
+                                        <img src="images/client/img-01.jpg" alt="image description">
+                                     </figure>
+                                     <div class="wt-userlistingcontent">
+                                        <div class="wt-contenthead">
+                                           <div class="wt-title">
+                                              <a href="javascript:void(0);"><i class="fa fa-check-circle"></i> Themeforest Company</a>
+                                              <h3>Translation and Proof Reading (Multi Language)</h3>
+                                           </div>
+                                           <ul class="wt-userlisting-breadcrumb">
+                                              <li><span><i class="fa fa-dollar-sign"></i> Beginner</span></li>
+                                              <li><span><img src="images/flag/img-04.png" alt="img description"> England</span></li>
+                                              <li><span><i class="fas fa-spinner fa-spin"></i> In Progress</span></li>
+                                           </ul>
+                                        </div>
+                                     </div>
+                                  </div>
+                                  
+								  <div class="wt-userlistinghold wt-userlistingsingle">
+                                     <figure class="wt-userlistingimg">
+                                        <img src="images/client/img-02.jpg" alt="image description">
+                                     </figure>
+                                     <div class="wt-userlistingcontent">
+                                        <div class="wt-contenthead">
+                                           <div class="wt-title">
+                                              <a href="javascript:void(0);"><i class="fa fa-check-circle"></i> Videohive Studio</a>
+                                              <h3>Need help translating app stringlist from English to Arabic</h3>
+                                           </div>
+                                           <ul class="wt-userlisting-breadcrumb">
+                                              <li><span><i class="fa fa-dollar-sign"></i><i class="fa fa-dollar-sign"></i> Intermediate</span></li>
+                                              <li><span><img src="images/flag/img-03.png" alt="img description">  Canada</span></li>
+                                              <li><span><i class="far fa-calendar"></i> Jun 2017 - Jul 2017</span></li>
+                                              <li><span class="wt-stars"><span></span></span></li>
+                                           </ul>
+                                        </div>
+                                     </div>
+                                     <div class="wt-description">
+                                        <p>“ Eiusmod tempor incididunt ut labore et dolore magna quis nostrud exercitation ullamco laboris. ”</p>
+                                     </div>
+                                  </div>
+                                  <div class="wt-userlistinghold wt-userlistingsingle wt-bgcolor">
+                                     <figure class="wt-userlistingimg">
+                                        <img src="images/client/img-03.jpg" alt="image description">
+                                     </figure>
+                                     <div class="wt-userlistingcontent">
+                                        <div class="wt-contenthead">
+                                           <div class="wt-title">
+                                              <a href="javascript:void(0);"><i class="fa fa-check-circle"></i> Photodune Professionals</a>
+                                              <h3>Blog Post Writing in English Language</h3>
+                                           </div>
+                                           <ul class="wt-userlisting-breadcrumb">
+                                              <li><span><i class="fa fa-dollar-sign"></i><i class="fa fa-dollar-sign"></i><i class="fa fa-dollar-sign"></i> Professional</span></li>
+                                              <li><span><img src="images/flag/img-02.png" alt="img description"> United States</span></li>
+                                              <li><span><i class="far fa-calendar"></i>  Jun 2017</span></li>
+                                              <li><span class="wt-stars"><span></span></span></li>
+                                           </ul>
+                                        </div>
+                                     </div>
+                                     <div class="wt-description">
+                                        <p>“ Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenim ad minim veniamac quis nostrud exercitation ullamco laboris. ”</p>
+                                     </div>
+                                  </div>
+                                  <div class="wt-btnarea">
+                                     <a href="javascript:void(0);" class="wt-btn">Load More</a>
+                                  </div>
+                               </div>
+                            </div>
+                                
                              </div>
                           </div>
                           <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 float-left">
@@ -437,7 +522,7 @@
                                       <div class="wt-btnarea"><a class="sp-loadMore" href="javascript:;">View More</a> </div>
                                    </div>
                                 </div>
-                                <div class="wt-widget wt-widgetarticlesholder wt-articlesuser items-more-wrap-aw">
+                                <!-- <div class="wt-widget wt-widgetarticlesholder wt-articlesuser items-more-wrap-aw">
                                    <div class="wt-widgettitle">
                                       <h2>Awards &amp; Certifications</h2>
                                    </div>
@@ -472,8 +557,8 @@
                                       </div>
                                       <div class="wt-btnarea"><a href="javascript:;" class="sp-loadMore">Load More</a></div>
                                    </div>
-                                </div>
-                                <div class="tg-authorcodescan wt-widget wt-widgetcontent">
+                                </div> -->
+                                <!-- <div class="tg-authorcodescan wt-widget wt-widgetcontent">
                                    <div class="tg-qrscan">
                                       <figure class="tg-qrcodeimg">
                                          <img class="tg-qrcodedata" src="wp-content/themes/workreap/images/qrcode.png" alt="QR-Code">
@@ -490,8 +575,8 @@
                                          <h3>Scan with your <span>Smart Phone </span> To Get It Handy.</h3>
                                       </div>
                                    </div>
-                                </div>
-                                <div class="wt-widget">
+                                </div> -->
+                                <!-- <div class="wt-widget">
                                    <div class="wt-widgettitle">
                                       <h2>Similar Freelancers</h2>
                                    </div>
@@ -508,7 +593,7 @@
                                          <a href="skill/jquery/index.html">Jquery</a> 
                                       </div>
                                    </div>
-                                </div>
+                                </div> -->
                                 <div class="wt-widget wt-sharejob">
                                    <div class="wt-widgettitle">
                                       <h2>Share This Freelancer</h2>

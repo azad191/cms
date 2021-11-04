@@ -164,13 +164,13 @@
                                         <div class="wt-profilephotocontent">
                                         <div class="wt-formtheme wt-formprojectinfo wt-formcategory" id="wt-img-9654">
                                         <fieldset>
-                
+
                                                     <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
                                                         <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
                                                             <input type="file"  name="profile_image">
                                                         </div>
                                                     </div>
-                                                  
+
 
                                             <!-- <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
                                                 <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
@@ -198,13 +198,13 @@
                                             <div class="wt-uploadingbar wt-uploading">
                                                 <span class="uploadprogressbar" style="width:`${data.percentage}`%"></span>
                                                 <span>`${data.name}`</span>
-                                                <em>File size: `${data.size}`<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>   
-                                            </div>   
+                                                <em>File size: `${data.size}`<a href="#" onclick="event_preventDefault(event);" class="wt-remove-image lnr lnr-cross"></a></em>
+                                            </div>
                                         </div>
                                         </li>
-                                    </ul> 
+                                    </ul>
                                 </script>
-                           
+
                                     </div>
 
 
@@ -220,10 +220,10 @@
                                                             <label for="file" class="wt-image-file">
                                                               <input type="file" name="banner_photo">
                                                             </label>
-                                                           
+
                                                         </div>
                                                     </div>
-                        
+
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -242,7 +242,7 @@
                                                             <input type="file" multiple name="gallery_photo">
                                                         </div>
                                                     </div>
-                                                  
+
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -316,13 +316,13 @@
                                                     <!-- <li class="wt-skill-list dbskill-420" draggable="false">
                                                             <div class="d-flex justify-content-between">
                                                                 <span class="skill-dynamic-html">YouTube (<em class="skill-val">12</em>&nbsp;%)</span>
-                                
+
                                                                 <div class="wt-rightarea">
                                                                     <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo"><i class="lnr lnr-pencil"></i></a>
                                                                     <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-skill" ><i class="lnr lnr-trash"></i></a>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         </li> -->
                                                     </ul>
                                                 </div>
@@ -352,11 +352,11 @@
                                                         console.log(error);
                                                     });
 
-                                        
+
                                                         })
-                                                      
-                                                    
-                                                    
+
+
+
 
                                                     axios.get('/freelancer/all/skill')
                                                     .then(function (response) {
@@ -365,7 +365,7 @@
                                                         // let ul = document.getElementById('skills_sortable');
                                                         // let li = document.createElement('li');
                                                         // ul.appendChild(li)
-                                                        // li.innerHTML='ok' 
+                                                        // li.innerHTML='ok'
                                                        data.forEach(element => {
                                                         let ul = document.getElementById('skills_sortable');
                                                         let li = document.createElement('li');
@@ -377,12 +377,12 @@
                                                         let button1 = document.createElement('button');
 
                                                         let hresf = document.createAttribute("href");
-                                    
+
                                                             ul.appendChild(li)
-                                                            
+
                                                             li.className = 'wt-skill-list dbskill-420 text-danger'
-                                                    
-                                                           
+
+
 
                                                            li.appendChild(listItemDiv)
                                                            listItemDiv.className = 'd-flex justify-content-between'
@@ -390,9 +390,9 @@
                                                            span.className = 'skill-dynamic-html'
 
                                                             span.innerHTML = element.skill_name +'->'+ element.skill_value+'%'
-                                                            
+
                                                          //  span.innetHTML = element.skill_name+' '+`${element.skill_value}`+'%'
-                                                            
+
                                                            listItemDiv.appendChild(iconDiv)
                                                            iconDiv.className = 'wt-rightarea'
 
@@ -409,7 +409,7 @@
 
 
 
-                                                 
+
                                                            console.log(iconDiv);
 
 
@@ -419,15 +419,15 @@
                                                         console.log(error);
                                                     });
                                                     function edit(id){
-                                                       
+
                                                         axios.get(`/freelancer/skill/${id}`)
                                                         .then(function (res){
                                                             console.log(res.data.result);
                                                         })
                                                     }
-                                                    
-                                                          
-                                        
+
+
+
                                                 </script>
                                             </div>
 
@@ -531,16 +531,8 @@
                                         </div>
                                         <ul class="wt-experienceaccordion accordion" id="expsortable"></ul>
                                     </div>
-                                    <script type="text/template" id="tmpl-load-experience">
+                                    <!-- <script type="text/template" id="tmpl-load-experience"> -->
                                         <li class="">
-                                            <div class="wt-accordioninnertitle">
-                                                <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>
-                                                <span id="accordioninnertitle" data-toggle="collapse" data-target=""><span class="wt-head-title">Experience title</span>&nbsp;<em>(Start date - End date)</em></span>
-                                                <div class="wt-rightarea">
-                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle" data-toggle="collapse" data-target="" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>
-                                                    <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>
-                                                </div>
-                                            </div>
                                             <div class="wt-collapseexp collapse show" id="innertitle " aria-labelledby="accordioninnertitle" data-parent="#accordion">
                                                 <div class="wt-formtheme wt-userform">
                                                     <fieldset>
@@ -562,11 +554,13 @@
                                                         <div class="form-group">
                                                             <span>* Leave ending date empty if its your current job</span>
                                                         </div>
+
                                                     </fieldset>
+
                                                 </div>
                                             </div>
                                         </li>
-                                    </script>
+                                    <!-- </script> -->
                                     <div class="wt-userexperience">
                                         <div class="wt-tabscontenttitle wt-addnew">
                                             <h2>Add Your Education</h2>
@@ -1047,7 +1041,7 @@
                            <option class=" level-0" value="406">3 Part Brochure Design</option>
                            <option class=" level-0" value="363">3D rendering</option>
                            <option class=" level-0" value="364">academic writing</option>
-                       
+
                         </select>
                         <div class="chosen-container chosen-container-single workreap-custom-zindex" title="" id="skills_dp_chosen" style="width: 256px;">
                            <a class="chosen-single">
@@ -1094,7 +1088,7 @@
                                 <div class="wt-educationholder tab-pane fade active show" id="wt-education">
                                     <div class="wt-userexperience wt-tabsinfo">
                                         <div class="wt-tabscontenttitle wt-addnew">
-                                            <h2>Add Your Experience</h2>
+                                            <h2>Add Your Education</h2>
                                             <!-- <span class="wt-add-experience"><a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; event_preventDefault(event);">+ Add Experience</a></span> -->
                                         </div>
                                         <ul class="wt-experienceaccordion accordion" id="expsortable">
@@ -1110,25 +1104,60 @@
                                                 <div class="wt-collapseexp collapse show" id="innertitle87715" aria-labelledby="accordioninnertitle" data-parent="#accordion">
                                                     <div class="wt-formtheme wt-userform">
                                                         <fieldset>
+                                                            <form action="{{route('freelancer.education', 6)}}" method="post">
+                                                                @csrf
                                                             <div class="form-group form-group-half">
-                                                                <input type="text" name="settings[experience][87715][title]" class="wt-head-input form-control" placeholder="Experience title">
+                                                                <input type="text" name="education_title" class="wt-head-input form-control" placeholder="Experience title">
                                                             </div>
                                                             <div class="form-group form-group-half">
-                                                                <input type="text" name="settings[experience][87715][startdate]" class="form-control wt-start-pick" placeholder="Starting date">
+                                                                <input type="date" name="start" class="form-control wt-start-pick" placeholder="Starting date">
                                                             </div>
                                                             <div class="form-group form-group-half">
-                                                                <input type="text" name="settings[experience][87715][enddate]" class="form-control wt-end-pick" placeholder="Ending date *">
+                                                                <input type="date" name="end" class="form-control wt-end-pick" placeholder="Ending date *">
                                                             </div>
                                                             <div class="form-group form-group-half">
-                                                                <input type="text" name="settings[experience][87715][job]" class="form-control wt-job-title" placeholder="Company title">
+                                                                <input type="text" name="institute_name" class="form-control wt-job-title" placeholder="Institute Name">
                                                             </div>
                                                             <div class="form-group">
-                                                                <textarea name="settings[experience][87715][details]" class="form-control" placeholder="Experience description"></textarea>
+                                                                <textarea name="edu_description" class="form-control" placeholder="Experience description"></textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <span>* Leave ending date empty if its your current job</span>
                                                             </div>
+                                                            <input type="hidden" name="submit_type" value="education">
+                                                            <button type="submit" class="btn btn-success mb-3">Submit</button>
+                                                         </form>
                                                         </fieldset>
+                                                        <div>
+                                                            @php
+                                                              $education =  \App\Models\freelancerEducation::where('user_id', 6)->get();
+                                                            @endphp
+                                                            @if(count($education)>0)
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th scope="col">#</th>
+                                                                
+                                                                    <th scope="col">Institute Name</th>
+                                                                    <th scope="col">Degree</th>
+                                                                    <th scope="col">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($education as $key=>$item)
+                                                                    <tr>
+                                                                    <th scope="row">{{$key+1}}</th>
+                                                                    <td>{{$item->education_title}}</td>
+                                                                    <td>{{$item->institute_name}}</td>
+                                                                
+                                                                    <td><button class="btn btn-info btn-sm mr-1"><i class="lnr lnr-pencil"></i></button><button class="btn btn-danger btn-sm"><i class="lnr lnr-trash"></i></button></td>
+                                                                    </tr>
+                                                                @endforeach
+
+                                                                </tbody>
+                                                            </table>
+                                                                @endif
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -1172,45 +1201,72 @@
 {{--                                    </script>--}}
                                     <div class="wt-userexperience">
                                         <div class="wt-tabscontenttitle wt-addnew">
-                                            <h2>Add Your Education</h2>
+                                            <h2>Add Your Experience </h2>
                                             <!--  <span class="wt-add-education"><a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; event_preventDefault(event);">+ Add education</a></span> -->
                                         </div>
                                         <ul class="wt-experienceaccordion accordion" id="edusortable">
                                             <li class="dateinit-93414">
-                                                <!-- <div class="wt-accordioninnertitle">
-                                                   <a href="#" onclick="event_preventDefault(event);" class="handle"><i class="fa fa-arrows-alt"></i></a>
-                                                   <span id="accordioninnertitle1" data-toggle="collapse" data-target="#innertitle93414"><span class="wt-head-title">Education title</span>&nbsp;<em>(Start date - End date)</em></span>
-                                                   <div class="wt-rightarea">
-                                                      <a href="#" onclick="event_preventDefault(event);" class="wt-addinfo wt-skillsaddinfo" id="accordioninnertitle1" data-toggle="collapse" data-target="#innertitle93414" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>
-                                                      <a href="#" onclick="event_preventDefault(event);" class="wt-deleteinfo wt-delete-data"><i class="lnr lnr-trash"></i></a>
-                                                   </div>
-                                                </div> -->
                                                 <div class="wt-collapseexp collapse show" id="innertitle93414" aria-labelledby="accordioninnertitle1" data-parent="#accordion">
                                                     <div class="wt-formtheme wt-userform">
-                                                        <fieldset>
+                                                    <fieldset>
+                                                            <form action="{{route('freelancer.education', 6)}}" method="post">
+                                                                @csrf
                                                             <div class="form-group form-group-half">
-                                                                <input type="text" name="settings[education][93414][degree]" class="wt-head-input form-control" placeholder="Degree title">
+                                                                <input type="text" name="job_designation" class="wt-head-input form-control" placeholder="Job title">
                                                             </div>
                                                             <div class="form-group form-group-half">
-                                                                <input type="text" name="settings[education][93414][startdate]" class="wt-start-pick form-control" placeholder="Starting date">
+                                                                <input type="date" name="start" class="form-control wt-start-pick" placeholder="Starting date">
                                                             </div>
                                                             <div class="form-group form-group-half">
-                                                                <input type="text" name="settings[education][93414][enddate]" class="wt-end-pick form-control" placeholder="Ending date">
+                                                                <input type="date" name="end" class="form-control wt-end-pick" placeholder="Ending date *">
                                                             </div>
                                                             <div class="form-group form-group-half">
-                                                                <input type="text" name="settings[education][93414][university]" class="form-control" placeholder="Institute name">
+                                                                <input type="text" name="company_name" class="form-control wt-job-title" placeholder="Company Name">
                                                             </div>
                                                             <div class="form-group">
-                                                                <textarea name="settings[education][93414][details]" class="form-control" placeholder="Description"></textarea>
+                                                                <textarea name="exp_description" class="form-control" placeholder="Experience description"></textarea>
                                                             </div>
                                                             <div class="form-group">
-                                                                <span>* Leave ending date empty if its your current degree</span>
+                                                                <span>* Leave ending date empty if its your current job</span>
                                                             </div>
+                                                            <input type="hidden" name="submit_type" value="experience">
+
+                                                            <button type="submit" class="btn btn-success mb-3">Submit</button>
+                                                         </form>
                                                         </fieldset>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
+                                        <div>
+                                                            @php
+                                                              $education =  \App\Models\freelancerExperience::where('user_id', 6)->get();
+                                                            @endphp
+                                                            @if(count($education)>0)
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">Company Name</th>
+                                                                    <th scope="col">Designation</th>
+                                                                    <th scope="col">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($education as $key=>$item)
+                                                                    <tr>
+                                                                    <th scope="row">{{$key+1}}</th>
+                                                                    <td>{{$item->company_name}}</td>
+                                                                    <td>{{$item->job_designation}}</td>
+                                                                
+                                                                    <td><button class="btn btn-info btn-sm mr-1"><i class="lnr lnr-pencil"></i></button><button class="btn btn-danger btn-sm"><i class="lnr lnr-trash"></i></button></td>
+                                                                    </tr>
+                                                                @endforeach
+
+                                                                </tbody>
+                                                            </table>
+                                                                @endif
+                                                        </div>
                                     </div>
 {{--                                    <script type="text/template" id="tmpl-load-education">--}}
 {{--                                        <li class="dateinit-{{data.counter}}">--}}
@@ -1432,24 +1488,56 @@
                                         <div class="wt-collapseexp collapse show" id="innertitle-3091" aria-labelledby="accordioninnertitle" data-parent="#accordion" style="">
                                             <div class="wt-formtheme wt-userform wt-formprojectinfo">
                                                 <fieldset>
-                                                    <div class="form-group form-group-half">
-                                                        <input type="text" name="settings[project][3091][title]" class="wt-input-title form-control" placeholder="Project Title">
-                                                    </div>
-                                                    <div class="form-group form-group-half">
-                                                        <input type="text" name="settings[project][3091][link]" class="wt-input-subtitle form-control" placeholder="Project URL">
-                                                    </div>
-                                                    <div class="form-group form-group-label" id="wt-award-container-3091" style="position: relative;">
-                                                        <div class="wt-labelgroup" id="award-drag-3091" style="position: relative;">
-                                                            <label for="file">
-                                                                <span class="wt-btn" id="award-btn-3091" style="z-index: 1;">Select file</span>
-                                                            </label>
-                                                            <span>Drop files here to upload</span>
-                                                            <em class="wt-fileuploading">Uploading<i class="fa fa-spinner fa-spin"></i></em>
+                                                <form action="{{route('freelancer.education', 6)}}" method="post" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="form-group form-group-half">
+                                                            <input type="text" name="project_title" class="wt-input-title form-control" placeholder="Project Title" required>
                                                         </div>
-                                                        <div id="html5_1fjao3eh41q26g7t14rl6b51o1e14_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px; overflow: hidden; z-index: 0;"><input id="html5_1fjao3eh41q26g7t14rl6b51o1e14" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" accept="image/jpeg,.jpg,.jpeg,image/gif,.gif,image/png,.png,application/pdf,.pdf,.pdf"></div>
-                                                    </div>
-                                                    <div class="form-group uploaded-placeholder"></div>
+                                                        <div class="form-group form-group-half">
+                                                            <input type="url" name="url" class="wt-input-subtitle form-control" placeholder="Project URL" required>
+                                                        </div>
+                                                        <div class="form-group form-group-label" id="wt-award-container-3091" style="position: relative;">
+                                                            <div class="wt-labelgroup" id="award-drag-3091" style="position: relative;">
+                                                               <input type="file" name="files" required>
+                                                                
+                                                            </div>
+                                                           
+                                                        </div>
+                                                        <div class="form-group uploaded-placeholder"></div>
+                                                        <input type="hidden" name="submit_type" value="project">
+                                                        <button type="submit" class="btn btn-success mb-3">Submit</button>
+                                                    </form>
                                                 </fieldset>
+                                                <div>
+                                                            @php
+                                                              $education =  \App\Models\preelancer_project::where('user_id', 6)->get();
+                                                            @endphp
+                                                            @if(count($education)>0)
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">Company Name</th>
+                                                                    <th scope="col">Designation</th>
+                                                                    <th scope="col">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($education as $key=>$item)
+                                                                    <tr>
+                                                                    <th scope="row">{{$key+1}}</th>
+                                                                    <td>{{$item->project_title}}</td>
+                                                                    <td>{{$item->url}}</td>
+                                                                
+                                                                    <td><button class="btn btn-info btn-sm mr-1"><i class="lnr lnr-pencil"></i></button><button class="btn btn-danger btn-sm"><i class="lnr lnr-trash"></i></button></td>
+                                                                    </tr>
+                                                                @endforeach
+
+                                                                </tbody>
+                                                            </table>
+                                                                @endif
+                                                        </div>
+                                                
                                             </div>
                                         </div>
                                     </li>
@@ -1512,13 +1600,48 @@
                                             <div class="wt-collapseexp collapse show" id="innertitle-c852" aria-labelledby="accordioninnertitle" data-parent="#accordion">
                                                 <div class="wt-formtheme wt-userform wt-formprojectinfo">
                                                     <fieldset>
+                                                    <form action="{{route('freelancer.education', 6)}}" method="post">
+                                                        @csrf
                                                         <div class="form-group">
-                                                            <input type="text" name="settings[faq][c852][faq_question]" class="wt-input-title form-control" placeholder="Question">
+                                                            <input type="text" name="faq_question" class="wt-input-title form-control" placeholder="Question">
                                                         </div>
                                                         <div class="form-group">
-                                                            <textarea class="form-control" name="settings[faq][c852][faq_answer]" placeholder="Answer"></textarea>
+                                                            <textarea class="form-control" name="faq_answer" placeholder="Answer"></textarea>
                                                         </div>
+                                                        <input type="hidden" name="submit_type" value="faq">
+                                                        <button type="submit" class="btn btn-success mb-3">Submit</button>
+                                                    </form>
+
                                                     </fieldset>
+                                                    <div>
+                                                            @php
+                                                              $education =  \App\Models\freelancer_faq::where('user_id', 6)->get();
+                                                            @endphp
+                                                            @if(count($education)>0)
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">Company Name</th>
+                                                                    <th scope="col">Designation</th>
+                                                                    <th scope="col">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($education as $key=>$item)
+                                                                    <tr>
+                                                                    <th scope="row">{{$key+1}}</th>
+                                                                    <td>{{$item->faq_question}}</td>
+                                                                    <td>{{substr($item->faq_answer, 0,40) }}...</td>
+                                                                
+                                                                    <td><button class="btn btn-info btn-sm mr-1"><i class="lnr lnr-pencil"></i></button><button class="btn btn-danger btn-sm"><i class="lnr lnr-trash"></i></button></td>
+                                                                    </tr>
+                                                                @endforeach
+
+                                                                </tbody>
+                                                            </table>
+                                                                @endif
+                                                        </div>
                                                 </div>
                                             </div>
                                         </li>

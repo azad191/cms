@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details', [jobListController::class, 'details'])->name('job.details');
 
-//***************************** Freelancer   ****************************
+//***************************** Start Freelancer   ****************************
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
 Route::get('freelancer/details/{id}', [freelancerListController::class, 'details'])->name('freelancer.details');
 Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->name('freelancer.filter');
@@ -40,6 +40,12 @@ Route::post('freelancer/update/{id}', [FreelancerProfileController::class, 'upda
 Route::post('/freelancer/skills', [FreelancerProfileController::class, 'skills']);
 Route::get('/freelancer/all/skill', [FreelancerProfileController::class, 'allSkills']);
 Route::get('/freelancer/skill/{id}', [FreelancerProfileController::class, 'SkillsById']);
+
+//freelancer education
+Route::post('/freelancer/education/{id}', [FreelancerProfileController::class, 'education'])->name('freelancer.education');
+
+//***************************** End Freelancer   ****************************
+
 
 Route::get('user/registration', [userRegistrationController::class, 'create'])->name('user.reg');
 Route::post('user/registration', [userRegistrationController::class, 'store'])->name('user.store');

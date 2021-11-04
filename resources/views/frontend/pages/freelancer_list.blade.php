@@ -339,7 +339,7 @@
 
                                  <div class="wt-userlistinghold ">
                                     <figure class="wt-userlistingimg">
-                                        <a href="freelancers-details.html"><img src="{{ $item->freelancerProfile->profile_image != null? asset('backend/uploads/freelancer/profile/'.$item->freelancerProfile->profile_image)  : asset('backend/uploads/freelancer/profile/default.png') }}" alt="Future"></a>
+                                        <a href="freelancers-details.html"><img src="{{ $item->freelancerProfile->profile_image != null? asset('backend/uploads/freelancer/profile/'.$item->freelancerProfile->profile_image) : asset('backend/uploads/freelancer/profile/default.png') }}" alt="Future"></a>
                                         <div class="wt-userdropdown wt-away template-content tipso_style wt-tipso" data-tipso="Offline"></div>
                                     </figure>
                                     <div class="wt-userlistingcontent">
@@ -366,15 +366,20 @@
                                         <p>Excepteur sint occaecat cupidatat non proident, saeunt in culpa qui officia deserunt mollit anim id est laborum. Seden utem perspiciatis undesieu omnis iste natus error&hellip;</p>
                                     </div>
                                     <div class="wt-tag wt-widgettag">
-                                        <a  class="skills_351" href="#">Content Writing</a>
-                                        <a  class="skills_351" href="#">CSS</a>
+                                    @foreach ($item->skill as $skillList )
+                                        <a  class="skills_351" href="#">{{$skillList->skill_name}}</a>
+                                    @endforeach
+                                        
+
+                                        <!-- <a  class="skills_351" href="#">CSS</a>
                                         <a  class="skills_351" href="#">Graphic Design</a>
                                         <a  class="skills_351" href="#">HTML 5</a>
                                         <a  class="skills_351" href="#">Jquery</a>
-                                        <a href="javascript:;" class="showmore_skills" data-id="351">...</a>                          <a style="display: none;" class="skills_351" href="#">My SQL</a>
+                                        <a href="javascript:;" class="showmore_skills" data-id="351">...</a>                          
+                                        <a style="display: none;" class="skills_351" href="#">My SQL</a>
                                         <a style="display: none;" class="skills_351" href="#">PHP</a>
                                         <a style="display: none;" class="skills_351" href="#">Website Design</a>
-                                        <a style="display: none;" class="skills_351" href="#">WordPress</a>
+                                        <a style="display: none;" class="skills_351" href="#">WordPress</a> -->
                                     </div>
                                 </div>
 
