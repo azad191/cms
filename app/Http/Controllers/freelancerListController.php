@@ -22,7 +22,7 @@ class freelancerListController extends Controller
         })->get();
       //  return $data;
 
-        
+
 
 //      $dd =  User::with('freelancerProfile')->whereHas('freelancerProfile', function (  $query) {
 //            $query->where('user_name');
@@ -101,7 +101,7 @@ class freelancerListController extends Controller
     }
     public function details($id){
 
-        $data = User::with('freelancerProfile', 'skill')->find($id);
+        $data = User::with('freelancerProfile', 'skill', 'faq', 'project', 'education', 'experience')->find($id);
 
         return view('frontend.pages.freelancer_details', compact('data'));
     }
@@ -111,12 +111,12 @@ class freelancerListController extends Controller
         $input2 = $request->freelancer_type;
         $input3 = $request->location;
     //  return  implode(' ', $request->freelancer_type);
-    
+
       //  return $input2;
      // var_dump($request->freelancer_type);
     //return count($request->freelancer_type);
-  
-        
+
+
       $data =  User::with('freelancerProfile')->WhereHas('freelancerProfile', function( $query ) use ($request,$input2, $input3 ){
          //   return 'not impty';
             if (!empty($request->freelancer_type) and !empty($request->location) and !empty($request->english_level)) {
@@ -140,7 +140,7 @@ class freelancerListController extends Controller
             }else{
                 $query->whereIn('english_level', $request->english_level);
             }
-    
+
         })->get();
        // dd ($data);
      // return $data;
@@ -154,6 +154,6 @@ class freelancerListController extends Controller
         return view('frontend.pages.freelancer_list', compact('data'));
         //return redirect()->route('freelancer.list');
       //  return Redirect::route('freelancer.list')->compact('data');
-        
+
     }
 }

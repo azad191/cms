@@ -26,6 +26,14 @@ class RedirectIfAuthenticated
                 return redirect(RouteServiceProvider::HOME);
             }
         }
+//        foreach ($guards as $guard) {
+//            if (Auth::guard($guard)->check() && Auth::user()->role_id == 3) {
+//              //  return redirect('freelancer/profile');
+//                return 'ok';
+//            }else{
+//                return redirect('buyer/dashboard');
+//            }
+//        }
 
         return $next($request);
     }

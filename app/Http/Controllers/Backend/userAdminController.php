@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Models\buyerProfile;
-use App\Models\freelancer_profile;
-use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
 
-class userRegistrationController extends Controller
+class userAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +14,7 @@ class userRegistrationController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class userRegistrationController extends Controller
      */
     public function create()
     {
-        return view('frontend.pages.registration');
+        //
     }
 
     /**
@@ -39,33 +35,7 @@ class userRegistrationController extends Controller
      */
     public function store(Request $request)
     {
-            $data =  $request->all();
-            $data['name'] = $request->first_name.' '.$request->last_name;
-            $data['password'] = Hash::make($request->password);
-            $data['role_id'] = $request->role_id;
-            User::create($data);
-
-          $lastUser =  User::latest('id')->first();
-          $user_id = $lastUser->id;
-          $data['user_id'] = $user_id;
-
-          if($request->role_id == 2){
-          //    return 'buyer';
-              buyerProfile::create($data);
-          }else{
-           //   return 'freelancer';
-              freelancer_profile::create($data);
-          }
-
-
-        $notification = array(
-            'message' => 'Post created successfully!',
-            'alert-type' => 'success'
-        );
-
-        return Redirect::to('/user/registration')->with($notification);
-
-       //   return redirect()->back();
+        //
     }
 
     /**

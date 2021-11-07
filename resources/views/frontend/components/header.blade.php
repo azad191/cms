@@ -5,7 +5,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <strong class="wt-logo">
                         <a href="index.html">
-                            <img src="wp-content/themes/workreap/images/logo.png" alt="Women Empower">
+                            <img src="{{asset('frontend/wp-content/themes/workreap/images/logo.png')}}" alt="Women Empower">
                         </a>
                     </strong>
                     <div class="wt-rightarea">
@@ -73,7 +73,6 @@
                                     <!--</li>-->
                                     <!---->
 
-                                    <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="index.html" >Home</a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="#" > How It Works </a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('job.list')}}" >Find Jobs </a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('freelancer.list')}}" >Find Freelancers</a></li>
@@ -83,25 +82,39 @@
                         </nav>
                         <div class="wt-loginarea">
                             <figure class="wt-userimg">
-                                <img src="wp-content/themes/workreap/images/user.png" alt="user">
+                                <img src="{{asset('frontend/wp-content/themes/workreap/images/user.png')}}" alt="user">
                             </figure>
                             <div class="wt-loginoption">
-                                <a href="javascript:;" id="wt-loginbtn" class="wt-loginbtn">Sign In</a>
+
+
+                                @if(isset(auth()->user()->name))
+                                    <a href="{{ route('logout') }}" class="wt-loginbtn"
+                                       onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">{{auth()->user()->name}}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                @else
+                                    <a href="javascript:;" id="wt-loginbtn" class="wt-loginbtn">Sign In</a>
+                                @endif
                                 <div class="wt-loginformhold">
                                     <div class="wt-loginheader">
-                                        <span>Login</span>
+                                        <span>Login </span>
                                         <a href="javascript:;"><i class="fa fa-times"></i></a>
                                     </div>
-                                    <form class="wt-formtheme wt-loginform do-login-form">
+                                    <form class="wt-formtheme wt-loginform do-login-form" method="POST" action="{{ route('login') }}">
+                                        @csrf
                                         <fieldset>
                                             <div class="form-group">
-                                                <input type="text" name="username" class="form-control" placeholder="Username or email">
+                                                <input type="text" name="email" class="form-control" placeholder="Username or email">
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="password" class="form-control" placeholder="Password">
                                             </div>
                                             <div class="wt-logininfo">
-                                                <input type="submit" class="wt-btn do-login-button" value="Login">
+{{--                                                <input type="submit" value="Login">--}}
+                                                <button type="submt" class="wt-btn" >Login</button>
                                                 <span class="wt-checkbox">
                                                 <input id="wt-login" type="checkbox" name="rememberme">
                                                 <label for="wt-login">Keep me logged in</label>
@@ -131,7 +144,7 @@
                                         </fieldset>
                                         <input type="hidden" name="wt_pwd_nonce" value="2378278024" />
                                         <div class="wt-loginfooterinfo">
-                                            <a href="javascript:;" class="wt-show-login">Login Now</a>
+                                            <a href="javascript:;" >Login Now</a>
                                             <a href="authentication/index0c17.html?step=1">Create account</a>
                                         </div>
                                     </form>

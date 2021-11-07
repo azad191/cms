@@ -116,47 +116,47 @@
                                                                                                                 <h4>Your Department?</h4>
                                                                                                             </div>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department1"  type="radio" name="department" value="57">
+                                                                                          <input id="wt-department1"  type="radio" name="company_type" value="Accounting and Finance">
                                                                                           <label for="wt-department1">Accounting and Finance</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department2" type="radio" name="department" value="59">
+                                                                                          <input id="wt-department2" type="radio" name="company_type" value="Customer Service Or Operations">
                                                                                           <label for="wt-department2">Customer Service Or Operations</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department3" type="radio" name="department" value="60">
+                                                                                          <input id="wt-department3" type="radio" name="company_type" value="Engineering Or Product Management">
                                                                                           <label for="wt-department3">Engineering Or Product Management</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department4" type="radio" name="department" value="56">
+                                                                                          <input id="wt-department4" type="radio" name="company_type" value="Human Resource Management">
                                                                                           <label for="wt-department4">Human Resource Management</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department5" type="radio" name="department" value="55">
+                                                                                          <input id="wt-department5" type="radio" name="company_type" value="Marketing">
                                                                                           <label for="wt-department5">Marketing</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department6" type="radio" name="department" value="311">
+                                                                                          <input id="wt-department6" type="radio" name="company_type" value="None">
                                                                                           <label for="wt-department6">None</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department7" type="radio" name="department" value="310">
+                                                                                          <input id="wt-department7" type="radio" name="company_type" value="Personal">
                                                                                           <label for="wt-department7">Personal</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department8" type="radio" name="department" value="52">
+                                                                                          <input id="wt-department8" type="radio" name="company_type" value="Production">
                                                                                           <label for="wt-department8">Production</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department9" type="radio" name="department" value="54">
+                                                                                          <input id="wt-department9" type="radio" name="company_type" value="Purchasing">
                                                                                           <label for="wt-department9">Purchasing</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department10" type="radio" name="department" value="53">
+                                                                                          <input id="wt-department10" type="radio" name="company_type" value="Research and Development">
                                                                                           <label for="wt-department10">Research and Development</label>
                                                                                           </span>
                                                                                                             <span class="wt-radio">
-                                                                                          <input id="wt-department11" type="radio" name="department" value="61">
+                                                                                          <input id="wt-department11" type="radio" name="company_type" value="Sales">
                                                                                           <label for="wt-department11">Sales</label>
                                                                                           </span>
                                                                                              </div>
@@ -165,27 +165,27 @@
                                                                                                         <h4>No. of employees you have</h4>
                                                                                                     </div>
                                                                                                     <span class="wt-radio">
-                                                                                                      <input id="wt-just1" type="radio" name="employees" value="1">
+                                                                                                      <input id="wt-just1" type="radio" name="number_of_employee" value="Its Just Me">
                                                                                                       <label for="wt-just1">Its Just Me</label>
                                                                                                       </span>
-                                                                                                                        <span class="wt-radio">
-                                                                                                      <input id="wt-just2" type="radio" name="employees" value="10">
+                                                                                                    <span class="wt-radio">
+                                                                                                      <input id="wt-just2" type="radio" name="number_of_employee" value="2 - 9 Employees">
                                                                                                       <label for="wt-just2">2 - 9 Employees</label>
                                                                                                       </span>
                                                                                                                         <span class="wt-radio">
-                                                                                                      <input id="wt-just3" type="radio" name="employees" value="100">
+                                                                                                      <input id="wt-just3" type="radio" name="number_of_employee" value="10 - 99 Employees">
                                                                                                       <label for="wt-just3">10 - 99 Employees</label>
                                                                                                       </span>
                                                                                                                         <span class="wt-radio">
-                                                                                                      <input id="wt-just4" type="radio" name="employees" value="500">
+                                                                                                      <input id="wt-just4" type="radio" name="number_of_employee" value="100 - 499 Employees">
                                                                                                       <label for="wt-just4">100 - 499 Employees</label>
                                                                                                       </span>
                                                                                                                         <span class="wt-radio">
-                                                                                                      <input id="wt-just5" type="radio" name="employees" value="1000">
+                                                                                                      <input id="wt-just5" type="radio" name="number_of_employee" value="500 - 1000 Employees">
                                                                                                       <label for="wt-just5">500 - 1000 Employees</label>
                                                                                                       </span>
                                                                                                                         <span class="wt-radio">
-                                                                                                      <input id="wt-just6" type="radio" name="employees" value="5000">
+                                                                                                      <input id="wt-just6" type="radio" name="number_of_employee" value="More Than 1000 Employees">
                                                                                                       <label for="wt-just6">More Than 1000 Employees</label>
                                                                                                       </span>
                                                                                                 </div>

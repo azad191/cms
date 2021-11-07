@@ -55,4 +55,16 @@ class User extends Authenticatable
     public function skill(){
         return $this->hasMany(freelancerSkill::class, 'user_id');
     }
+    public function faq(){
+        return $this->hasMany(freelancer_faq::class, 'user_id');
+    }
+    public function project(){
+        return $this->hasMany(preelancer_project::class, 'user_id');
+    }
+    public function education(){
+        return $this->hasMany(freelancerEducation::class, 'user_id');
+    }
+    public function experience(){
+        return $this->hasMany(freelancerExperience::class, 'user_id');
+    }
 }

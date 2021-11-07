@@ -245,147 +245,64 @@
                                       <h2>Crafted Projects</h2>
                                    </div>
                                    <div class="wt-projects">
-                                      <div class="wt-project wt-crprojects"  >
-                                         <figure>
-                                            <img src="wp-content/uploads/2019/03/img-01-2.jpg" alt="Themeforest">
-                                         </figure>
-                                         <div class="wt-projectcontent">
-                                            <h3>Themeforest</h3>
-                                            <a target="_blank" href="http://www.themeforest.net/">http://www.themeforest.net</a>
-                                         </div>
-                                      </div>
-                                      <div class="wt-project wt-crprojects"  >
-                                         <figure>
-                                            <img src="wp-content/uploads/2019/03/img-02-2.jpg" alt="Videohive">
-                                         </figure>
-                                         <div class="wt-projectcontent">
-                                            <h3>Videohive</h3>
-                                            <a target="_blank" href="http://www.videohive.net/">http://www.Videohive.net</a>
-                                         </div>
-                                      </div>
-                                      <div class="wt-project wt-crprojects"  >
-                                         <figure>
-                                            <img src="wp-content/uploads/2019/03/img-03-2.jpg" alt="Codecanyon">
-                                         </figure>
-                                         <div class="wt-projectcontent">
-                                            <h3>Codecanyon</h3>
-                                            <a target="_blank" href="http://www.codecanyon.com/">http://www.Codecanyon.com</a>
-                                         </div>
-                                      </div>
-                                      <div class="wt-project wt-crprojects"  >
-                                         <figure>
-                                            <img src="wp-content/uploads/2019/03/img-04.jpg" alt="Graphicriver">
-                                         </figure>
-                                         <div class="wt-projectcontent">
-                                            <h3>Graphicriver</h3>
-                                            <a target="_blank" href="http://www.graphicriver.net/">http://www.graphicriver.net</a>
-                                         </div>
-                                      </div>
-                                      <div class="wt-project wt-crprojects"  >
-                                         <figure>
-                                            <img src="wp-content/uploads/2019/03/img-05-1.jpg" alt="Photodune">
-                                         </figure>
-                                         <div class="wt-projectcontent">
-                                            <h3>Photodune</h3>
-                                            <a target="_blank" href="http://www.photodune.net/">http://www.photodune.net</a>
-                                         </div>
-                                      </div>
-                                      <div class="wt-project wt-crprojects"  >
-                                         <figure>
-                                            <img src="wp-content/uploads/2019/03/img-06.jpg" alt="Audiojungle">
-                                         </figure>
-                                         <div class="wt-projectcontent">
-                                            <h3>Audiojungle</h3>
-                                            <a target="_blank" href="http://www.audiojungle.net/">http://www.audiojungle.net</a>
-                                         </div>
-                                      </div>
+                                      @foreach ($data->project as $projectItem )
+                                       <div class="wt-project wt-crprojects"  >
+                                          <figure>
+                                             <img src="{{asset('backend/uploads/freelancer/project/'.$projectItem->file)}}" alt="Themeforest">
+                                          
+                                          </figure>
+                                          <div class="wt-projectcontent">
+                                             <h3>{{$projectItem->project_title}}</h3>
+                                             <a target="_blank" href="{{$projectItem->url}}">{{$projectItem->url}}</a>
+                                          </div>
+                                       </div>
+                                      @endforeach
+                                      
                                    </div>
                                 </div>
                                 <div class="wt-experience items-more-wrap-ex">
                                    <div class="wt-usertitle">
-                                      <h2>Experience</h2>
+                                      <h2 class="text-info">Experience </h2>
                                    </div>
                                    <div class="wt-experiencelisting-hold data-list">
-                                      <div class="wt-experiencelisting wt-bgcolor sp-load-item">
-                                         <div class="wt-title">
-                                            <h3>Web &amp; Apps Project Manager</h3>
-                                         </div>
-                                         <div class="wt-experiencecontent">
-                                            <ul class="wt-userlisting-breadcrumb">
-                                               <li><span><i class="fa fa-building"></i>&nbsp;Amento Tech</span></li>
-                                               <li><span><i class="fa fa-calendar"></i>&nbsp;Aug 2018&nbsp;-&nbsp;Till Now</span></li>
-                                            </ul>
-                                            <div class="wt-description">
-                                               <p>
-                                               <p>“ Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenim ad minim veniamac quis nostrud exercitation ullamco laboris. ”</p>
-                                               </p>
-                                            </div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-experiencelisting  sp-load-item">
-                                         <div class="wt-title">
-                                            <h3>Sr. PHP &amp; Laravel Developer</h3>
-                                         </div>
-                                         <div class="wt-experiencecontent">
-                                            <ul class="wt-userlisting-breadcrumb">
-                                               <li><span><i class="fa fa-building"></i>&nbsp;Amento Tech</span></li>
-                                               <li><span><i class="fa fa-calendar"></i>&nbsp;Jun 2017&nbsp;-&nbsp;Jun 2018</span></li>
-                                            </ul>
-                                            <div class="wt-description">
-                                               <p>
-                                               <p>“ Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenim ad minim veniamac quis nostrud exercitation ullamco laboris. ”</p>
-                                               </p>
-                                            </div>
-                                         </div>
-                                      </div>
-                                      <div class="wt-experiencelisting wt-bgcolor sp-load-item">
-                                         <div class="wt-title">
-                                            <h3>PHP Developer</h3>
-                                         </div>
-                                         <div class="wt-experiencecontent">
-                                            <ul class="wt-userlisting-breadcrumb">
-                                               <li><span><i class="fa fa-building"></i>&nbsp; Amento Tech</span></li>
-                                               <li><span><i class="fa fa-calendar"></i>&nbsp;Sep 2017&nbsp;-&nbsp;Sep 2016</span></li>
-                                            </ul>
-                                            <div class="wt-description">
-                                               <p>
-                                               <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenim ad minim veniamac quis nostrud exercitation ullamco laboris. </p>
-                                               </p>
-                                            </div>
-                                         </div>
-                                      </div>
+                                      @foreach ($data->experience as $exItem )
+                                         
+                                      
+                                       <div class="wt-experiencelisting wt-bgcolor sp-load-item">
+                                          <div class="wt-title">
+                                             <h3>{{$exItem->job_designation}}</h3>
+                                          </div>
+                                          <div class="wt-experiencecontent">
+                                             <ul class="wt-userlisting-breadcrumb">
+                                                <li><span><i class="fa fa-building"></i>{{$exItem->company_name}}</span></li>
+                                                <li><span><i class="fa fa-calendar"></i>{{$exItem->start}} To {{$exItem->start !=null ? $exItem->start:'Till Now'}}</span></li>
+                                             </ul>
+                                             <div class="wt-description">
+                                                <p>{{$exItem->exp_description}}</p>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       @endforeach
                                       <div class="wt-btnarea"><a href="javascript:;" class="wt-btn sp-loadMore">Load More</a></div>
                                       <div class="divheight"></div>
                                    </div>
                                 </div>
                                 <div class="wt-experience wt-education items-more-wrap-ed">
                                    <div class="wt-usertitle">
-                                      <h2>Education</h2>
+                                      <h2 class="text-info">Education</h2>
                                    </div>
                                    <div class="wt-experiencelisting-hold data-list">
-                                      <div class="wt-experiencelisting wt-bgcolor sp-load-item">
-                                         <div class="wt-title">
-                                            <h3>Web &amp; Apps Project Manager</h3>
-                                         </div>
-                                         <div class="wt-experiencecontent">
-                                            <ul class="wt-userlisting-breadcrumb">
-                                               <li><span><i class="fa fa-building"></i>&nbsp;Amento Tech</span></li>
-                                            </ul>
-                                            <div class="wt-description">
-                                               <p>
-                                               <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenim ad minim veniamac quis nostrud exercitation ullamco laboris.</p>
-                                               </p>
-                                            </div>
-                                         </div>
-                                      </div>
+                                       @foreach ($data->education as $eduItem )
+                                          
+                                       
                                       <div class="wt-experiencelisting  sp-load-item">
                                          <div class="wt-title">
-                                            <h3>Sr. PHP &amp; Laravel Developer</h3>
+                                            <h3>{{$eduItem->education_title}}</h3>
                                          </div>
                                          <div class="wt-experiencecontent">
                                             <ul class="wt-userlisting-breadcrumb">
-                                               <li><span><i class="fa fa-building"></i>&nbsp;Amento Tech</span></li>
-                                               <li><span><i class="fa fa-calendar"></i>&nbsp;Apr 2016&nbsp;-&nbsp;Apr 2017</span></li>
+                                               <li><span><i class="fa fa-building"></i>{{$eduItem->institute_name}}</span></li>
+                                               <li><span><i class="fa fa-calendar"></i>{{$eduItem->start}} To {{$eduItem->start !=null ? $eduItem->start:'continue' }}</span></li>
                                             </ul>
                                             <div class="wt-description">
                                                <p>
@@ -394,22 +311,7 @@
                                             </div>
                                          </div>
                                       </div>
-                                      <div class="wt-experiencelisting wt-bgcolor sp-load-item">
-                                         <div class="wt-title">
-                                            <h3>PHP Developer</h3>
-                                         </div>
-                                         <div class="wt-experiencecontent">
-                                            <ul class="wt-userlisting-breadcrumb">
-                                               <li><span><i class="fa fa-building"></i>&nbsp;Amento Tech</span></li>
-                                               <li><span><i class="fa fa-calendar"></i>&nbsp;Apr 2016&nbsp;-&nbsp;Apr 2017</span></li>
-                                            </ul>
-                                            <div class="wt-description">
-                                               <p>
-                                               <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenim ad minim veniamac quis nostrud exercitation ullamco laboris. </p>
-                                               </p>
-                                            </div>
-                                         </div>
-                                      </div>
+                                      @endforeach
                                       <div class="wt-btnarea"><a href="javascript:;" class="wt-btn sp-loadMore">Load More</a></div>
                                       <div class="divheight"></div>
                                    </div>

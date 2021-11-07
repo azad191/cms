@@ -129,6 +129,7 @@
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
+                <input type="hidden" name="role_id" value="{{auth()->user()->role_id}}">
             </form>
         </li>
         <li class="nav-item">
