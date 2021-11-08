@@ -88,6 +88,79 @@
                         </li>
                     </ul>
                 </li><!--End user-->
+                <!--Start voter-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Voter
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('voter.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End voter-->
+                <!--start candidate-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Candidate
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('slider.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End candidate-->
+                <!--Start Election-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Election
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('slider.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End Election-->
+                <!-- start Setting-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Settings
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('slider.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End Setting-->
+
                 <!--Start Others-->
                 <li class="{{request()->is('logo/all') ? 'nav-item  menu-open' : ''}}">
                     <a href="#" class="nav-link ">

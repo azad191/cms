@@ -6,7 +6,8 @@ use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\sliderController;
 use App\Http\Controllers\Backend\logoCongtroller;
 use App\Http\Controllers\Backend\loginController;
-    use App\Http\Controllers\Backend\userController;
+use App\Http\Controllers\Backend\userController;
+use App\Http\Controllers\Backend\VoterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,13 @@ Route::prefix('user')->name('user.')->group(function(){
     Route::get('/test', [userController::class, 'testData']);
 });
 Route::get('/roles', [userController::class, 'roles']);
+
+//***************** Voter *********************
+Route::prefix('voter')->name('voter.')->group(function(){
+    Route::get('/all', [VoterController::class, 'index'])->name('index');
+
+});
+
 
 
 Auth::routes();
