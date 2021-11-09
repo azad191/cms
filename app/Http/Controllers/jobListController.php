@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\jobPost;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class jobListController extends Controller
@@ -13,7 +15,11 @@ class jobListController extends Controller
      */
     public function index()
     {
-         return view('frontend.pages.job_list');
+        $data =   User::with('jobPost')->whereHas('jobPost', function ($query){
+           $query->orderBy('id', 'DESC');
+       })->paginate(5);
+           // jobPost::get();
+         return view('frontend.pages.job_list', compact('data'));
     }
 
     /**

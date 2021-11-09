@@ -151,7 +151,7 @@
                                 </div>
                             </div>
                             <!--<a href="authentication/index0c17.html?step=1"  class="wt-btn">Join Now</a>-->
-                            <a href="post-project.html"  class="wt-btn">Post Your Job</a>
+                            <a href="{{route('buyer.job.post')}}"  class="wt-btn">Post Your Job</a>
                         </div>
                         <div class="wt-respsonsive-search"><a href="javascript:;" class="wt-searchbtn"><i class="fa fa-search" aria-hidden="true"></i>
                             </a></div>

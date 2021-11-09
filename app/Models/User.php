@@ -45,7 +45,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+//start for freelancer
     function freelancerProfile(){
         return $this->hasOne(freelancer_profile::class, 'user_id');
     }
@@ -67,4 +67,14 @@ class User extends Authenticatable
     public function experience(){
         return $this->hasMany(freelancerExperience::class, 'user_id');
     }
+
+    //start for buyer
+    public function buyerProfile(){
+        return $this->hasOne(buyerProfile::class, 'user_id');
+    }
+    public function jobPost(){
+        return $this->hasMany(jobPost::class, 'user_id');
+    }
+
+
 }

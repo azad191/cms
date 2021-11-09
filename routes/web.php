@@ -61,6 +61,10 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::group(['middleware' => 'buyer'], function(){
         Route::get('/buyer/dashboard', [BuyerDashboardController::class, 'dashboard'])->name('buyer.dashboard');
+        Route::post('/buyer/dashboard/{id}', [BuyerDashboardController::class, 'update'])->name('buyer.profile.update');
+        Route::get('/buyer/profile', [BuyerDashboardController::class, 'profile']);
+        Route::get('/buyer/job/post', [BuyerDashboardController::class, 'jobPost'])->name('buyer.job.post');
+        Route::post('/buyer/job/post/{id}', [BuyerDashboardController::class, 'jobPostStore'])->name('job.post');
     });
 
 });

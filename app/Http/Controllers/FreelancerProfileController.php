@@ -23,9 +23,10 @@ class FreelancerProfileController extends Controller
      */
     public function index()
     {
-        $user = User::find(6);
-        $sp = specialization::where('user_id', 6)->first();
-        $free_profile = freelancer_profile::where('user_id', 6)->first();
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        $sp = specialization::where('user_id', $id)->first();
+        $free_profile = freelancer_profile::where('user_id', $id)->first();
 
         return view('frontend.module.freelancer.dashboard', compact('user', 'sp', 'free_profile'));
     }
@@ -180,7 +181,7 @@ class FreelancerProfileController extends Controller
 
      public function education(Request $request, $id){
         // return $request->all();
-       
+
         $userId = $id;
         $data = $request->all();
         $data['user_id'] = $userId;
@@ -189,9 +190,9 @@ class FreelancerProfileController extends Controller
             freelancerEducation::create($data);
        }elseif($request->submit_type == 'project'){
            //return 'project';
-        
+
            $files=   $request->file('files');
-    
+
             $fileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $files->getClientOriginalExtension();
             $files->move('backend/uploads/freelancer/project', $fileName );
             $data['file'] = $fileName;
