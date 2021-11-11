@@ -98,7 +98,7 @@
                                                                <option value="2">2 Years</option>
                                                                <option value="3">3 Years</option>
                                                                <option value="4">4 Years</option>
-                                                               
+
                                                             </select>
                                                          </span>
                                                       </div>
@@ -157,11 +157,11 @@
                                                    <fieldset>
                                                       <div class="form-group">
                                                          <span class="wt-select">
-                                                            <select name="category_id" class="chosen-select" style="display: none;">
+                                                            <select name="category_id[]" id="js-example-basic-multiple" class="chosen-select "  multiple="multiple">
                                                                <option value="">Select categories</option>
-                                                               <option value="1">Web Desing</option>
-                                                               <option value="2">Web Development</option>
-                                                               <option value="3">Graphics Desing</option>
+                                                                @foreach ($cats as $item)
+                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                          </span>
                                                       </div>
@@ -181,9 +181,9 @@
                                                          <span class="wt-select">
                                                             <select name="skills" class="chosen-select" style="display: none;">
                                                                <option value="">Select Skill</option>
-                                                               <option value="php">PHP</option>
-                                                               <option value="laravel">Laravel</option>
-                                                               <option value="javascript">Javascript</option>
+                                                                @foreach ($skills as $item)
+                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                          </span>
                                                       </div>
@@ -210,11 +210,11 @@
                                                             <input type="file"  name="project_file">
                                                         </div>
                                                     </div>
-                                                         
+
                                                       </fieldset>
                                                    </div>
                                                 </div>
-                                                   
+
                                                 </div>
                                              <!--  -->
 
@@ -249,7 +249,7 @@
                                                                <option style="" class=" level-0" value="rangpur">Rangpur</option>
                                                                <option style="" class=" level-0" value="sylhet">Sylhet</option>
                                                             </select>
-                                                         
+
                                                          </span>
                                                       </div>
                                                    </fieldset>
@@ -257,17 +257,17 @@
                                              </div>
 
                                              <div class="wt-skills">
-                                                
+
                                                 <div class="wt-skillscontent-holder">
                                                    <div class="wt-formtheme wt-skillsforms wt-skillsform-load-temp">
                                                       <fieldset>
 
                                                         <!--  <p>Don’t see your option listed? <a class="wt-create-custom-skills" href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; event_preventDefault(event);">Create one.</a></p> -->
-                                                         
+
                                                          <div class="form-group wt-btnarea">
                                                             <button type="submit"  class="wt-btn wt-add-skill-box" >Save & Update</button>
                                                          </div>
-                                                         
+
                                                       </fieldset>
                                                    </div>
                                                    <div class="wt-myskills wt-listskill">
@@ -277,25 +277,25 @@
                                              </div>
                                              </form>
                                           </div>
-                          
-  
+
+
 
 
 
 </div>
                                    </div>
-                                   
 
-                                   
+
+
                                </div>
                            </div>
                        </div>
                    </div>
                </section>
-                 
+
 
 <style>
-   
+
 .nav-pills-custom .nav-link {
     color: #aaa;
     background: #fff;
@@ -336,6 +336,6 @@ body {
 }
 
 </style>
-            
+
 
 @endsection

@@ -29,16 +29,21 @@ Route::get('/', function () {
 
 
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
-Route::get('job/details', [jobListController::class, 'details'])->name('job.details');
+Route::get('job/details/{id}', [jobListController::class, 'details'])->name('job.details');
+Route::post('job/filter', [jobListController::class, 'jobFilter'])->name('job.filter');
+
 
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
+Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->name('freelancer.filter');
+Route::get('wish/list/{id}/{userId}/{type}', [freelancerListController::class, 'wishList']);
+
  Route::group(['middleware' => 'auth'], function(){
 //***************************** Start Freelancer   ****************************
 
      Route::group(['middleware' => 'freelancer'], function(){
 
          Route::get('freelancer/details/{id}', [freelancerListController::class, 'details'])->name('freelancer.details');
-         Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->name('freelancer.filter');
+
 
          Route::get('freelancer/profile', [FreelancerProfileController::class, 'index'])->name('freelancer.profile');
 

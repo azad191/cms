@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\jobPost;
+use App\Models\Location;
+use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,8 +21,11 @@ class jobListController extends Controller
         $data =   User::with('jobPost')->whereHas('jobPost', function ($query){
            $query->orderBy('id', 'DESC');
        })->paginate(5);
+        $cats = category::get();
+        $skills = Skill::get();
+        $div = Location::get();
            // jobPost::get();
-         return view('frontend.pages.job_list', compact('data'));
+         return view('frontend.pages.job_list', compact('data', 'cats', 'skills', 'div'));
     }
 
     /**
@@ -87,7 +93,23 @@ class jobListController extends Controller
     {
         //
     }
-    public function details(){
-        return view('frontend.pages.job_details');
+    public function details($id){
+        $id =  base64_decode($id);
+       $getJob =  jobPost::find($id);
+       $userId = $getJob->user_id;
+      $getUser = User::find($userId);
+//       return User::with('jobPost')->whereHas('jobPost', function ($query) use ($id){
+//            $query->where('user_id', 10);
+//        })->get();
+
+
+        return view('frontend.pages.job_details', compact('getJob', 'userId'));
+    }
+    public function jobFilter(Request $request){
+
+        return $request->all();
+        User::with('jobPost')->WhereHas('jobPost', function( $query ) use ($request){
+
+        });
     }
 }

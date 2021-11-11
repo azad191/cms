@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\buyerProfile;
+use App\Models\category;
 use App\Models\freelancer_profile;
 use App\Models\jobPost;
+use App\Models\Location;
+use App\Models\Skill;
 use App\Models\specialization;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -57,7 +60,10 @@ class BuyerDashboardController extends Controller
     }
 
     public function jobPost(){
-        return view('frontend.module.buyer.job_post');
+        $cats = category::get();
+        $skills =  Skill::get();
+
+        return view('frontend.module.buyer.job_post', compact('cats', 'skills'));
     }
 
     public function jobPostStore(Request $request, $id){

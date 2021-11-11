@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\wishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -19,7 +20,7 @@ class freelancerListController extends Controller
        // return $data;
        $data = User::with('freelancerProfile', 'skill')->whereHas('freelancerProfile', function( $query ){
             $query->whereNotNull('user_id');
-        })->get();
+        })->paginate(5);
       //  return $data;
 
 
@@ -141,7 +142,7 @@ class freelancerListController extends Controller
                 $query->whereIn('english_level', $request->english_level);
             }
 
-        })->get();
+        })->paginate(5);
        // dd ($data);
      // return $data;
 //        return  $data = User::with(['freelancerProfile','specialization'])->whereHas('freelancerProfile', function( $query ){
@@ -154,6 +155,36 @@ class freelancerListController extends Controller
         return view('frontend.pages.freelancer_list', compact('data'));
         //return redirect()->route('freelancer.list');
       //  return Redirect::route('freelancer.list')->compact('data');
+
+    }
+    public function wishList($id, $userId, $type){
+        $user = User::find($userId);
+      // $role = $user->role_id;
+        if(!empty($user)){
+            if(auth()->user()->role_id == 3 and $type=='freelancer'){
+
+                wishList::create([
+                    'user_id' =>  $userId ,
+                    'freelancer_profile_id' =>$id,
+                    'type' => $type,
+                ]);
+                return response()->json(['status'=>200]);
+
+            }elseif(auth()->user()->role_id == 2 and $type=='buyer'){
+                wishList::create([
+                    'user_id' => $userId,
+                    'job_post_id' => $id,
+                    'type' => $type,
+                ]);
+                return response()->json(['status'=>200]);
+
+            }else{
+                return response()->json(['status'=>403]);
+            }
+
+        }else{
+            return response()->json(['status'=>404]);
+        }
 
     }
 }

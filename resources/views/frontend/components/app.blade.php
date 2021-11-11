@@ -127,6 +127,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body class="home page-template page-template-full-width-template page-template-full-width-template-php page page-id-258 wp-embed-responsive theme-workreap registration-enabled default-header woocommerce-no-js">
 
@@ -312,6 +313,8 @@
 <script type='text/javascript' src='{{asset('frontend/wp-includes/js/wp-embed.min2513.js?ver=5.2.3')}}'></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+
 <script>
     (function ($) {
         $.fn.countTo = function (options) {
@@ -435,7 +438,9 @@
             break;
     }
     @endif
+
 </script>
+
 </body>
 
 </html>

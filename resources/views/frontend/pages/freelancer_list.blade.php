@@ -350,12 +350,13 @@
                                                 <h2><a href="{{route('freelancer.details',$item->id)}}">E-commerce design & developer</a></h2>
                                             </div>
                                             <ul class="wt-userlisting-breadcrumb ">
-{{--                                                <li><span><i class="fa fa-money"></i>Tk. 500.00&nbsp;/&nbsp;hr</span></li>--}}
+{{--                                                <li><span><i class="fa fa-money"></i>Tk. 500.00 &nbsp;/&nbsp;hr</span></li>--}}
                                                 <li>
                                                    <span>
                                                    <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.png')}}" alt="//amentotech.com/projects/wpworkreap/wp-content/uploads/2019/03/img-01-2.png"></em>Bangladesh                                                         </span>
                                                 </li>
-                                                <li>            <a href="javascript:;" class="wt-clicksave wt-savefreelancer" data-id="351" data-text="Saved"><i class="fa fa-heart" ></i><span>Click to Save</span></a></li>
+                                                <li>            
+                                                <button class="wt-clicksave" id="wish" onclick="wishList({{$item->id}}, {{isset(auth()->user()->id) ? auth()->user()->id : '404'}}, 'freelancer')" data-id="1" data-text="Saved"><i class="fa fa-heart" ></i><span>Click to Save</span></a></li>
                                             </ul>
                                         </div>
                                         <div class="wt-rightarea user-stars-v2">
@@ -387,12 +388,13 @@
 
                                 <div class='wt-paginationvtwo'>
                                     <nav class="wt-pagination">
-                                        <ul>
+                                        <!-- <ul>
                                             <li class="wt-active"><a href='javascript:;'>1</a></li>
                                             <li><a href='page/2/index.html' class="inactive">2</a></li>
                                             <li><a href='page/3/index.html' class="inactive">3</a></li>
                                             <li class='wt-nextpage'><a href="page/2/index.html"><i class="lnr lnr-chevron-right"></i></a></li>
-                                        </ul>
+                                        </ul> -->
+                                        {{ $data->links() }}
                                     </nav>
                                 </div>
                             </div>
@@ -402,4 +404,31 @@
             </div>
         </div>
     </div>
+   
+    <script>
+        function wishList(id, userId, type){
+           // localStorage.setItem('keyId', [100]);
+            console.log(id);
+            console.log(userId);
+            console.log(type);
+
+            
+            axios.get(`/wish/list/${id}/${userId}/${type}`)
+            .then(function(res){
+              if(res.data.status==200){
+                toastr.success('saved success')
+              }else if(res.data.status==404){
+                toastr.warning('User Not found')
+              }else{
+                toastr.error('doest not seved')
+              }
+               
+             
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+        }
+        
+    </script>
 @endsection

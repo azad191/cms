@@ -79,15 +79,15 @@
                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left">
                               <div class="wt-proposalholder">
                                  <div class="wt-proposalhead">
-                                    <h1>Tracking System</h1>
+                                    <h1>{{$getJob->job_title}}</h1>
                                     <ul class="wt-userlisting-breadcrumb wt-userlisting-breadcrumbvtwo">
                                        <li><span><i class="fa fa-check-circle wt-viewjobdollar"></i>Basic Level</span></li>
                                        <!-- fa fa-check-circle wt-viewjobdollar -->
                                        <li>
                                           <span>
-                                          <em><img class="wt-checkflag" src="wp-content/uploads/2019/03/img-05-1.png" alt="//amentotech.com/projects/wpworkreap/wp-content/uploads/2019/03/img-05-1.png"></em>United Emirates															</span>
+                                          <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.png')}}" alt="country"></em>United Emirates															</span>
                                        </li>
-                                       <li><span><i class="fa fa-folder wt-viewjobfolder"></i>Type:Fixed</span></li>
+                                       <li><span><i class="fa fa-folder wt-viewjobfolder"></i>Type:{{$getJob->job_type}}</span></li>
                                        <li><span><i class="fa fa-clock-o wt-viewjobclock"></i>Less than a month</span></li>
                                     </ul>
                                  </div>
@@ -265,5 +265,22 @@
                      </div>
                   </div>
                </div>
+               <style>
+    .wt-proposalsrcontent .wt-title h3 {
+        font-size: 20px;
+        color: #2ecc71;
+        margin: 0;
+        line-height: 1.3em;
+        word-break: break-word;
+    }
+    .wt-proposalsicon i {
+        display: block;
+        line-height: 30px;
+        text-align: center;
+    }
+    .wt-projectdetail-holder{
+        margin-bottom: 30px;
+    }
+</style>
             
 @endsection

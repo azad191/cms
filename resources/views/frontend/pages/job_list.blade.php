@@ -83,7 +83,8 @@
                                     <div class="floating-mobile-filter">
                                        <div class="wt-filter-scroll">
                                           <a class="wt-mobile-close" href="javascript:;"><i class="lnr lnr-cross"></i></a>
-                                          <form method="get" name="serach-projects" action="#">
+                                          <form  action="{{route('job.filter')}}" method="post">
+                                             @csrf
                                              <!-- <div class="wt-widget wt-startsearch ">
                                                 <div class="wt-widgettitle">
                                                    <h2>Search By Geo Location</h2>
@@ -116,36 +117,15 @@
                                                 <div class="wt-widgetcontent">
                                                    <div class="wt-formtheme wt-formsearch">
                                                       <fieldset>
-                                                         <div class="form-group">
+                                                         <!-- <div class="form-group">
                                                             <input type="text" name="keyword" value="" class="form-control" placeholder="Type keyword">
                                                             <button class="wt-searchgbtn" type="submit"><i class="fa fa-filter"></i></button>
-                                                         </div>
+                                                         </div> -->
                                                       </fieldset>
                                                    </div>
                                                 </div>
                                              </div>
-                                             <div class="wt-widget wt-effectiveholder">
-                                                <div class="wt-widgettitle">
-                                                   <h2>Filter by price</h2>
-                                                   <span class="lnr lnr-pencil custom-price-edit"></span>
-                                                </div>
-                                                <div class="wt-widgetcontent">
-                                                   <div class="wt-formtheme wt-formsearch">
-                                                      <fieldset>
-                                                         <div class="form-group">
-                                                            <div class="starts_from wt-themerangeslider" id="starts_from"></div>
-                                                         </div>
-                                                         <div class="wt-amountbox">
-                                                            <input type="text" value="&#036;0 - &#036;1000" id="wt-consultationfeeamount" readonly>
-                                                         </div>
-                                                         <div class="offer-filter wt-hide-form">
-                                                            <input type="text" name="minprice" class="ca-minprice" value="0">
-                                                            <input type="text" name="maxprice" class="ca-maxprice" value="1000">
-                                                         </div>
-                                                      </fieldset>
-                                                   </div>
-                                                </div>
-                                             </div>
+                                       
                                              <div class="wt-widget wt-effectiveholder">
                                                 <div class="wt-widgettitle">
                                                    <h2>Categories</h2>
@@ -160,14 +140,11 @@
                                                       </fieldset>
                                                       <fieldset>
                                                          <div class="wt-checkboxholder wt-filterscroll">    
-                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-577706245 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/business/" class="loclevel-0" value="business"><label for="term-577706245">Business</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-1383038269 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/digital-marketing/" class="loclevel-0" value="digital-marketing"><label for="term-1383038269">Digital Marketing</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-232126349 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/fun-lifestyle/" class="loclevel-0" value="fun-lifestyle"><label for="term-232126349">Fun &amp; Lifestyle</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-1153090856 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/mobiles/" class="loclevel-0" value="mobiles"><label for="term-1153090856">Mobiles</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-1001792707 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/music-audio/" class="loclevel-0" value="music-audio"><label for="term-1001792707">Music &amp; Audio</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-1039121916 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/programming-tech/" class="loclevel-0" value="programming-tech"><label for="term-1039121916">Programming &amp; Tech</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-1422310837 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/video-animation/" class="loclevel-0" value="video-animation"><label for="term-1422310837">Video &amp; Animation</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-547862955 data-permalink="http://amentotech.com/projects/wpworkreap/project_cat/writing-translation/" class="loclevel-0" value="writing-translation"><label for="term-547862955">Writing &amp; Translation</label></span>
+                                                         @foreach ($cats as $key => $item)
+                                                         <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-{{$key}} class="loclevel-0" value="{{$item->name}}"><label for="term-{{$key}}">{{$item->name}}</label>
+                                                         
+                                                      </span>
+                                                         @endforeach
                                                          </div>
                                                       </fieldset>
                                                    </div>
@@ -187,13 +164,15 @@
                                                       </fieldset>
                                                       <fieldset>
                                                          <div class="wt-checkboxholder wt-filterscroll">              
-                                                            <span class='wt-checkbox loclevel-0'><input name='location[]' type='checkbox' id=term-449874039 data-permalink="http://amentotech.com/projects/wpworkreap/location/australia/" class="loclevel-0" value="australia"><label for="term-449874039"><img class="wt-checkflag" alt="location" src="wp-content/uploads/2019/03/img-01-2.png">Australia</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='location[]' type='checkbox' id=term-985270022 data-permalink="http://amentotech.com/projects/wpworkreap/location/canada/" class="loclevel-0" value="canada"><label for="term-985270022"><img class="wt-checkflag" alt="location" src="wp-content/uploads/2019/03/img-03-1.png">Canada</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='location[]' type='checkbox' id=term-411675122 data-permalink="http://amentotech.com/projects/wpworkreap/location/england/" class="loclevel-0" value="england"><label for="term-411675122"><img class="wt-checkflag" alt="location" src="wp-content/uploads/2019/03/img-04-1.png">England</label></span>
+                                                            @foreach ($div as $key => $item)
+                                                            <span class='wt-checkbox loclevel-0'>
+                                                               <input name='location[]' type='checkbox' id=loc-{{$key}}  class="loclevel-0" value="{{$item->name}}">
+                                                               <label for="loc-{{$key}}">
+                                                               {{$item->name}}
+                                                               </label>
+                                                            </span>
 
-                                                            
-                                                            <span class='wt-checkbox loclevel-0'><input name='location[]' type='checkbox' id=term-2140428318 data-permalink="http://amentotech.com/projects/wpworkreap/location/united-kingdom/" class="loclevel-0" value="united-kingdom"><label for="term-2140428318"><img class="wt-checkflag" alt="location" src="wp-content/uploads/2019/03/img-04-2.png">United Kingdom</label></span>
-                                                            <span class='wt-checkbox loclevel-0'><input name='location[]' type='checkbox' id=term-1893018633 data-permalink="http://amentotech.com/projects/wpworkreap/location/united-states/" class="loclevel-0" value="united-states"><label for="term-1893018633"><img class="wt-checkflag" alt="location" src="wp-content/uploads/2019/03/img-02-2.png">United States</label></span>
+                                                            @endforeach
                                                          </div>
                                                       </fieldset>
                                                    </div>
@@ -212,67 +191,13 @@
                                                          </div>
                                                       </fieldset>
                                                       <fieldset>
-                                                         <div class="wt-checkboxholder wt-filterscroll">              
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-259" type="checkbox" name="skills[]" value="android" >
-                                                            <label for="skill-259">Android</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-42" type="checkbox" name="skills[]" value="api" >
-                                                            <label for="skill-42">API</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-41" type="checkbox" name="skills[]" value="c" >
-                                                            <label for="skill-41">C++</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-34" type="checkbox" name="skills[]" value="content-writing" >
-                                                            <label for="skill-34">Content Writing</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-35" type="checkbox" name="skills[]" value="css" >
-                                                            <label for="skill-35">CSS</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-43" type="checkbox" name="skills[]" value="facebook-api" >
-                                                            <label for="skill-43">Facebook API</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-30" type="checkbox" name="skills[]" value="graphic-design" >
-                                                            <label for="skill-30">Graphic Design</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-29" type="checkbox" name="skills[]" value="html-5" >
-                                                            <label for="skill-29">HTML 5</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-40" type="checkbox" name="skills[]" value="java" >
-                                                            <label for="skill-40">Java</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-36" type="checkbox" name="skills[]" value="jquery" >
-                                                            <label for="skill-36">Jquery</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-33" type="checkbox" name="skills[]" value="my-sql" >
-                                                            <label for="skill-33">My SQL</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-27" type="checkbox" name="skills[]" value="php" >
-                                                            <label for="skill-27">PHP</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-32" type="checkbox" name="skills[]" value="seo" >
-                                                            <label for="skill-32">SEO</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-28" type="checkbox" name="skills[]" value="website-design" >
-                                                            <label for="skill-28">Website Design</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="skill-31" type="checkbox" name="skills[]" value="wordpress" >
-                                                            <label for="skill-31">WordPress</label>
-                                                            </span>
+                                                         <div class="wt-checkboxholder wt-filterscroll"> 
+                                                            @foreach ($skills as $key => $item)
+                                                               <span class="wt-checkbox">
+                                                               <input id="skill-{{$key}}" type="checkbox" name="skills[]" value="android" >
+                                                               <label for="skill-{{$key}}">{{$item->name}}</label>
+                                                               </span>
+                                                            @endforeach 
                                                          </div>
                                                       </fieldset>
                                                    </div>
@@ -336,42 +261,7 @@
                                                    </div>
                                                 </div>
                                              </div>
-                                             <div class="wt-widget wt-effectiveholder">
-                                                <div class="wt-widgettitle">
-                                                   <h2>Languages</h2>
-                                                </div>
-                                                <div class="wt-widgetcontent">
-                                                   <div class="wt-formtheme wt-formsearch">
-                                                      <fieldset>
-                                                         <div class="form-group">
-                                                            <input type="text" value="" class="form-control wt-filter-field" placeholder="Search Language">
-                                                            <a href="javascript:;" class="wt-searchgbtn"><i class="fa fa-filter"></i></a>
-                                                         </div>
-                                                      </fieldset>
-                                                      <fieldset>
-                                                         <div class="wt-checkboxholder wt-filterscroll">              
-                                                            <span class="wt-checkbox">
-                                                            <input id="language62" type="checkbox" name="language[]" value="ab" >
-                                                            <label for="language62"> Abkhazian</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="language63" type="checkbox" name="language[]" value="aa" >
-                                                            <label for="language63"> Afar</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="language65" type="checkbox" name="language[]" value="af" >
-                                                            <label for="language65"> Afrikaans</label>
-                                                            </span>
-                                                            <span class="wt-checkbox">
-                                                            <input id="language66" type="checkbox" name="language[]" value="ak" >
-                                                            <label for="language66"> Akan</label>
-                                                            </span>
-                                                            
-                                                         </div>
-                                                      </fieldset>
-                                                   </div>
-                                                </div>
-                                             </div>
+                                             
                                              <div class="wt-widget wt-effectiveholder">
                                                 <div class="wt-widgetcontent">
                                                    <div class="wt-applyfilters">
@@ -426,7 +316,7 @@
                                                 <li data-tipso="Job Expiry Date" class="tipso_style wt-tipso"><span><i class="fa fa-hourglass-half wt-viewjobclock"></i>{{\Carbon\Carbon::parse($jobItem->project_expire)->format('d-m-Y, h:i A')}}</span></li>
                                                 <li><span class="wt-budget"><i class="fa fa-money wt-viewjobtag"></i>Budget:&nbsp;<em>Tk.70000.00</em></span></li>
                                                 <li>                <span><a href="javascript:;" class="wt-clicklike wt-add-to-saved_projects" data-id="181"><i class="fa fa-heart"></i><em>Click to save</em></a></span>               </li>
-                                                <li class="wt-btnarea"><a href="project-details.html" class="wt-btn">View Job</a></li>
+                                                <li class="wt-btnarea"><a href="{{route('job.details', base64_encode($jobItem->id) )}}" class="wt-btn">View Job</a></li>
                                              </ul>
                                           </div>
                                        </div>
