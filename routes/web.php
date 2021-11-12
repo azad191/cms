@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\loginController;
 use App\Http\Controllers\Backend\userController;
 use App\Http\Controllers\Backend\VoterController;
 use App\Http\Controllers\Backend\CandidateController;
+use App\Http\Controllers\Backend\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +31,10 @@ Route::get('/logins', function () {
     //  return view('welcome');
     return view('login');
 });
-Route::get('/admin/dashboard', function () {
+Route::get('/admin/register', function () {
     //  return view('welcome');
-    return view('backend.pages.admin_dashboard');
+    return view('register');
 });
-
 Route::get('cats', [CategoryController::class, 'index']);
 Route::get('menu', [MenuController::class, 'index'])->name('menu');
 Route::get('menu/create', [MenuController::class, 'create'])->name('menu.create');
@@ -51,6 +51,13 @@ Route::prefix('user')->name('user.')->group(function(){
     Route::get('/test', [userController::class, 'testData']);
 });
 Route::get('/roles', [userController::class, 'roles']);
+
+//***************** Admin *********************
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
+
+});
+
 
 //***************** Voter *********************
 Route::prefix('voter')->name('voter.')->group(function(){
