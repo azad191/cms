@@ -26,6 +26,15 @@ Route::get('/', function () {
     return view('backend.dashboard');
 });
 
+Route::get('/logins', function () {
+    //  return view('welcome');
+    return view('login');
+});
+Route::get('/admin/dashboard', function () {
+    //  return view('welcome');
+    return view('backend.pages.admin_dashboard');
+});
+
 Route::get('cats', [CategoryController::class, 'index']);
 Route::get('menu', [MenuController::class, 'index'])->name('menu');
 Route::get('menu/create', [MenuController::class, 'create'])->name('menu.create');

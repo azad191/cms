@@ -225,7 +225,6 @@
             if (file) {
                 blah.src = URL.createObjectURL(file)
                 hasFile.style.display = 'block'
-
             }
         }
     </script>

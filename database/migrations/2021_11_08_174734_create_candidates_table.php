@@ -15,6 +15,11 @@ class CreateCandidatesTable extends Migration
     {
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('election_id');
+            $table->foreignId('user_id');
+            $table->foreignId('employee_id');
+            $table->string('candidate_type');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

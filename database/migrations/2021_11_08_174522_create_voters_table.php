@@ -15,6 +15,10 @@ class CreateVotersTable extends Migration
     {
         Schema::create('voters', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('election_id');
+            $table->foreignId('user_id');
+            $table->foreignId('employee_id');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }
