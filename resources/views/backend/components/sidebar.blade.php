@@ -101,7 +101,15 @@
                         <li class="nav-item">
                             <a href="{{route('voter.index')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add Slider</p>
+                                <p>Pending</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('voter.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Approved</p>
                             </a>
                         </li>
                     </ul>
@@ -117,9 +125,17 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('slider.index')}}" class="nav-link ">
+                            <a href="{{route('candidate.index')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add Slider</p>
+                                <p>Pending</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('candidate.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Approved</p>
                             </a>
                         </li>
                     </ul>

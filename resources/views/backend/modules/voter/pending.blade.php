@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Register Voter List</h3>
+                <h3 class="card-title">Voter Approved List</h3>
                 <button class="btn btn-info" data-toggle="modal"  data-target="#modal-lg" id="ok">Add New User</button>
             </div>
         </div>
@@ -31,7 +31,7 @@
                     </td>
                     <td>Win 95+</td>
                     <td>Win 95+</td>
-                    <td>Win 95+</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
                     <td><button class="btn btn-success   btn-sm text-white" data-toggle="modal" id="ok" data-target="#modal-lg" >View</button></td>
                 </tr>
                 </tbody>

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Models\backend\Candidate;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
@@ -14,7 +14,7 @@ class CandidateController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.modules.candidate.pending');
     }
 
     /**
@@ -41,10 +41,10 @@ class CandidateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\backend\Candidate  $candidate
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Candidate $candidate)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class CandidateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\backend\Candidate  $candidate
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Candidate $candidate)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class CandidateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\backend\Candidate  $candidate
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Candidate $candidate)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,11 +75,14 @@ class CandidateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\backend\Candidate  $candidate
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Candidate $candidate)
+    public function destroy($id)
     {
         //
+    }
+    public function approved(){
+        return view('backend.modules.candidate.approved');
     }
 }

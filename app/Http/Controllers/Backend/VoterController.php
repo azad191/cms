@@ -14,7 +14,7 @@ class VoterController extends Controller
      */
     public function index()
     {
-        return view('backend.modules.voter.index');
+        return view('backend.modules.voter.pending');
     }
 
     /**
@@ -81,5 +81,8 @@ class VoterController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function approved(){
+        return view('backend.modules.voter.approved');
     }
 }
