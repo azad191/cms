@@ -13,22 +13,26 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
+                    <th>Sl No</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Id-cart No</th>
+                    <th>Nid No</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr >
+                    <td>1</td>
                     <td>Trident</td>
                     <td>Internet
                         Explorer 4.0
                     </td>
                     <td>Win 95+</td>
-                    <td> 4</td>
-                    <td><button data-toggle="modal" id="ok" data-target="#modal-lg" >View</button></td>
+                    <td>Win 95+</td>
+                    <td>Win 95+</td>
+                    <td><button class="btn btn-success   btn-sm text-white" data-toggle="modal" id="ok" data-target="#modal-lg" >View</button></td>
                 </tr>
                 </tbody>
             </table>
