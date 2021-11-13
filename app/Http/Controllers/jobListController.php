@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\buyerProfile;
 use App\Models\category;
 use App\Models\jobPost;
 use App\Models\Location;
@@ -98,12 +99,13 @@ class jobListController extends Controller
        $getJob =  jobPost::find($id);
        $userId = $getJob->user_id;
       $getUser = User::find($userId);
+      $buyerProfile =buyerProfile::where('user_id', 15)->first();
 //       return User::with('jobPost')->whereHas('jobPost', function ($query) use ($id){
 //            $query->where('user_id', 10);
 //        })->get();
 
 
-        return view('frontend.pages.job_details', compact('getJob', 'userId'));
+        return view('frontend.pages.job_details', compact('getJob', 'getUser', 'buyerProfile'));
     }
     public function jobFilter(Request $request){
 

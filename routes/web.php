@@ -32,6 +32,7 @@ Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details/{id}', [jobListController::class, 'details'])->name('job.details');
 Route::get('job/file/download/{id}', [jobListController::class, 'download'])->name('job.file.download');
 Route::post('job/filter', [jobListController::class, 'jobFilter'])->name('job.filter');
+Route::get('/buyer/profile/{id}', [BuyerDashboardController::class, 'profile'])->name('buyer_profile');
 
 
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
@@ -68,7 +69,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::group(['middleware' => 'buyer'], function(){
         Route::get('/buyer/dashboard', [BuyerDashboardController::class, 'dashboard'])->name('buyer.dashboard');
         Route::post('/buyer/dashboard/{id}', [BuyerDashboardController::class, 'update'])->name('buyer.profile.update');
-        Route::get('/buyer/profile', [BuyerDashboardController::class, 'profile']);
         Route::get('/buyer/job/post', [BuyerDashboardController::class, 'jobPost'])->name('buyer.job.post');
         Route::post('/buyer/job/post/{id}', [BuyerDashboardController::class, 'jobPostStore'])->name('job.post');
     });

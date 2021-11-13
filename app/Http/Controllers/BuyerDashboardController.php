@@ -44,7 +44,29 @@ class BuyerDashboardController extends Controller
          $number_of_employee = $request->number_of_employee;
          $buyer_location = $request->buyer_location;
          // return $buyer_description ;
-         $userData->name = $name;
+
+         //files
+        $profileImage = $request->file('buyer_profile_image');
+
+        $bannerImage = $request->file('buyer_banner_image');
+
+        if($request->hasFile('buyer_profile_image')){
+            unlink(public_path('backend/uploads/buyer/profile/').$buyerData->buyer_profile_image);
+            $profileImageName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $profileImage->getClientOriginalExtension();
+            Image::make($profileImage)->resize(100, 100)->save(public_path('backend/uploads/buyer/profile/').$profileImageName );
+            $buyerData->buyer_profile_image =  $profileImageName;
+        }
+        if($request->hasFile('buyer_banner_image')){
+
+            unlink(public_path('backend/uploads/buyer/banner/').$buyerData->buyer_banner_image);
+
+            $bannerImageName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $bannerImage->getClientOriginalExtension();
+            Image::make($bannerImage)->resize(350, 172)->save(public_path('backend/uploads/buyer/banner/').$bannerImageName );
+            $buyerData->buyer_banner_image = $bannerImageName;
+
+        }
+
+        $userData->name = $name;
         $buyerData->company_name = $company_name;
         $buyerData->company_type = $company_type;
         $buyerData->buyer_description = $buyer_description;
@@ -56,8 +78,12 @@ class BuyerDashboardController extends Controller
         return redirect()->back();
        // return view('frontend.module.buyer.buyer_dashboard', compact('data'));
     }
-    public function profile(){
-        return view('frontend.module.buyer.buyer_profile');
+    public function profile($id){
+           $convertId =  base64_decode($id);
+           $data =User::with(['buyerProfile','jobPost'])->where('id', $convertId)->first();
+
+            $jobPost =  jobPost::where('user_id', $convertId)->orderBy('id', 'DESC')->simplePaginate(5);;
+        return view('frontend.pages.buyer_profile', compact('data', 'jobPost'));
     }
 
     public function jobPost(){

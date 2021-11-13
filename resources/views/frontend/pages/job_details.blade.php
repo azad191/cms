@@ -6,7 +6,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 push-lg-1">
                 <div class="wt-innerbannercontent">
                     <div class="wt-title">
-                        <h1>Job Detail</h1>
+                        <h1>Job Details</h1>
                     </div>
                     <ol class="wt-breadcrumb">
                         <li class="first-item">
@@ -97,7 +97,7 @@
                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 float-left">
                               <div class="wt-projectdetail-holder">
                                  <div class="wt-title">
-                                    <h3>Project detail</h3>
+                                    <h3>Project details</h3>
                                  </div>
                                  <div class="wt-projectdetail">
                                     <div class="wt-description">
@@ -116,8 +116,6 @@
                                         @foreach($skills as $skillItem)
                                             <a  class="skills_181" href="">{{$skillItem->name}}</a>
                                         @endforeach
-
-
                                     </div>
                                  </div>
                                  <div class="wt-attachmentss">
@@ -179,26 +177,26 @@
                                        </div>
                                     </div> -->
                                     <div class="wt-clicksavearea">
-                                       <span>Project ID:&nbsp;00000181</span>
+                                       <span>Project ID:&nbsp;{{$getJob->job_id}}</span>
                                        <span><a href="javascript:;" class="wt-clicksavebtn wt-add-to-saved_projects" data-id="181"><i class="fa fa-heart"></i><em>Click to save</em></a></span>
                                     </div>
                                  </div>
                                  <div class="wt-widget">
                                     <div class="wt-companysdetails">
                                        <figure class="wt-companysimg">
-                                          <img src="{{asset('frontend/wp-content/uploads/2019/03/10-2-350x172.jpg')}}" alt="employer">
+                                          <img src="{{asset('backend/uploads/buyer/banner/'.$buyerProfile->buyer_banner_image)}}" alt="employer">
                                        </figure>
                                        <div class="wt-companysinfo">
-                                          <figure><img src="{{asset('frontend/wp-content/uploads/2019/03/10-100x100.jpg')}}" alt="employer"></figure>
+                                          <figure><img src="{{asset('/backend/uploads/buyer/profile/'.$buyerProfile->buyer_profile_image)}}" alt="employer"></figure>
                                           <div class="wt-title emp-title">
-                                             <a href="project-details.html">
-                                             <i class="fa fa-check-circle"></i>&nbsp;Abhinav								</a>
-                                             <h2><a href="project-details.html">SEO Expert &amp; Consultant</a></h2>
+                                             <a href="{{route('buyer_profile', base64_encode($getUser->id))}}">
+                                             <i class="fa fa-check-circle"></i>{{$getUser->name}}</a>
+                                             <h2><a href="{{route('buyer_profile', base64_encode($getUser->id))}}">Buyer</a></h2>
                                           </div>
                                           <ul class="wt-postarticlemeta">
-                                             <li><a href="project-details.html"><span>Open Jobs</span></a></li>
-                                             <li><a href="project-details.html"><span>Full Profile</span></a></li>
-                                             <li>				<a href="javascript:;"  data-type="v2" data-id="304" data-text="Following" class="wt-follow-emp"><span>Follow</span></a></li>
+                                             <li><a href="#"><span>Open Jobs</span></a></li>
+                                             <li><a href="{{route('buyer_profile', base64_encode($getUser->id))}}"><span>Full Profile</span></a></li>
+                                             <li><a href="javascript:;"  data-type="v2" data-id="304" data-text="Following" class="wt-follow-emp"><span>Follow</span></a></li>
                                           </ul>
                                        </div>
                                     </div>
