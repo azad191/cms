@@ -30,6 +30,7 @@ Route::get('/', function () {
 
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details/{id}', [jobListController::class, 'details'])->name('job.details');
+Route::get('job/file/download/{id}', [jobListController::class, 'download'])->name('job.file.download');
 Route::post('job/filter', [jobListController::class, 'jobFilter'])->name('job.filter');
 
 

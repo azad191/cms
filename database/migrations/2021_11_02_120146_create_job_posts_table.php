@@ -32,9 +32,9 @@ class CreateJobPostsTable extends Migration
             $table->string('location', 50)->nullable();
             $table->text('job_qualification')->nullable();
             $table->string('duration', 50);
-            $table->datetime('project_expire');
-            $table->datetime('project_deadline')->nullable();
-            $table->datetime('project_file')->nullable();
+            $table->dateTime('project_expire');
+            $table->dateTime('project_deadline')->nullable();
+            $table->string('project_file')->nullable();
             $table->enum('project_status', ['pending', 'ongoing', 'completed'])->default('pending');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();

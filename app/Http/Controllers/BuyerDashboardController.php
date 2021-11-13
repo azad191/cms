@@ -11,6 +11,7 @@ use App\Models\Skill;
 use App\Models\specialization;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Image;
 
 class BuyerDashboardController extends Controller
 {
@@ -60,7 +61,8 @@ class BuyerDashboardController extends Controller
     }
 
     public function jobPost(){
-        $cats = category::get();
+         $cats = category::whereNull('parent_id')->get();
+
         $skills =  Skill::get();
 
         return view('frontend.module.buyer.job_post', compact('cats', 'skills'));
@@ -69,10 +71,25 @@ class BuyerDashboardController extends Controller
     public function jobPostStore(Request $request, $id){
       // return sprintf("%06d", mt_rand(1, 999999);
          $data = $request->all();
-       // return $data;
+          //  return $data;
          $data['job_id']= random_int(100000, 999999);
          $data['user_id'] = $id;
+         $data['category_id'] = json_encode($request->category_id);
+         $data['skills'] = json_encode($request->skills);
+
          $checkBuyer = User::find($id);
+         $projectFile = $request->file('project_file');
+         //dd($projectFile);
+         if($request->hasFile('project_file')){
+             $fileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $projectFile->getClientOriginalExtension();
+             Image::make($projectFile)->resize(500, 300)->save(public_path('backend/uploads/buyer/jobPost/').$fileName );
+
+             $data['project_file'] = $fileName;
+         }
+
+//        $files->move('backend/uploads/freelancer/project', $fileName );
+
+
          //return $checkBuyer;
          if(!empty($checkBuyer)){
             // return 'ok';

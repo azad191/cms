@@ -112,4 +112,9 @@ class jobListController extends Controller
 
         });
     }
+    public function download($id){
+        $job = jobPost::find($id);
+        $file=public_path('backend/uploads/buyer/jobPost/'.$job->project_file);
+        return response()->download($file);
+    }
 }

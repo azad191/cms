@@ -148,27 +148,7 @@
                                              </div>
                                              <!--  -->
 
-                                              <!--  -->
-                                             <div class="wt-yourdetails wt-tabsinfo" style="pading-top: 30px">
-                                                <div class="wt-tabscontenttitle">
-                                                   <h2>Job Categories</h2>
-                                                </div>
-                                                <div class="wt-formtheme wt-userform">
-                                                   <fieldset>
-                                                      <div class="form-group">
-                                                         <span class="wt-select">
-                                                            <select name="category_id[]" id="js-example-basic-multiple" class="chosen-select "  multiple="multiple">
-                                                               <option value="">Select categories</option>
-                                                                @foreach ($cats as $item)
-                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                         </span>
-                                                      </div>
-                                                   </fieldset>
-                                                </div>
-                                             </div>
-                                             <!--  -->
+
 
                                               <!--  -->
                                              <div class="wt-yourdetails wt-tabsinfo" style="pading-top: 30px">
@@ -179,7 +159,7 @@
                                                    <fieldset>
                                                       <div class="form-group">
                                                          <span class="wt-select">
-                                                            <select name="skills" class="chosen-select" style="display: none;">
+                                                            <select name="skills[]" class="chosen-select" multiple="multiple">
                                                                <option value="">Select Skill</option>
                                                                 @foreach ($skills as $item)
                                                                     <option value="{{$item->id}}">{{$item->name}}</option>
@@ -194,29 +174,57 @@
                                                    </fieldset>
                                                 </div>
                                              </div>
+                                                 <!--  -->
+                                                 <div class="wt-profilephoto wt-tabsinfo wt-profile-gallery">
+                                                     <div class="wt-tabscontenttitle">
+                                                         <h2>Upload Relevant Project Files </h2>
+                                                     </div>
+
+                                                     <div class="wt-profilephotocontent">
+                                                         <div class="wt-formtheme wt-formprojectinfo wt-formcategory" id="wt-img-9654">
+                                                             <fieldset>
+                                                                 <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
+                                                                     <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
+                                                                         <input type="file"  name="project_file">
+                                                                     </div>
+                                                                 </div>
+
+                                                             </fieldset>
+                                                         </div>
+                                                     </div>
+
+                                                 </div>
+                                                 <!--  -->
                                              <!--  -->
-
-                                             <!--  -->
-                                              <div class="wt-profilephoto wt-tabsinfo wt-profile-gallery">
-                                                   <div class="wt-tabscontenttitle">
-                                                      <h2>Upload Relevant Project Files </h2>
-                                                   </div>
-
-                                                   <div class="wt-profilephotocontent">
-                                                   <div class="wt-formtheme wt-formprojectinfo wt-formcategory" id="wt-img-9654">
-                                                      <fieldset>
-                                                      <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
-                                                        <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
-                                                            <input type="file"  name="project_file">
-                                                        </div>
-                                                    </div>
-
-                                                      </fieldset>
-                                                   </div>
+  <!--  -->
+                                             <div class="wt-yourdetails wt-tabsinfo" style="pading-top: 30px">
+                                                <div class="wt-tabscontenttitle">
+                                                   <h2>Job Categories</h2>
                                                 </div>
+                                                <div class="wt-formtheme wt-userform">
+                                                   <fieldset>
+                                                      <div class="form-group">
+                                                         <span class="wt-select">
+                                                            <select name="category_id[]" class="chosen-select "  multiple="multiple">
+                                                               <option value="">Select categories</option>
+                                                                @foreach ($cats as $item)
+                                                                    @php
+                                                                    $subCats = \App\Models\category::where('parent_id', $item->id)->get();
 
+                                                                    @endphp
+                                                                    <option class="font-weight-bold" value="{{$item->id}}">{{$item->name}}</option>
+                                                                    @foreach ($subCats as $subItem)
+                                                                    <option class="ml-4" value="{{$subItem->id}}">{{$subItem->name}}</option>
+                                                                    @endforeach
+                                                                @endforeach
+                                                            </select>
+                                                         </span>
+                                                      </div>
+                                                   </fieldset>
                                                 </div>
+                                             </div>
                                              <!--  -->
+
 
 
 

@@ -23,7 +23,7 @@
 @section('content')
 
 <div id="wt-demo-sidebar" class="wt-demo-sidebar">
-                  
+
                   <div id="wt-verticalscrollbar-demos" class="wt-verticalscrollbar">
                      <div class="wt-demo-holder">
                         <a target="_blank" href="../index.html">
@@ -125,7 +125,7 @@
                                                    </div>
                                                 </div>
                                              </div>
-                                       
+
                                              <div class="wt-widget wt-effectiveholder">
                                                 <div class="wt-widgettitle">
                                                    <h2>Categories</h2>
@@ -139,10 +139,10 @@
                                                          </div>
                                                       </fieldset>
                                                       <fieldset>
-                                                         <div class="wt-checkboxholder wt-filterscroll">    
+                                                         <div class="wt-checkboxholder wt-filterscroll">
                                                          @foreach ($cats as $key => $item)
                                                          <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-{{$key}} class="loclevel-0" value="{{$item->name}}"><label for="term-{{$key}}">{{$item->name}}</label>
-                                                         
+
                                                       </span>
                                                          @endforeach
                                                          </div>
@@ -163,7 +163,7 @@
                                                          </div>
                                                       </fieldset>
                                                       <fieldset>
-                                                         <div class="wt-checkboxholder wt-filterscroll">              
+                                                         <div class="wt-checkboxholder wt-filterscroll">
                                                             @foreach ($div as $key => $item)
                                                             <span class='wt-checkbox loclevel-0'>
                                                                <input name='location[]' type='checkbox' id=loc-{{$key}}  class="loclevel-0" value="{{$item->name}}">
@@ -191,13 +191,13 @@
                                                          </div>
                                                       </fieldset>
                                                       <fieldset>
-                                                         <div class="wt-checkboxholder wt-filterscroll"> 
+                                                         <div class="wt-checkboxholder wt-filterscroll">
                                                             @foreach ($skills as $key => $item)
                                                                <span class="wt-checkbox">
                                                                <input id="skill-{{$key}}" type="checkbox" name="skills[]" value="android" >
                                                                <label for="skill-{{$key}}">{{$item->name}}</label>
                                                                </span>
-                                                            @endforeach 
+                                                            @endforeach
                                                          </div>
                                                       </fieldset>
                                                    </div>
@@ -210,7 +210,7 @@
                                                 <div class="wt-widgetcontent">
                                                    <div class="wt-formtheme wt-formsearch">
                                                       <fieldset>
-                                                         <div class="wt-checkboxholder wt-filterscroll">              
+                                                         <div class="wt-checkboxholder wt-filterscroll">
                                                             <span class="wt-checkbox">
                                                             <input id="durationweekly" type="checkbox" name="duration[]" value="weekly" >
                                                             <label for="durationweekly">Less than a week</label>
@@ -243,7 +243,7 @@
                                                 <div class="wt-widgetcontent">
                                                    <div class="wt-formtheme wt-formsearch">
                                                       <fieldset>
-                                                         <div class="wt-checkboxholder wt-filterscroll">              
+                                                         <div class="wt-checkboxholder wt-filterscroll">
                                                             <span class="wt-checkbox">
                                                             <input id="freelancerindependent" type="checkbox" name="type[]" value="independent" >
                                                             <label for="freelancerindependent">Independent Freelancers</label>
@@ -261,7 +261,7 @@
                                                    </div>
                                                 </div>
                                              </div>
-                                             
+
                                              <div class="wt-widget wt-effectiveholder">
                                                 <div class="wt-widgetcontent">
                                                    <div class="wt-applyfilters">
@@ -286,29 +286,30 @@
                                        <div class="wt-userlistingcontent">
                                           <div class="wt-contenthead">
                                              <div class="wt-title">
-                                                <a href="project-details.html">
+                                                <a href="{{route('job.details', base64_encode($jobItem->id))}}">
                                                 <i class="fa fa-check-circle"></i>{{$item->name}}</a>
-                                                <h2><a href="project-details.html">{{$jobItem->job_title}}</a></h2>
+                                                <h2><a href="{{route('job.details', base64_encode($jobItem->id))}}">{{$jobItem->job_title}}</a></h2>
                                              </div>
                                              <div class="wt-description">
                                                 <p class="text-justify">{{substr($jobItem->description, 0,300)}}</p>
                                              </div>
                                              <div class="wt-tag wt-widgettag">
-                                                <a  class="skills_181" href="../skill/facebook-api/index.html">Facebook API</a>                     
-                                                <a  class="skills_181" href="../skill/html-5/index.html">HTML 5</a>                     
-                                                <a  class="skills_181" href="../skill/jquery/index.html">Jquery</a>                     
-                                                <a  class="skills_181" href="../skill/wordpress/index.html">WordPress</a>                     
+                                                 @php
+                                                     $postSkill = json_decode($jobItem->skills);
+                                                      $skills = \App\Models\Skill::whereIn('id', $postSkill)->get();
+                                                 @endphp
+                                                @foreach($skills as $skillItem)
+                                                <a  class="skills_181 text-capitalize" href="">{{$skillItem->name}}</a>
+                                                 @endforeach
                                              </div>
                                           </div>
-
-
                                           <div class="wt-viewjobholder">
                                              <ul>
                                                 <li><span class="text-capitalize"><i class="fa fa-check-circle wt-viewjobdollar"></i>{{$jobItem->project_level}}</span></li>
                                                 <li>
                                                    <span>
                                                    <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.pn')}}g" alt=""></em>
-                                                   Bangladesh															
+                                                   Bangladesh
                                                 </span>
                                                 </li>
                                                 <li><span><i class="fa fa-folder wt-viewjobfolder"></i>Type:{{$jobItem->price}}</span></li>
@@ -324,14 +325,14 @@
                                        @endforeach
 
                                     @endforeach
-                                   
 
-                               
-                                    
 
-                                   
+
+
+
+
                                     <div class='wt-paginationvtwo'>
-                                   
+
                                        <nav class="wt-pagination">
                                           <!-- <ul>
                                              <li class="wt-active"><a href='javascript:;'>1</a></li>
@@ -349,5 +350,5 @@
                      </div>
                   </div>
                </div>
-           
+
 @endsection

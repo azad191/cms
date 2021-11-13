@@ -26,42 +26,42 @@
 @section('content')
 
 <div id="wt-demo-sidebar" class="wt-demo-sidebar">
-                  
-                  <div id="wt-verticalscrollbar-demos" class="wt-verticalscrollbar">
-                     <div class="wt-demo-holder">
-                        <a target="_blank" href="../../index.html">
-                           <figure class="wt-demo-img">
-                              <img src="../../wp-content/themes/workreap/images/demo-img/img-01.jpg" alt="demos">
-                              <figcaption>
-                                 <div class="wt-demo-tags">
-                                    <span class="wt-demo-new">New</span>
-                                 </div>
-                              </figcaption>
-                           </figure>
-                        </a>
-                        <a target="_blank" href="http://amentotech.com/projects/elementor">
-                           <figure class="wt-demo-img">
-                              <img src="../../wp-content/themes/workreap/images/demo-img/img-02.jpg" alt="demos">
-                              <figcaption>
-                                 <div class="wt-demo-tags">
-                                    <span class="wt-demo-new">Elementor Page Builder</span>
-                                    <span class="wt-demo-populor">Popular</span>
-                                 </div>
-                              </figcaption>
-                           </figure>
-                        </a>
-                        <a href="http://amentotech.com/projects/elementor/home-page-three/">
-                           <figure class="wt-demo-img">
-                              <img src="../../wp-content/themes/workreap/images/demo-img/img-03.jpg" alt="demos">
-                              <figcaption>
-                                 <div class="wt-demo-tags">
-                                    <span class="wt-demo-populor">New Design</span>
-                                 </div>
-                              </figcaption>
-                           </figure>
-                        </a>
-                     </div>
-                  </div>
+
+{{--                  <div id="wt-verticalscrollbar-demos" class="wt-verticalscrollbar">--}}
+{{--                     <div class="wt-demo-holder">--}}
+{{--                        <a target="_blank" href="../../index.html">--}}
+{{--                           <figure class="wt-demo-img">--}}
+{{--                              <img src="../../wp-content/themes/workreap/images/demo-img/img-01.jpg" alt="demos">--}}
+{{--                              <figcaption>--}}
+{{--                                 <div class="wt-demo-tags">--}}
+{{--                                    <span class="wt-demo-new">New</span>--}}
+{{--                                 </div>--}}
+{{--                              </figcaption>--}}
+{{--                           </figure>--}}
+{{--                        </a>--}}
+{{--                        <a target="_blank" href="http://amentotech.com/projects/elementor">--}}
+{{--                           <figure class="wt-demo-img">--}}
+{{--                              <img src="../../wp-content/themes/workreap/images/demo-img/img-02.jpg" alt="demos">--}}
+{{--                              <figcaption>--}}
+{{--                                 <div class="wt-demo-tags">--}}
+{{--                                    <span class="wt-demo-new">Elementor Page Builder</span>--}}
+{{--                                    <span class="wt-demo-populor">Popular</span>--}}
+{{--                                 </div>--}}
+{{--                              </figcaption>--}}
+{{--                           </figure>--}}
+{{--                        </a>--}}
+{{--                        <a href="http://amentotech.com/projects/elementor/home-page-three/">--}}
+{{--                           <figure class="wt-demo-img">--}}
+{{--                              <img src="../../wp-content/themes/workreap/images/demo-img/img-03.jpg" alt="demos">--}}
+{{--                              <figcaption>--}}
+{{--                                 <div class="wt-demo-tags">--}}
+{{--                                    <span class="wt-demo-populor">New Design</span>--}}
+{{--                                 </div>--}}
+{{--                              </figcaption>--}}
+{{--                           </figure>--}}
+{{--                        </a>--}}
+{{--                     </div>--}}
+{{--                  </div>--}}
                   <div class="wt-demo-content">
                      <div class="wt-demo-heading">
                         <h4>Outstanding Demos</h4>
@@ -80,15 +80,15 @@
                               <div class="wt-proposalholder">
                                  <div class="wt-proposalhead">
                                     <h1>{{$getJob->job_title}}</h1>
-                                    <ul class="wt-userlisting-breadcrumb wt-userlisting-breadcrumbvtwo">
-                                       <li><span><i class="fa fa-check-circle wt-viewjobdollar"></i>Basic Level</span></li>
+                                    <ul class="wt-userlisting-breadcrumb wt-userlisting-breadcrumbvtwo text-capitalize">
+                                       <li><span><i class="fa fa-check-circle wt-viewjobdollar"></i>Level: {{$getJob->project_level}}</span></li>
                                        <!-- fa fa-check-circle wt-viewjobdollar -->
                                        <li>
                                           <span>
                                           <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.png')}}" alt="country"></em>United Emirates															</span>
                                        </li>
                                        <li><span><i class="fa fa-folder wt-viewjobfolder"></i>Type:{{$getJob->job_type}}</span></li>
-                                       <li><span><i class="fa fa-clock-o wt-viewjobclock"></i>Less than a month</span></li>
+                                       <li><span><i class="fa fa-clock-o wt-viewjobclock"></i>{{$getJob->duration}}Month</span></li>
                                     </ul>
                                  </div>
                                  <div class="wt-btnarea"><a href="submit-proposal/indexabe9.html?project_id=181" class="wt-btn wt-submit-proposal">Send Proposal</a></div>
@@ -101,24 +101,7 @@
                                  </div>
                                  <div class="wt-projectdetail">
                                     <div class="wt-description">
-                                       <p>Excepteur sint occaecat cupidatat non proident, saeunt in culpa qui officia deserunt mollit anim laborum. Seden utem perspiciatis undesieu omnis voluptatem accusantium doque laudantium, totam rem aiam eaqueiu ipsa quae ab illoion inventore veritatisetm quasitea architecto beataea dictaed quia couuntur magni dolores eos aquist ratione vtatem seque nesnt. Neque porro quamest quioremas ipsum quiatem dolor sitem ameteism conctetur adipisci velit sedate quianon.</p>
-                                       <p>Laborum sed ut perspiciatis unde omnis iste natus error sitems voluptatem accusantium doloremque laudantium, totam rem aiam eaque ipsa quae ab illo inventore veritatis etna quasi architecto beatae vitae dictation explicabo. nemo enim ipsam fugit.</p>
-                                       <ul class="wt-projectliststyle">
-                                          <li><span><i class="fa fa-check"></i>Nemo enim ipsam voluptatem quia</span></li>
-                                          <li><span><i class="fa fa-check"></i>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
-                                          <li><span><i class="fa fa-check"></i>Eaque ipsa quae ab illo inventore veritatis et quasi architecto</span></li>
-                                          <li><span><i class="fa fa-check"></i>qui dolorem ipsum quia dolor sit amet</span></li>
-                                       </ul>
-                                       <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porrom quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nonae numquam eius modi tempora incidunt labore.</p>
-                                       <p>Eomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
-                                       <ul class="wt-projectliststyle">
-                                          <li><span><i class="fa fa-check"></i>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
-                                          <li><span><i class="fa fa-check"></i>Eaque ipsa quae ab illo inventore veritatis et quasi architecto</span></li>
-                                          <li><span><i class="fa fa-check"></i>Qui dolorem ipsum quia dolor sit amet</span></li>
-                                          <li><span><i class="fa fa-check"></i>Nemo enim ipsam voluptatem quia</span></li>
-                                       </ul>
-                                       <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porrom quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nonae numquam eius modi tempora incidunt labore ste natus error voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                       <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porrom quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nonae numquam eius modi tempora incidunt labore.</p>
+                                       {{$getJob->description}}
                                     </div>
                                  </div>
                                  <div class="wt-skillsrequired">
@@ -126,13 +109,18 @@
                                        <h3>Skills Required</h3>
                                     </div>
                                     <div class="wt-tag wt-widgettag">
-                                       <a  class="skills_181" href="../../skill/facebook-api/index.html">Facebook API</a>                     
-                                       <a  class="skills_181" href="../../skill/html-5/index.html">HTML 5</a>                     
-                                       <a  class="skills_181" href="../../skill/jquery/index.html">Jquery</a>                     
-                                       <a  class="skills_181" href="../../skill/wordpress/index.html">WordPress</a>                     
+                                        @php
+                                            $postSkill = json_decode($getJob->skills);
+                                             $skills = \App\Models\Skill::whereIn('id', $postSkill)->get();
+                                        @endphp
+                                        @foreach($skills as $skillItem)
+                                            <a  class="skills_181" href="">{{$skillItem->name}}</a>
+                                        @endforeach
+
+
                                     </div>
                                  </div>
-                                 <div class="wt-attachments">
+                                 <div class="wt-attachmentss">
                                     <div class="wt-title">
                                        <h3>Attachments</h3>
                                     </div>
@@ -140,13 +128,7 @@
                                        <li>
                                           <label>
                                           <span>WordPress customization</span>
-                                          <em>File size:&nbsp;85.84 KB<a href="#" download><i class="lnr lnr-download"></i></a></em>
-                                          </label>
-                                       </li>
-                                       <li>
-                                          <label>
-                                          <span>How to run mysql command in database</span>
-                                          <em>File size:&nbsp;16.06 KB<a href="#" download><i class="lnr lnr-download"></i></a></em>
+                                          <em>File size:&nbsp;85.84 KB<a href="{{route('job.file.download', $getJob->id)}}"><i class="lnr lnr-download"></i></a></em>
                                           </label>
                                        </li>
                                     </ul>
@@ -159,7 +141,7 @@
                                     <div class="wt-proposalsrcontent sproject-price">
                                        <span class="wt-proposalsicon"><i class="fa fa-angle-double-down"></i><i class="fa fa-money"></i></span>
                                        <div class="wt-title">
-                                          <h3>Tk. 5000</h3>
+                                          <h3>Tk.{{$getJob->price_min}}-{{$getJob->price_max}}</h3>
                                           <span>Client Budget</span>
                                        </div>
                                     </div>
@@ -167,7 +149,8 @@
                                        <span class="wt-proposalsicon"><i class="fa fa-angle-double-down"></i><i class="fa fa-hourglass-half"></i></span>
                                        <div class="wt-title">
                                           <h3>Expiry Date</h3>
-                                          <span>January 23, 2020</span>
+
+                                          <span>{{date('d.m.Y H:i A', strtotime( $getJob->project_expire))}}</span>
                                        </div>
                                     </div>
                                     <div class="wt-proposalsrcontent">
@@ -203,10 +186,10 @@
                                  <div class="wt-widget">
                                     <div class="wt-companysdetails">
                                        <figure class="wt-companysimg">
-                                          <img src="wp-content/uploads/2019/03/10-2-350x172.jpg" alt="employer">
+                                          <img src="{{asset('frontend/wp-content/uploads/2019/03/10-2-350x172.jpg')}}" alt="employer">
                                        </figure>
                                        <div class="wt-companysinfo">
-                                          <figure><img src="wp-content/uploads/2019/03/10-100x100.jpg" alt="employer"></figure>
+                                          <figure><img src="{{asset('frontend/wp-content/uploads/2019/03/10-100x100.jpg')}}" alt="employer"></figure>
                                           <div class="wt-title emp-title">
                                              <a href="project-details.html">
                                              <i class="fa fa-check-circle"></i>&nbsp;Abhinav								</a>
@@ -254,7 +237,7 @@
                                              <div class="form-group wt-btnarea">
                                                 <a href="javascript:;" class="wt-btn wt-report-user" data-id='181' data-type='project'>Submit</a>
                                              </div>
-                                             <input type="hidden" id="report_nonce" name="report_nonce" value="c2a32f0857" /><input type="hidden" name="_wp_http_referer" value="/projects/wpworkreap/project/wildlife-conservation-professor/" />					
+                                             <input type="hidden" id="report_nonce" name="report_nonce" value="c2a32f0857" /><input type="hidden" name="_wp_http_referer" value="/projects/wpworkreap/project/wildlife-conservation-professor/" />
                                           </fieldset>
                                        </form>
                                     </div>
@@ -282,5 +265,5 @@
         margin-bottom: 30px;
     }
 </style>
-            
+
 @endsection
