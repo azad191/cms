@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\userController;
 use App\Http\Controllers\Backend\VoterController;
 use App\Http\Controllers\Backend\CandidateController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\ElectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,10 @@ Route::get('/roles', [userController::class, 'roles']);
 //***************** Admin *********************
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
+    Route::post('/store', [AdminController::class, 'store'])->name('store');
+    Route::get('/election', [ElectionController::class, 'create'])->name('election.create');
+    Route::post('/election/store/{id}', [ElectionController::class, 'store'])->name('election.store');
+    Route::get('/election/dashboard/{id}', [ElectionController::class, 'index'])->name('election.dashboard');
 
 });
 
@@ -69,6 +74,7 @@ Route::prefix('voter')->name('voter.')->group(function(){
 Route::prefix('candidate')->name('candidate.')->group(function(){
     Route::get('/pending', [CandidateController::class, 'index'])->name('index');
     Route::get('/approve', [CandidateController::class, 'approved'])->name('approved');
+
 
 });
 

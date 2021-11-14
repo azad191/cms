@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
 use App\Models\Election;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
-class AdminController extends Controller
+class ElectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-       $data = Election::where('user_id', 1)->orderBy('id', 'DESC')->get();
-        return view('backend.modules.admin.admin_dashboard', compact('data'));
+        return view('')
     }
 
     /**
@@ -29,7 +26,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.modules.admin.add_election');
     }
 
     /**
@@ -38,17 +35,17 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $data = $request->all();
-        $data['role_id'] = 2;
-        $data['password'] = Hash::make($request->password);
-         User::create($data);
-         $userId = User::latest()->first();
-         $data['user_id'] = $userId->id;
 
-         Admin::create($data);
-         return redirect()->back();
+        $data = $request->all();
+        $data['user_id'] = base64_decode($id);
+        Election::create($data);
+        $notification = array(
+            'message' => 'Election created successfully!',
+            'alert-type' => 'success'
+        );
+        return Redirect::to('admin.dashboard')->with($notification);
     }
 
     /**
@@ -95,5 +92,4 @@ class AdminController extends Controller
     {
         //
     }
-
 }

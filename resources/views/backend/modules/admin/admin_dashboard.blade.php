@@ -54,7 +54,11 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">DataTable with default features</h3>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3 class="card-title">All Your Election List</h3>
+                                    <a href="{{route('admin.election.create')}}" class="btn btn-success">Add new election</a>
+                                </div>
+
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -69,14 +73,16 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>board precident election</td>
-                                        <td>Internet
-                                            Explorer 4.0
-                                        </td>
-                                        <td>Win 95+</td>
-                                        <td>X</td>
-                                    </tr>
+                                    @foreach($data as $item)
+                                        <tr>
+                                            <td>{{$item->election_name}}</td>
+                                            <td>{{\Carbon\Carbon::parse($item->start_date)->format('d M Y, H:i a')}}</td>
+                                            <td>{{\Carbon\Carbon::parse($item->end_date)->format('d M Y, H:i a')}}</td>
+                                            <td class="text-center"><span class="badge badge-success">Active</span></td>
+                                            <td class="text-center"><a href="{{route('admin.election.dashboard', $item->id)}}" class="btn btn-info btn-sm">Open</a></td>
+                                        </tr>
+                                    @endforeach
+
 
                                     </tfoot>
                                 </table>
