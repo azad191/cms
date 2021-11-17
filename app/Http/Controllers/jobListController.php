@@ -109,14 +109,119 @@ class jobListController extends Controller
     }
     public function jobFilter(Request $request){
 
-        return $request->all();
-        User::with('jobPost')->WhereHas('jobPost', function( $query ) use ($request){
+        $allRequest =  $request->all();
+       // return $allRequest;
+        $categories = $request->category;
+        $getSkills = $request->skills;
+       // return $categories;
+      //  dd($categories);
+        $convert = json_encode($categories);
 
-        });
+        //return $convert;
+
+        $cats = category::get();
+        $skills = Skill::get();
+        $div = Location::get();
+
+//        foreach ($categories as $catItem){
+//           $catsFetch = jobPost::where('category_id', 'LIKE', '%'.$catItem.'%')->get();
+//        }
+     //   return $data;
+
+    //    jobPost::where('category_id', 'LIKE', '%'.'2','15'.'%')->get();
+
+       // 'user_ids', 'LIKE', '%'.json_encode($user_ids).'%'
+
+        if((!empty($request->location) or !empty($request->type)) and (empty($request->category) and empty($request->skills))){
+
+            $data = jobPost::whereIn('location', isset($request->location) ? $request->location : ['none'])->orWhereIn('freelancer_type', isset($request->type) ? $request->type:['none'])
+                ->with('user')->paginate(5);
+            $type = 'filter';
+
+
+            return view('frontend.pages.job_list', compact('data','type', 'cats', 'skills', 'div'));
+        }elseif((!empty($request->location) or !empty($request->type)) and (!empty($request->category) and !empty($request->skills))){
+            $fetchData = jobPost::whereIn('location', isset($request->location) ? $request->location : ['none'])->orWhereIn('freelancer_type', isset($request->type) ? $request->type:['none'])
+                ->with('user');
+            foreach ($categories as $catItem){
+                $data = $fetchData->orWhere('category_id', 'LIKE', '%'.$catItem.'%');
+            }
+            foreach ($getSkills as $skillItem){
+                $data = $fetchData->orWhere('skills', 'LIKE', '%'.$skillItem.'%')->paginate(5);
+            }
+            $type = 'filter';
+            return view('frontend.pages.job_list', compact('data', 'type','cats', 'skills', 'div'));
+        }elseif (!empty($request->location) or !empty($request->type) and !empty($request->category)){
+            $fetchData = jobPost::whereIn('location', isset($request->location) ? $request->location : ['none'])->orWhereIn('freelancer_type', isset($request->type) ? $request->type:['none'])
+                ->with('user');
+            foreach ($categories as $catItem){
+                $data = $fetchData->orWhere('category_id', 'LIKE', '%'.$catItem.'%')->paginate(5);
+            }
+            $type = 'filter';
+            return view('frontend.pages.job_list', compact('data','type', 'cats', 'skills', 'div'));
+        }elseif(!empty($request->location) or !empty($request->type) and !empty($request->skills)){
+            $fetchData = jobPost::whereIn('location', isset($request->location) ? $request->location : ['none'])->orWhereIn('freelancer_type', isset($request->type) ? $request->type:['none'])
+            ->with('user');
+            foreach ($getSkills as $skillItem){
+                $data =  $fetchData->orWhere('category_id', 'LIKE', '%'.$skillItem.'%')->paginate(5);
+            }
+            $type= 'filter';
+            return view('frontend.pages.job_list', compact('data', 'type','cats', 'skills', 'div'));
+        }elseif((empty($request->location) or empty($request->type)) and (!empty($request->category))){
+
+            $fetchData = jobPost::whereIn('location', isset($request->location) ? $request->location : ['none'])->orWhereIn('freelancer_type', isset($request->type) ? $request->type:['none'])
+                ->with('user');
+            foreach ($request->category as $catItem){
+                $data = $fetchData->orWhere('category_id', 'LIKE', '%'.$catItem.'%')->paginate(5);
+            }
+            $type = 'filter';
+            return view('frontend.pages.job_list', compact('data','type', 'cats', 'skills', 'div'));
+        }elseif((empty($request->location) or empty($request->type)) and !empty($request->skills)){
+            $fetchData = jobPost::whereIn('location', isset($request->location) ? $request->location : ['none'])->orWhereIn('freelancer_type', isset($request->type) ? $request->type:['none'])
+                ->with('user');
+            foreach ($getSkills as $skillItem){
+                $data =  $fetchData->orWhere('category_id', 'LIKE', '%'.$skillItem.'%')->paginate(5);
+            }
+            $type = 'filter';
+            return view('frontend.pages.job_list', compact('data','type', 'cats', 'skills', 'div'));
+        }elseif((empty($request->location) or empty($request->type)) and !empty($request->category)){
+            $fetchData = jobPost::whereIn('location', isset($request->location) ? $request->location : ['none'])->orWhereIn('freelancer_type', isset($request->type) ? $request->type:['none'])
+                ->with('user');
+            foreach ($request->category as $catItem){
+                $data =  $fetchData->orWhere('skills', 'LIKE', '%'.$catItem.'%')->paginate(5);
+            }
+           // return $data;
+            $type = 'filter';
+            return view('frontend.pages.job_list', compact('data','type', 'cats', 'skills', 'div'));
+        }else{
+            $notification = array(
+                'message' => 'Your filter not found!',
+                'alert-type' => 'error'
+            );
+            return  redirect()->back()->with($notification);
+        }
+
+
+//       $data = jobPost::whereIn('location', isset($request->location) ? $request->location : ['none'])->orWhereIn('freelancer_type', isset($request->type) ? $request->type:['none'])
+//           ->with('user')->get();
+//       return $data;
+
+
+
+     //  return view('frontend.job_list', compact());
     }
     public function download($id){
         $job = jobPost::find($id);
         $file=public_path('backend/uploads/buyer/jobPost/'.$job->project_file);
         return response()->download($file);
+    }
+
+    public function proposal(Request $request, $id){
+
+
+         $ids = base64_decode($id);
+         $data =  jobPost::find($ids);
+       //return $data;
+        return view('frontend.pages.proposal', compact('data'));
     }
 }

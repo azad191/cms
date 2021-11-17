@@ -6,13 +6,13 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 push-lg-1">
                     <div class="wt-innerbannercontent">
                         <div class="wt-title">
-                            <h1>Search Freelancers</h1>
+                            <h1> {{isset($type) ? 'Your Filter Job List':'Job List'}}</h1>
                         </div>
                         <ol class="wt-breadcrumb">
                             <li class="first-item">
-                                <a href="../index.html">Home</a>
+                                <a href="">Home</a>
                             </li>
-                            <li class="last-item">Search Freelancers</li>
+                            <li class="last-item">Search Job</li>
                         </ol>
                     </div>
                 </div>
@@ -24,50 +24,8 @@
 
 <div id="wt-demo-sidebar" class="wt-demo-sidebar">
 
-                  <div id="wt-verticalscrollbar-demos" class="wt-verticalscrollbar">
-                     <div class="wt-demo-holder">
-                        <a target="_blank" href="../index.html">
-                           <figure class="wt-demo-img">
-                              <img src="../wp-content/themes/workreap/images/demo-img/img-01.jpg" alt="demos">
-                              <figcaption>
-                                 <div class="wt-demo-tags">
-                                    <span class="wt-demo-new">New</span>
-                                 </div>
-                              </figcaption>
-                           </figure>
-                        </a>
-                        <a target="_blank" href="http://amentotech.com/projects/elementor">
-                           <figure class="wt-demo-img">
-                              <img src="../wp-content/themes/workreap/images/demo-img/img-02.jpg" alt="demos">
-                              <figcaption>
-                                 <div class="wt-demo-tags">
-                                    <span class="wt-demo-new">Elementor Page Builder</span>
-                                    <span class="wt-demo-populor">Popular</span>
-                                 </div>
-                              </figcaption>
-                           </figure>
-                        </a>
-                        <a href="http://amentotech.com/projects/elementor/home-page-three/">
-                           <figure class="wt-demo-img">
-                              <img src="../wp-content/themes/workreap/images/demo-img/img-03.jpg" alt="demos">
-                              <figcaption>
-                                 <div class="wt-demo-tags">
-                                    <span class="wt-demo-populor">New Design</span>
-                                 </div>
-                              </figcaption>
-                           </figure>
-                        </a>
-                     </div>
-                  </div>
-                  <div class="wt-demo-content">
-                     <div class="wt-demo-heading">
-                        <h4>Outstanding Demos</h4>
-                        <p>With easy<em> ONE CLICK INSTALL</em> and fully customizable options, our demos are the best start you&#039;ll ever get!!</p>
-                        <div class="wt-demo-btns">
-                           <a target="_blank" href="https://themeforest.net/item/workreap-freelance-marketplace-wordpress-theme/23712454?s_rank=3" class="wt-demo-btn">Buy Now</a>
-                        </div>
-                     </div>
-                  </div>
+            
+                  
                </div>
                <div class="search-result-template wt-haslayout">
                   <div class="wt-haslayout wt-job-search">
@@ -141,7 +99,7 @@
                                                       <fieldset>
                                                          <div class="wt-checkboxholder wt-filterscroll">
                                                          @foreach ($cats as $key => $item)
-                                                         <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-{{$key}} class="loclevel-0" value="{{$item->name}}"><label for="term-{{$key}}">{{$item->name}}</label>
+                                                         <span class='wt-checkbox loclevel-0'><input name='category[]' type='checkbox' id=term-{{$key}} class="loclevel-0" value="{{$item->id}}"><label for="term-{{$key}}">{{$item->name}}</label>
 
                                                       </span>
                                                          @endforeach
@@ -194,7 +152,7 @@
                                                          <div class="wt-checkboxholder wt-filterscroll">
                                                             @foreach ($skills as $key => $item)
                                                                <span class="wt-checkbox">
-                                                               <input id="skill-{{$key}}" type="checkbox" name="skills[]" value="android" >
+                                                               <input id="skill-{{$key}}" type="checkbox" name="skills[]" value="{{$item->id}}">
                                                                <label for="skill-{{$key}}">{{$item->name}}</label>
                                                                </span>
                                                             @endforeach
@@ -203,7 +161,7 @@
                                                    </div>
                                                 </div>
                                              </div>
-                                             <div class="wt-widget wt-effectiveholder">
+                                             <!-- <div class="wt-widget wt-effectiveholder">
                                                 <div class="wt-widgettitle">
                                                    <h2>Project Length</h2>
                                                 </div>
@@ -235,7 +193,7 @@
                                                       </fieldset>
                                                    </div>
                                                 </div>
-                                             </div>
+                                             </div> -->
                                              <div class="wt-widget wt-effectiveholder">
                                                 <div class="wt-widgettitle">
                                                    <h2>Freelancer Type</h2>
@@ -245,15 +203,15 @@
                                                       <fieldset>
                                                          <div class="wt-checkboxholder wt-filterscroll">
                                                             <span class="wt-checkbox">
-                                                            <input id="freelancerindependent" type="checkbox" name="type[]" value="independent" >
+                                                            <input id="freelancerindependent" type="checkbox" name="type[]" value="Independent Freelancers" >
                                                             <label for="freelancerindependent">Independent Freelancers</label>
                                                             </span>
                                                             <span class="wt-checkbox">
-                                                            <input id="freelanceragency" type="checkbox" name="type[]" value="agency" >
+                                                            <input id="freelanceragency" type="checkbox" name="type[]" value="Agency Freelancers" >
                                                             <label for="freelanceragency">Agency Freelancers</label>
                                                             </span>
                                                             <span class="wt-checkbox">
-                                                            <input id="freelancerrising_talent" type="checkbox" name="type[]" value="rising_talent" >
+                                                            <input id="freelancerrising_talent" type="checkbox" name="type[]" value="New Rising Talent">
                                                             <label for="freelancerrising_talent">New Rising Talent</label>
                                                             </span>
                                                          </div>
@@ -277,9 +235,58 @@
                               </div>
 
 
-
+                              @php
+                                 $dt = new DateTime('now', new DateTimezone('Asia/Dhaka'));
+                              @endphp
                               <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 float-left">
                                  <div class="wt-userlistingholder wt-haslayout">
+                                    @if(isset($type))
+                                    @foreach ($data  as $item)
+                                       <div class="wt-userlistinghold  wt-userlistingholdvtwo">
+                                       <div class="wt-userlistingcontent">
+                                          <div class="wt-contenthead">
+                                             <div class="wt-title">
+                                                <a href="{{route('job.details', base64_encode($item->id))}}">
+                                                <i class="fa fa-check-circle"></i>{{$item->user->name}}</a>
+                                                <h2><a href="{{route('job.details', base64_encode($item->id))}}">{{$item->job_title}}</a></h2>
+                                             </div>
+                                             <div class="wt-description">
+                                                <p class="text-justify">{{substr($item->description, 0,300).'....'}}</p>
+                                             </div>
+                                             <div class="wt-tag wt-widgettag">
+                                                 @php
+                                                     $postSkill = json_decode($item->skills);
+                                                      $skills = \App\Models\Skill::whereIn('id', $postSkill)->get();
+                                                 @endphp
+                                                @foreach($skills as $skillItem)
+                                                <a  class="skills_181 text-capitalize" href="">{{$skillItem->name}}</a>
+                                                 @endforeach
+                                             </div>
+                                          </div>
+                                          <div class="wt-viewjobholder">
+                                             <ul>
+                                                <li><span class="text-capitalize"><i class="fa fa-check-circle wt-viewjobdollar"></i>{{$item->project_level}}</span></li>
+                                                <li>
+                                                   <span>
+                                                   <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.pn')}}g" alt=""></em>
+                                                   Bangladesh
+                                                </span>
+                                                </li>
+                                                <li><span><i class="fa fa-folder wt-viewjobfolder"></i>Type:{{$item->price}}</span></li>
+                                                <li><span><i class="fa fa-clock-o wt-viewjobclock"></i>Less than a month</span></li>
+
+                                                <li data-tipso="Job Expiry Date" class="tipso_style wt-tipso"><span><i class="fa fa-hourglass-half wt-viewjobclock"></i>{{\Carbon\Carbon::parse($item->project_expire)->format('M,d,Y, g:i a') > $dt->format('M,d,Y, g:i a')  ? \Carbon\Carbon::parse($item->project_expire)->format('M,d,Y, g:i a'): 'Expired' }}</span></li>
+                                                <li><span class="wt-budget"><i class="fa fa-money wt-viewjobtag"></i>Budget:&nbsp;<em>Tk.70000.00</em></span></li>
+                                                <li>                <span><a href="javascript:;" class="wt-clicklike wt-add-to-saved_projects" data-id="181"><i class="fa fa-heart"></i><em>Click to save</em></a></span>               </li>
+                                                <li class="wt-btnarea"><a href="{{route('job.details', base64_encode($item->id) )}}" class="wt-btn">View Job</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </div>
+
+
+                                    @endforeach
+                                    @else
                                     @foreach ($data as $item)
                                        @foreach ($item->jobPost as $jobItem)
                                        <div class="wt-userlistinghold  wt-userlistingholdvtwo">
@@ -314,7 +321,7 @@
                                                 </li>
                                                 <li><span><i class="fa fa-folder wt-viewjobfolder"></i>Type:{{$jobItem->price}}</span></li>
                                                 <li><span><i class="fa fa-clock-o wt-viewjobclock"></i>Less than a month</span></li>
-                                                <li data-tipso="Job Expiry Date" class="tipso_style wt-tipso"><span><i class="fa fa-hourglass-half wt-viewjobclock"></i>{{\Carbon\Carbon::parse($jobItem->project_expire)->format('d-m-Y, h:i A')}}</span></li>
+                                                <li data-tipso="Job Expiry Date" class="tipso_style wt-tipso"><span><i class="fa fa-hourglass-half wt-viewjobclock"></i>{{\Carbon\Carbon::parse($jobItem->project_expire)->format('M,d,Y, g:i a') > $dt->format('M,d,Y, g:i a')  ? \Carbon\Carbon::parse($jobItem->project_expire)->format('M,d,Y, g:i a'): 'Expired' }}</span></li>
                                                 <li><span class="wt-budget"><i class="fa fa-money wt-viewjobtag"></i>Budget:&nbsp;<em>Tk.70000.00</em></span></li>
                                                 <li>                <span><a href="javascript:;" class="wt-clicklike wt-add-to-saved_projects" data-id="181"><i class="fa fa-heart"></i><em>Click to save</em></a></span>               </li>
                                                 <li class="wt-btnarea"><a href="{{route('job.details', base64_encode($jobItem->id) )}}" class="wt-btn">View Job</a></li>
@@ -325,6 +332,8 @@
                                        @endforeach
 
                                     @endforeach
+                                    @endif
+
 
 
 
@@ -340,10 +349,11 @@
                                              <li><a href='page/3/index.html' class="inactive">3</a></li>
                                              <li class='wt-nextpage'><a href="page/2/index.html"><i class="lnr lnr-chevron-right"></i></a></li>
                                           </ul> -->
-                                          {{ $data->links() }}
+                                       {{$data->links()}}
                                        </nav>
                                     </div>
                                  </div>
+
                               </div>
                            </div>
                         </div>

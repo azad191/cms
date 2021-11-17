@@ -136,4 +136,8 @@ class BuyerDashboardController extends Controller
         return redirect()->back()->with($notification);
        //  return redirect()->back();
     }
+
+    public function dashboard1(){
+        return view('frontend.module.buyer.buyer_dashboard');
+    }
 }

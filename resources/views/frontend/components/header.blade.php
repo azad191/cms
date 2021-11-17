@@ -8,78 +8,32 @@
                             <img src="{{asset('frontend/wp-content/themes/workreap/images/logo.png')}}" alt="Women Empower">
                         </a>
                     </strong>
-                    <div class="wt-rightarea">
+                    <div class="wt-rightarea float-right">
                         <nav id="wt-nav" class="wt-nav navbar-expand-lg">
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <i class="lnr lnr-menu"></i>
                             </button>
                             <div class="collapse navbar-collapse wt-navigation" id="navbarNav">
                                 <ul id="menu-main-menu" class="navbar-nav nav-Js">
-                                    <!--<li id="menu-item-276" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children dropdown menu-item-has-mega-menu menu-item-276">-->
-                                    <!--<a href="#" >Main</a>-->
-                                    <!--<div class="mega-menu" >-->
-                                    <!--<ul class="sub-menu mega-menu-row">-->
-                                    <!--<li id="menu-item-1020" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children dropdown mega-menu-col menu-item-1020">-->
-                                    <!--<a href="#" >Home Variation</a>-->
-                                    <!--<ul class="sub-menu">-->
-                                    <!--<li id="menu-item-284" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-258 current_page_item menu-item-284"><a href="index.html" >Home</a></li>-->
-                                    <!--<li id="menu-item-970" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-970"><a href="home-page-two/index.html" >Home V2</a></li>-->
-                                    <!--<li id="menu-item-1005" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1005"><a href="home-page-three/index.html" >Home V3</a></li>-->
-                                    <!--<li id="menu-item-287" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-287"><a href="search-employers/index.html" >Company Grid</a></li>-->
-                                    <!--<li id="menu-item-280" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-280"><a href="about/index.html" >About</a></li>-->
-                                    <!--</ul>-->
-                                    <!--</li>-->
-                                    <!--<li id="menu-item-290" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown mega-menu-col menu-item-290">-->
-                                    <!--<a href="#" >Others</a>-->
-                                    <!--<ul class="sub-menu">-->
-                                    <!--<li id="menu-item-837" class="menu-item menu-item-type-post_type menu-item-object-employers menu-item-837"><a href="employer/juan-butler/index.html" >Company Detail</a></li>-->
-                                    <!--<li id="menu-item-979" class="menu-item menu-item-type-post_type menu-item-object-micro-services menu-item-979"><a href="service/i-will-create-fix-customize-your-wordpress-website-19/index.html" >Service Detail</a></li>-->
-                                    <!--<li id="menu-item-282" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-282"><a href="article-list/index.html" >Blogs Listing</a></li>-->
-                                    <!--<li id="menu-item-633" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-633"><a href="asphalt-paving-machine-operator/index.html" >Blog Detail</a></li>-->
-                                    <!--<li id="menu-item-1031" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1031"><a href="privacy-policy-2/index.html" >Privacy Policy</a></li>-->
-                                    <!--</ul>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--<ul class="sub-menu mega-menu-row">-->
-                                    <!--<li id="menu-item-1029" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown mega-menu-col menu-item-1029">-->
-                                    <!--<a href="#" >Job Categories</a>-->
-                                    <!--<ul class="sub-menu">-->
-                                    <!--<li id="menu-item-1021" class="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-1021"><a href="project_cat/programming-tech/index.html" >Programming &#038; Tech</a></li>-->
-                                    <!--<li id="menu-item-1022" class="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-1022"><a href="project_cat/digital-marketing/index.html" >Digital Marketing</a></li>-->
-                                    <!--<li id="menu-item-1023" class="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-1023"><a href="project_cat/fun-lifestyle/index.html" >Fun &#038; Lifestyle</a></li>-->
-                                    <!--<li id="menu-item-1024" class="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-1024"><a href="project_cat/video-animation/index.html" >Video &#038; Animation</a></li>-->
-                                    <!--</ul>-->
-                                    <!--</li>-->
-                                    <!--<li id="menu-item-1030" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown mega-menu-col menu-item-1030">-->
-                                    <!--<a href="#" >Most Searched</a>-->
-                                    <!--<ul class="sub-menu">-->
-                                    <!--<li id="menu-item-1025" class="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-1025"><a href="project_cat/music-audio/index.html" >Music &#038; Audio</a></li>-->
-                                    <!--<li id="menu-item-1026" class="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-1026"><a href="project_cat/business/index.html" >Business</a></li>-->
-                                    <!--<li id="menu-item-1027" class="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-1027"><a href="project_cat/mobiles/index.html" >Mobiles</a></li>-->
-                                    <!--<li id="menu-item-1028" class="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-1028"><a href="project_cat/writing-translation/index.html" >Writing &#038; Translation</a></li>-->
-                                    <!--</ul>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li id="menu-item-283" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-283"><a href="how-it-works/index.html" >How it works</a></li>-->
-                                    <!--<li id="menu-item-277" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-277">-->
-                                    <!--<a href="#" >Browse Jobs</a>-->
-                                    <!--<ul class="sub-menu">-->
-                                    <!--<li id="menu-item-285" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a href="search-projects/index.html" >Job Listings</a></li>-->
-                                    <!--<li id="menu-item-549" class="menu-item menu-item-type-post_type menu-item-object-projects menu-item-549"><a href="project/mainframe-programmer/index.html" >Job Single</a></li>-->
-                                    <!--<li id="menu-item-550" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-550"><a href="submit-proposal/indexa98b.html?project_id=172" >Job Proposal</a></li>-->
-                                    <!--</ul>-->
-                                    <!--</li>-->
-                                    <!---->
-
-                                    <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="#" > How It Works </a></li>
+                            
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('job.list')}}" >Find Jobs </a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('freelancer.list')}}" >Find Freelancers</a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('user.reg')}}" >Freelancer Registration</a></li>
+
+                                    <li id="menu-item-1196" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-1196">
+                                    <a href="#">More</a>
+                                    <ul class="sub-menu">
+                                        <li id="menu-item-280" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-280"><a href="https://instantkaj.com/about/">About</a></li>
+                                        <li id="menu-item-2293" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2293"><a href="https://instantkaj.com/how-it-works/">How it works</a></li>
+                                        <li id="menu-item-9393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9393"><a href="https://instantkaj.com/career/">Career</a></li>
+                                        <li id="menu-item-2168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2168"><a title="Termsandconditions" href="https://instantkaj.com/terms-and-conditions/">Terms and Conditions</a></li>
+                                        <li id="menu-item-2190" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-2190"><a href="https://instantkaj.com/privacy-policy/">Privacy Policy</a></li>
+                                    </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>
+                        
                         <div class="wt-loginarea">
                             <figure class="wt-userimg">
                                 <img src="{{asset('frontend/wp-content/themes/workreap/images/user.png')}}" alt="user">
@@ -150,9 +104,156 @@
                                     </form>
                                 </div>
                             </div>
+                            
                             <!--<a href="authentication/index0c17.html?step=1"  class="wt-btn">Join Now</a>-->
-                            <a href="{{route('buyer.job.post')}}"  class="wt-btn">Post Your Job</a>
+                            <!-- <a href="{{route('buyer.job.post')}}"  class="wt-btn">Post Your Job</a> -->
+                            
                         </div>
+
+                        <!-- ---------------------------------------------------------------------------- -->
+
+
+@if (isset(auth()->user()->id))
+<div class="wt-userlogedin sp-top-menu menu-item-has-children">  
+    <div class="avatar-wrap-icon">
+   <figure class="wt-userimg">
+      <img src="{{asset('frontend/wp-content/themes/workreap/images/user.png')}}">
+   </figure>
+   <div class="wt-username">
+      <h3>al bakin Tushar</h3>
+   </div>
+   <nav class="wt-usernav">
+      <ul class="dashboard-menu-top">
+         <li class="toolip-wrapo wt-active">
+            <a href="#">
+            <i class="ti-dashboard"></i>
+            <span>Dashboard</span>
+            </a>
+         </li>
+         <li class="toolip-wrapo ">
+            <a href="#">
+            <i class="ti-email"></i>
+            <span>
+            Inbox <em class="wtunread-count">
+            0 </em>
+            </span>
+            </a>
+         </li>
+         <li class="toolip-wrapo">
+            <a href="#" target="_blank">
+            <i class="ti-desktop"></i>
+            <span>View my profile</span>
+            </a>
+         </li>
+         <li class="toolip-wrapo ">
+            <a href="#">
+            <i class="ti-check-box"></i>
+            <span>Identity verification</span>
+            <!-- <em class="wtunread-count wtidentity-verified ti-close"></em> -->
+            </a>
+         </li>
+         <li class="menu-item-has-children toolip-wrapo ">
+            <span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
+            <a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; event_preventDefault(event);">
+            <i class="ti-settings"></i>
+            <span>Settings</span>
+            </a>
+
+            <ul class="sub-menu">
+               <li class="toolip-wrapo ">
+                  <a href="#">
+                  <span>Edit my profile</span>
+                  </a>
+               </li>
+               <li class="toolip-wrapo ">
+                  <a href="#">
+                  <span>Payouts settings</span>
+                  <span class="wt-element-hint"><i data-tipso-title="" data-tipso="Bkash Number" class="fa fa-question-circle template-content tipso_style wt-tipso"></i></span>
+                  </a>
+               </li>
+               <li class="toolip-wrapo ">
+                  <a href="#">
+                  <span>Account settings</span>
+                  </a>
+               </li>
+            </ul>
+         </li>
+
+         <li class="menu-item-has-children toolip-wrapo ">
+            <span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
+            <a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; event_preventDefault(event);">
+            <i class="ti-pencil-alt"></i>
+            <span>Manage portfolios</span>
+            </a>
+            <ul class="sub-menu">
+               <li class="">
+                  <hr>
+                  <a href="#">Add portfolio</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="#">Portfolio listings</a>
+               </li>
+            </ul>
+         </li>
+
+         <li class="menu-item-has-children toolip-wrapo ">
+            <span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
+            <a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; event_preventDefault(event);">
+            <i class="ti-bag"></i>
+            <span>Manage projects</span>
+            </a>
+            <ul class="sub-menu">
+               <li class="">
+                  <hr>
+                  <a href="#">Proposals</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="#">Ongoing projects</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="#">Completed projects</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="#">Cancelled projects</a>
+               </li>
+            </ul>
+         </li>
+         <li class="toolip-wrapo ">
+            <a href="#">
+            <i class="ti-heart"></i>
+            <span>Saved items</span>
+            </a>
+         </li>
+         <li class="toolip-wrapo ">
+            <a href="#">
+            <i class="ti-file"></i>
+            <span>Invoices</span>
+            </a>
+         </li>
+         <li class="">
+            <a href="#">
+            <i class="ti-shield"></i>
+            <span>Disputes</span>
+            </a>
+         </li>
+         <li class="toolip-wrapo ">
+            <a href="#">
+            <i class="ti-tag"></i>
+            <span>Help and support</span>
+            </a>
+         </li>
+         <li class="toolip-wrapo"><a href="#"><i class="ti-shift-right"></i> <span>Logout</span></a></li>
+      </ul>
+   </nav>
+</div>
+</div>
+@endif
+<!-- --------------------------------------------------- -->
+                        
                         <div class="wt-respsonsive-search"><a href="javascript:;" class="wt-searchbtn"><i class="fa fa-search" aria-hidden="true"></i>
                             </a></div>
                     </div>

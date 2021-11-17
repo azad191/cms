@@ -75,6 +75,9 @@ class User extends Authenticatable
     public function jobPost(){
         return $this->hasMany(jobPost::class, 'user_id');
     }
+    public function jobPostFilter(){
+        return $this->hasMany(jobPost::class, 'user_id');
+    }
 
 
 }

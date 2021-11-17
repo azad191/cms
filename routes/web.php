@@ -2,15 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\Backend\MenuController;
-use App\Http\Controllers\Backend\sliderController;
-use App\Http\Controllers\Backend\logoCongtroller;
 use App\Http\Controllers\jobListController;
 use App\Http\Controllers\freelancerListController;
-use App\Http\Controllers\Backend\userController;
+
 use App\Http\Controllers\userRegistrationController;
 use App\Http\Controllers\FreelancerProfileController;
 use App\Http\Controllers\BuyerDashboardController;
+use App\Http\Controllers\Backend\userController;
+use App\Http\Controllers\Backend\MenuController;
+use App\Http\Controllers\Backend\sliderController;
+use App\Http\Controllers\Backend\logoCongtroller;
+use App\Http\Controllers\Backend\JobProposalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,11 +30,14 @@ Route::get('/', function () {
 });
 
 
+
 Route::get('job/list', [jobListController::class, 'index'])->name('job.list');
 Route::get('job/details/{id}', [jobListController::class, 'details'])->name('job.details');
 Route::get('job/file/download/{id}', [jobListController::class, 'download'])->name('job.file.download');
 Route::post('job/filter', [jobListController::class, 'jobFilter'])->name('job.filter');
+Route::get('job/proposal/{id}', [jobListController::class, 'proposal'])->name('job.proposal');
 Route::get('/buyer/profile/{id}', [BuyerDashboardController::class, 'profile'])->name('buyer_profile');
+Route::get('/buyer/dashboardd', [BuyerDashboardController::class, 'dashboard1']);
 
 
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
@@ -43,20 +48,25 @@ Route::get('wish/list/{id}/{userId}/{type}', [freelancerListController::class, '
 //***************************** Start Freelancer   ****************************
 
      Route::group(['middleware' => 'freelancer'], function(){
+         Route::prefix('freelancer')->name('freelancer.')->group(function(){
 
-         Route::get('freelancer/details/{id}', [freelancerListController::class, 'details'])->name('freelancer.details');
+             Route::get('/details/{id}', [freelancerListController::class, 'details'])->name('details');
 
 
-         Route::get('freelancer/profile', [FreelancerProfileController::class, 'index'])->name('freelancer.profile');
+             Route::get('/profile', [FreelancerProfileController::class, 'index'])->name('profile');
 
-         Route::post('freelancer/update/{id}', [FreelancerProfileController::class, 'update'])->name('freelancer.update');
+             Route::post('/update/{id}', [FreelancerProfileController::class, 'update'])->name('update');
 
-         Route::post('/freelancer/skills', [FreelancerProfileController::class, 'skills']);
-         Route::get('/freelancer/all/skill', [FreelancerProfileController::class, 'allSkills']);
-         Route::get('/freelancer/skill/{id}', [FreelancerProfileController::class, 'SkillsById']);
+             Route::post('/skills', [FreelancerProfileController::class, 'skills']);
+             Route::get('/all/skill', [FreelancerProfileController::class, 'allSkills']);
+             Route::get('/skill/{id}', [FreelancerProfileController::class, 'SkillsById']);
 
-         //freelancer education
-         Route::post('/freelancer/education/{id}', [FreelancerProfileController::class, 'education'])->name('freelancer.education');
+             //job proposal
+             Route::post('/job/send/proposal/{id}/{jobId}', [JobProposalController::class, 'sendProposal'])->name('send.proposal');
+
+             //freelancer education
+             Route::post('/education/{id}', [FreelancerProfileController::class, 'education'])->name('education');
+         });
      });
 
 

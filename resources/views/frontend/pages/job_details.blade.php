@@ -91,7 +91,7 @@
                                        <li><span><i class="fa fa-clock-o wt-viewjobclock"></i>{{$getJob->duration}}Month</span></li>
                                     </ul>
                                  </div>
-                                 <div class="wt-btnarea"><a href="submit-proposal/indexabe9.html?project_id=181" class="wt-btn wt-submit-proposal">Send Proposal</a></div>
+                                 <div class="wt-btnarea"><a href="{{route('job.proposal', base64_encode($getJob->id))}}" class="wt-btn {{isset(auth()->user()->role_id) ? auth()->user()->role_id == 3 ?'' : 'wt-submit-proposal':'wt-submit-proposal'}}">Send Proposal</a></div>
                               </div>
                            </div>
                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 float-left">
