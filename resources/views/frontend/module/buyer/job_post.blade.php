@@ -32,7 +32,7 @@
                                    <div class="tab-pane fade shadow rounded show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                        <div class="wt-tabscontent tab-content">
                                           <div class="wt-personalskillshold tab-pane active fade show" id="wt-skills">
-                                             <form action="{{route('job.post', auth()->user()->id)}}" method="post" enctype="multipart/form-data">
+                                             <form action="{{route('buyer.job.store', auth()->user()->id)}}" method="post" enctype="multipart/form-data">
                                                 @csrf
                                              <div class="wt-yourdetails wt-tabsinfo">
                                                 <h3 style="font-size: 20px;

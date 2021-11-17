@@ -42,6 +42,7 @@ Route::get('/buyer/dashboardd', [BuyerDashboardController::class, 'dashboard1'])
 
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
 Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->name('freelancer.filter');
+//wishlist freelancer or buyer
 Route::get('wish/list/{id}/{userId}/{type}', [freelancerListController::class, 'wishList']);
 
  Route::group(['middleware' => 'auth'], function(){
@@ -76,11 +77,16 @@ Route::get('wish/list/{id}/{userId}/{type}', [freelancerListController::class, '
 //***************************** Start Buyer   ****************************
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::group(['middleware' => 'buyer'], function(){
-        Route::get('/buyer/dashboard', [BuyerDashboardController::class, 'dashboard'])->name('buyer.dashboard');
-        Route::post('/buyer/dashboard/{id}', [BuyerDashboardController::class, 'update'])->name('buyer.profile.update');
-        Route::get('/buyer/job/post', [BuyerDashboardController::class, 'jobPost'])->name('buyer.job.post');
-        Route::post('/buyer/job/post/{id}', [BuyerDashboardController::class, 'jobPostStore'])->name('job.post');
+    Route::group(['prefix'=>'buyer', 'as' => 'buyer.', 'middleware' => 'buyer'], function(){
+            Route::get('/dashboard', [BuyerDashboardController::class, 'dashboard'])->name('dashboard');
+            Route::get('/profile/view/{id}', [BuyerDashboardController::class, 'profileView'])->name('profile.view');
+            Route::post('/dashboard/{id}', [BuyerDashboardController::class, 'update'])->name('profile.update');
+            Route::get('/job/post', [BuyerDashboardController::class, 'jobPost'])->name('job.post');
+            Route::post('/job/post/{id}', [BuyerDashboardController::class, 'jobPostStore'])->name('job.store');
+
+            //buyer dashboard
+            Route::get('/all/job/post/{id}', [BuyerDashboardController::class, 'showJobPost'])->name('all.job.post');
+            Route::get('/all/applied/job/{jobId}', [BuyerDashboardController::class, 'appliedJob'])->name('all.applied.job');
     });
 
 });

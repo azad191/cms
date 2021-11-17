@@ -7,6 +7,7 @@ use App\Models\category;
 use App\Models\freelancer_profile;
 use App\Models\jobPost;
 use App\Models\Location;
+use App\Models\SendProposal;
 use App\Models\Skill;
 use App\Models\specialization;
 use App\Models\User;
@@ -17,15 +18,22 @@ class BuyerDashboardController extends Controller
 {
 
     public function dashboard(){
+
+       // $data->buyerProfile
         $id = auth()->user()->id;
         $data =  User::with('buyerProfile')->where('id', $id)->first();
-       // $data->buyerProfile
-
 //        $user = User::find($id);
 //        $sp = specialization::where('user_id', $id)->first();
 //        $buyer_profile = freelancer_profile::where('user_id', $id)->first();
 
         return view('frontend.module.buyer.buyer_dashboard', compact('data'));
+
+    }
+    public function profileView($id){
+        $id = auth()->user()->id;
+        $data =  User::with('buyerProfile')->where('id', $id)->first();
+
+        return view('frontend.module.buyer.buyer_profile', compact('data'));
 
     }
     public function update(Request $request, $id){
@@ -78,6 +86,7 @@ class BuyerDashboardController extends Controller
         return redirect()->back();
        // return view('frontend.module.buyer.buyer_dashboard', compact('data'));
     }
+    //public view  in buyer profile
     public function profile($id){
            $convertId =  base64_decode($id);
            $data =User::with(['buyerProfile','jobPost'])->where('id', $convertId)->first();
@@ -115,7 +124,6 @@ class BuyerDashboardController extends Controller
 
 //        $files->move('backend/uploads/freelancer/project', $fileName );
 
-
          //return $checkBuyer;
          if(!empty($checkBuyer)){
             // return 'ok';
@@ -130,9 +138,6 @@ class BuyerDashboardController extends Controller
                  'alert-type' => 'error'
              );
          }
-
-
-
         return redirect()->back()->with($notification);
        //  return redirect()->back();
     }
@@ -140,4 +145,17 @@ class BuyerDashboardController extends Controller
     public function dashboard1(){
         return view('frontend.module.buyer.buyer_dashboard');
     }
+
+    //show all post in buyer dashboard
+    public function showJobPost($id){
+        $buyerId = base64_decode($id);
+
+        return jobPost::where('user_id', $buyerId)->get();
+    }
+    //applied job list with
+    public function appliedJob($jobId){
+    //   $jobId = base64_decode($jobId);
+      return  SendProposal::where('job_post_id',$jobId)->get();
+    }
+
 }

@@ -15,7 +15,7 @@
                             </button>
                             <div class="collapse navbar-collapse wt-navigation" id="navbarNav">
                                 <ul id="menu-main-menu" class="navbar-nav nav-Js">
-                            
+
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('job.list')}}" >Find Jobs </a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('freelancer.list')}}" >Find Freelancers</a></li>
                                     <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="{{route('user.reg')}}" >Freelancer Registration</a></li>
@@ -33,88 +33,12 @@
                                 </ul>
                             </div>
                         </nav>
-                        
-                        <div class="wt-loginarea">
-                            <figure class="wt-userimg">
-                                <img src="{{asset('frontend/wp-content/themes/workreap/images/user.png')}}" alt="user">
-                            </figure>
-                            <div class="wt-loginoption">
-
-
-                                @if(isset(auth()->user()->name))
-                                    <a href="{{ route('logout') }}" class="wt-loginbtn"
-                                       onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">{{auth()->user()->name}}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                @else
-                                    <a href="javascript:;" id="wt-loginbtn" class="wt-loginbtn">Sign In</a>
-                                @endif
-                                <div class="wt-loginformhold">
-                                    <div class="wt-loginheader">
-                                        <span>Login </span>
-                                        <a href="javascript:;"><i class="fa fa-times"></i></a>
-                                    </div>
-                                    <form class="wt-formtheme wt-loginform do-login-form" method="POST" action="{{ route('login') }}">
-                                        @csrf
-                                        <fieldset>
-                                            <div class="form-group">
-                                                <input type="text" name="email" class="form-control" placeholder="Username or email">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" name="password" class="form-control" placeholder="Password">
-                                            </div>
-                                            <div class="wt-logininfo">
-{{--                                                <input type="submit" value="Login">--}}
-                                                <button type="submt" class="wt-btn" >Login</button>
-                                                <span class="wt-checkbox">
-                                                <input id="wt-login" type="checkbox" name="rememberme">
-                                                <label for="wt-login">Keep me logged in</label>
-                                                </span>
-                                            </div>
-                                            <input type="hidden" id="login_request" name="login_request" value="b6bde0546d" /><input type="hidden" name="_wp_http_referer" value="/projects/wpworkreap/" />								<input type="hidden" name="redirect" value="">
-                                        </fieldset>
-                                        <div class="wt-joinnowholder">
-                                            <ul class="wt-socialicons wt-iconwithtext">
-                                                <li class="wt-facebook"><a class="sp-fb-connect" href="javascript:;"><i class="fa fa-facebook-f"></i><em>Facebook</em></a></li>
-                                                <li class="wt-googleplus"><a class="sp-googl-connect" href="javascript:;"><i class="fa fa-google-plus"></i><em>Google</em></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="wt-loginfooterinfo">
-                                            <a href="javascript:;" class="wt-forgot-password">Forgot password?</a>
-                                            <a href="authentication/index0c17.html?step=1">Create account</a>
-                                        </div>
-                                    </form>
-                                    <form class="wt-formtheme wt-loginform do-forgot-password-form wt-hide-form">
-                                        <fieldset>
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control get_password" placeholder="Email">
-                                            </div>
-                                            <div class="wt-logininfo">
-                                                <a href="javascript:;" class="wt-btn do-get-password">Get Password</a>
-                                            </div>
-                                        </fieldset>
-                                        <input type="hidden" name="wt_pwd_nonce" value="2378278024" />
-                                        <div class="wt-loginfooterinfo">
-                                            <a href="javascript:;" >Login Now</a>
-                                            <a href="authentication/index0c17.html?step=1">Create account</a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            
-                            <!--<a href="authentication/index0c17.html?step=1"  class="wt-btn">Join Now</a>-->
-                            <!-- <a href="{{route('buyer.job.post')}}"  class="wt-btn">Post Your Job</a> -->
-                            
-                        </div>
 
                         <!-- ---------------------------------------------------------------------------- -->
 
 
 @if (isset(auth()->user()->id))
-<div class="wt-userlogedin sp-top-menu menu-item-has-children">  
+<div class="wt-userlogedin sp-top-menu menu-item-has-children">
     <div class="avatar-wrap-icon">
    <figure class="wt-userimg">
       <img src="{{asset('frontend/wp-content/themes/workreap/images/user.png')}}">
@@ -125,7 +49,7 @@
    <nav class="wt-usernav">
       <ul class="dashboard-menu-top">
          <li class="toolip-wrapo wt-active">
-            <a href="#">
+            <a href="{{route('buyer.dashboard')}}">
             <i class="ti-dashboard"></i>
             <span>Dashboard</span>
             </a>
@@ -140,7 +64,7 @@
             </a>
          </li>
          <li class="toolip-wrapo">
-            <a href="#" target="_blank">
+            <a href="{{route('buyer.profile.view', auth()->user()->id)}}">
             <i class="ti-desktop"></i>
             <span>View my profile</span>
             </a>
@@ -246,14 +170,85 @@
             <span>Help and support</span>
             </a>
          </li>
-         <li class="toolip-wrapo"><a href="#"><i class="ti-shift-right"></i> <span>Logout</span></a></li>
+         <li class="toolip-wrapo"><a href="{{ route('logout') }}"
+             onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();"><i class="ti-shift-right"></i> <span>Logout</span></a></li>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+          </form>
       </ul>
    </nav>
 </div>
 </div>
+ @else
+
+    <div class="wt-loginarea">
+        <figure class="wt-userimg">
+            <img src="{{asset('frontend/wp-content/themes/workreap/images/user.png')}}" alt="user">
+        </figure>
+        <div class="wt-loginoption">
+            <a href="javascript:;" id="wt-loginbtn" class="wt-loginbtn">Sign In</a>
+
+            <div class="wt-loginformhold">
+                <div class="wt-loginheader">
+                    <span>Login </span>
+                    <a href="javascript:;"><i class="fa fa-times"></i></a>
+                </div>
+                <form class="wt-formtheme wt-loginform do-login-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <fieldset>
+                        <div class="form-group">
+                            <input type="text" name="email" class="form-control" placeholder="Username or email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="wt-logininfo">
+                            {{--                                                <input type="submit" value="Login">--}}
+                            <button type="submt" class="wt-btn" >Login</button>
+                            <span class="wt-checkbox">
+                        <input id="wt-login" type="checkbox" name="rememberme">
+                        <label for="wt-login">Keep me logged in</label>
+                        </span>
+                        </div>
+                        <input type="hidden" id="login_request" name="login_request" value="b6bde0546d" /><input type="hidden" name="_wp_http_referer" value="/projects/wpworkreap/" />								<input type="hidden" name="redirect" value="">
+                    </fieldset>
+                    <div class="wt-joinnowholder">
+                        <ul class="wt-socialicons wt-iconwithtext">
+                            <li class="wt-facebook"><a class="sp-fb-connect" href="javascript:;"><i class="fa fa-facebook-f"></i><em>Facebook</em></a></li>
+                            <li class="wt-googleplus"><a class="sp-googl-connect" href="javascript:;"><i class="fa fa-google-plus"></i><em>Google</em></a></li>
+                        </ul>
+                    </div>
+                    <div class="wt-loginfooterinfo">
+                        <a href="javascript:;" class="wt-forgot-password">Forgot password?</a>
+                        <a href="authentication/index0c17.html?step=1">Create account</a>
+                    </div>
+                </form>
+                <form class="wt-formtheme wt-loginform do-forgot-password-form wt-hide-form">
+                    <fieldset>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control get_password" placeholder="Email">
+                        </div>
+                        <div class="wt-logininfo">
+                            <a href="javascript:;" class="wt-btn do-get-password">Get Password</a>
+                        </div>
+                    </fieldset>
+                    <input type="hidden" name="wt_pwd_nonce" value="2378278024" />
+                    <div class="wt-loginfooterinfo">
+                        <a href="javascript:;" >Login Now</a>
+                        <a href="authentication/index0c17.html?step=1">Create account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--<a href="authentication/index0c17.html?step=1"  class="wt-btn">Join Now</a>-->
+    <!-- <a href="{{route('buyer.job.post')}}"  class="wt-btn">Post Your Job</a> -->
+
+    </div>
 @endif
 <!-- --------------------------------------------------- -->
-                        
+
                         <div class="wt-respsonsive-search"><a href="javascript:;" class="wt-searchbtn"><i class="fa fa-search" aria-hidden="true"></i>
                             </a></div>
                     </div>

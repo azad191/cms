@@ -9,7 +9,7 @@
       </div>
 
      <div class="container">
-      	
+
       <div class="wt-moredetailsholder">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row">
@@ -36,7 +36,20 @@
                      <div class="wt-insightdetails">
                         <div class="wt-title">
                            <h3>Latest Proposals</h3>
-                           <a href="https://instantkaj.com/dashboard/?ref=proposals&amp;identity=1001">Click To View</a>
+                           <a href="">Click To View</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                  <div class="wt-insightsitem wt-dashboardbox">
+                     <figure class="wt-userlistingimg">
+                        <span class="lnr lnr-layers"></span>
+                     </figure>
+                     <div class="wt-insightdetails">
+                        <div class="wt-title">
+                           <h3>Latest Job Posts</h3>
+                           <a href="{{route('buyer.all.job.post', base64_encode(auth()->user()->id))}}">Click To View</a>
                         </div>
                      </div>
                   </div>

@@ -155,7 +155,7 @@
                                             </div>
 
 
-                        
+
 
 
                                             <div class="wt-widget wt-effectiveholder">
@@ -306,7 +306,7 @@
                                                             <input id="durationthree_month" type="checkbox" name="english_level[]" value="fluent" >
                                                             <label for="durationthree_month">Fluent</label>
                                                             </span>
-                                                             
+
                                                                 <span class="wt-checkbox">
                                                             <input id="durationmore_than_six" type="checkbox" name="english_level[]" value="professional" >
                                                             <label for="durationmore_than_six">Professional</label>
@@ -318,7 +318,7 @@
                                             </div>
 
 
-                                            
+
                                             <div class="wt-widget wt-effectiveholder">
                                                 <div class="wt-widgetcontent">
                                                     <div class="wt-applyfilters">
@@ -335,7 +335,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 float-left">
                             <div class="wt-userlistingholder wt-haslayout">
 
-                                @foreach($data as $item)
+                                @foreach($data as $key => $item)
 
                                  <div class="wt-userlistinghold ">
                                     <figure class="wt-userlistingimg">
@@ -355,8 +355,10 @@
                                                    <span>
                                                    <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.png')}}" alt="//amentotech.com/projects/wpworkreap/wp-content/uploads/2019/03/img-01-2.png"></em>Bangladesh                                                         </span>
                                                 </li>
-                                                <li>            
-                                                <button class="wt-clicksave" id="wish" onclick="wishList({{$item->id}}, {{isset(auth()->user()->id) ? auth()->user()->id : '404'}}, 'freelancer')" data-id="1" data-text="Saved"><i class="fa fa-heart" ></i><span>Click to Save</span></a></li>
+                                                <li>
+                                                <button class="wt-clicksave" id="wish" onclick="wishList({{$item->id}}, {{isset(auth()->user()->id) ? auth()->user()->id : '404'}}, 'freelancer')" data-id="1" data-text="Saved"><i class="fa fa-heart" ></i><span>
+                                                    Click to Save</span></a>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="wt-rightarea user-stars-v2">
@@ -370,13 +372,13 @@
                                     @foreach ($item->skill as $skillList )
                                         <a  class="skills_351" href="#">{{$skillList->skill_name}}</a>
                                     @endforeach
-                                        
+
 
                                         <!-- <a  class="skills_351" href="#">CSS</a>
                                         <a  class="skills_351" href="#">Graphic Design</a>
                                         <a  class="skills_351" href="#">HTML 5</a>
                                         <a  class="skills_351" href="#">Jquery</a>
-                                        <a href="javascript:;" class="showmore_skills" data-id="351">...</a>                          
+                                        <a href="javascript:;" class="showmore_skills" data-id="351">...</a>
                                         <a style="display: none;" class="skills_351" href="#">My SQL</a>
                                         <a style="display: none;" class="skills_351" href="#">PHP</a>
                                         <a style="display: none;" class="skills_351" href="#">Website Design</a>
@@ -404,7 +406,7 @@
             </div>
         </div>
     </div>
-   
+
     <script>
         function wishList(id, userId, type){
            // localStorage.setItem('keyId', [100]);
@@ -412,23 +414,23 @@
             console.log(userId);
             console.log(type);
 
-            
+
             axios.get(`/wish/list/${id}/${userId}/${type}`)
             .then(function(res){
               if(res.data.status==200){
                 toastr.success('saved success')
               }else if(res.data.status==404){
-                toastr.warning('User Not found')
+                toastr.warning('Please login to seve')
               }else{
-                toastr.error('doest not seved')
+                toastr.error('You have already saved')
               }
-               
-             
+
+
             })
             .catch(error=>{
                 console.log(error);
             })
         }
-        
+
     </script>
 @endsection

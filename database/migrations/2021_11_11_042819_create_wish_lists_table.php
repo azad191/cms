@@ -16,9 +16,9 @@ class CreateWishListsTable extends Migration
         Schema::create('wish_lists', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('freelancer_profile_id')->unique()->nullable();
-            $table->foreignId('job_post_id')->unique()->nullable();
-            $table->enum('type', ['job', 'freelancer']);
+            $table->foreignId('freelancer_profile_id')->nullable();
+            $table->foreignId('job_post_id')->nullable();
+            $table->enum('type', ['buyer', 'freelancer']);
             $table->timestamps();
         });
     }
