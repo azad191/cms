@@ -162,35 +162,4 @@ class freelancerListController extends Controller
       //  return Redirect::route('freelancer.list')->compact('data');
 
     }
-    public function wishList($id, $userId, $type){
-
-        $user = User::find($userId);
-        if(isset($user)){
-            $exits =  wishList::where('user_id', $userId)->where('freelancer_profile_id', $id)->first();
-            if (!isset($exits)){
-                if(auth()->user()->role_id == 3 and $type=='buyer'){
-
-                    wishList::create([
-                        'user_id' =>  $userId ,
-                        'job_post_id' => $id,
-                        'type' => $type,
-                    ]);
-                    return response()->json(['status'=>200]);
-
-                }elseif(auth()->user()->role_id == 2 and $type=='freelancer'){
-                    wishList::create([
-                        'user_id' => $userId,
-                        'freelancer_profile_id' =>$id,
-                        'type' => $type,
-                    ]);
-                    return response()->json(['status'=>200]);
-                }
-            }else{
-                return response()->json(['status'=>403]);
-            }
-        }else{
-            return response()->json(['status'=>404]);
-        }
-
-    }
 }

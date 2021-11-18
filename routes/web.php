@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\sliderController;
 use App\Http\Controllers\Backend\logoCongtroller;
 use App\Http\Controllers\Backend\JobProposalController;
+use App\Http\Controllers\Backend\WishlistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,8 +43,14 @@ Route::get('/buyer/dashboardd', [BuyerDashboardController::class, 'dashboard1'])
 
 Route::get('freelancer/list', [freelancerListController::class, 'index'])->name('freelancer.list');
 Route::post('freelancer/filter', [freelancerListController::class, 'filter'])->name('freelancer.filter');
-//wishlist freelancer or buyer
-Route::get('wish/list/{id}/{userId}/{type}', [freelancerListController::class, 'wishList']);
+
+Route::get('freelancer/details/{id}', [freelancerListController::class, 'details'])->name('freelancer.details');
+
+
+Route::get('freelancer/profile', [FreelancerProfileController::class, 'index'])->name('freelancer.profile');
+
+//wish list add both freelancer and buyer
+Route::get('wish/list/{id}/{userId}/{type}', [WishlistController::class, 'wishList']);
 
  Route::group(['middleware' => 'auth'], function(){
 //***************************** Start Freelancer   ****************************
@@ -51,10 +58,10 @@ Route::get('wish/list/{id}/{userId}/{type}', [freelancerListController::class, '
      Route::group(['middleware' => 'freelancer'], function(){
          Route::prefix('freelancer')->name('freelancer.')->group(function(){
 
-             Route::get('/details/{id}', [freelancerListController::class, 'details'])->name('details');
-
-
-             Route::get('/profile', [FreelancerProfileController::class, 'index'])->name('profile');
+//             Route::get('/details/{id}', [freelancerListController::class, 'details'])->name('details');
+//
+//
+//             Route::get('/profile', [FreelancerProfileController::class, 'index'])->name('profile');
 
              Route::post('/update/{id}', [FreelancerProfileController::class, 'update'])->name('update');
 
@@ -87,6 +94,10 @@ Route::group(['middleware' => 'auth'], function(){
             //buyer dashboard
             Route::get('/all/job/post/{id}', [BuyerDashboardController::class, 'showJobPost'])->name('all.job.post');
             Route::get('/all/applied/job/{jobId}', [BuyerDashboardController::class, 'appliedJob'])->name('all.applied.job');
+
+            //wish list
+            Route::get('show/wishlist/{id}', [WishlistController::class, 'showWishList'])->name('show.wishlist');
+
     });
 
 });

@@ -173,7 +173,7 @@ class FreelancerProfileController extends Controller
     //         $q->where('user_id', $id);
     //    })->get();
        $data = User::with('skill')->whereHas('skill', function( $query ){
-        $query->whereNotNull('user_id', );
+        $query->whereNotNull('user_id');
     })->get();
 
         return response()->json(['result'=> $skill]);

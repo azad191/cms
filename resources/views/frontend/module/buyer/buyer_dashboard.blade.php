@@ -62,7 +62,7 @@
                      <div class="wt-insightdetails">
                         <div class="wt-title">
                            <h3>View Saved Items</h3>
-                           <a href="https://instantkaj.com/dashboard/?ref=saved&amp;identity=1001">Click To View</a>
+                           <a href="{{route('buyer.show.wishlist', base64_encode(auth()->user()->id))}}">Click To View</a>
                         </div>
                      </div>
                   </div>
