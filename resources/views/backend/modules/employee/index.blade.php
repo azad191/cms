@@ -4,7 +4,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="card-title">All User List</h3>
-                <a href="{{route('employee.create')}}" class="btn btn-info">Add New User</a>
+                <a href="{{route('employee.create')}}" class="btn btn-info">Add New Employee</a>
 
             </div>
         </div>
@@ -36,9 +36,7 @@
         </div>
         <!-- /.card-body -->
     </div>
-    <button id="test">
-        test
-    </button>
+
     <div class="modal fade" id="modal-lg">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">

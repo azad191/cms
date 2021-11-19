@@ -17,7 +17,7 @@
 <body class="hold-transition">
 <div class="container">
     <div class="login-logo">
-        <a href="../../index2.html">Admin Login</a>
+        <a href="../../index2.html">Register for New Election</a>
     </div>
     <div class="col-md-6" style="margin: auto">
         <form action="{{route('admin.store')}}" method="post">
@@ -64,7 +64,9 @@
                 <label for="confirm_password">Confirm Password</label>
                 <input type="password" class="form-control" name="confirm_password" id="confirm_password">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+           <div class="text-center ">
+            <button type="submit" class="btn btn-primary text-center m-2">Submit Register</button>
+           </div>
         </form>
     </div>
 </div>

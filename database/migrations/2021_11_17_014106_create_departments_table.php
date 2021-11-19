@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateElectionsTable extends Migration
+class CreateDepartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateElectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('elections', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('election_name');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->string('slug');
+            $table->foreignId('election_id');
+            $table->foreignId('department_name');
+            $table->foreignId('parent_id')->nullable();
+            $table->string('designation');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateElectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('elections');
+        Schema::dropIfExists('departments');
     }
 }

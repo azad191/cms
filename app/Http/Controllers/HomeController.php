@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+//        return view('home');
+        if (auth()->user()->role_id == 2){
+            return redirect()->to('/admin/dashboard');
+        }
     }
 }

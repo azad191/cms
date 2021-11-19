@@ -3,21 +3,19 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Election;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
-class ElectionController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-
-        return view('backend.modules.admin.election.dashboard');
+        return view('backend.modules.employee.index');
     }
 
     /**
@@ -27,7 +25,7 @@ class ElectionController extends Controller
      */
     public function create()
     {
-        return view('backend.modules.admin.add_election');
+        return view('backend.modules.employee.create');
     }
 
     /**
@@ -36,17 +34,12 @@ class ElectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        $data['user_id'] = base64_decode($id);
-        $data['slug'] = sprintf("%04X%04X-%05X", mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
-        Election::create($data);
-        $notification = array(
-            'message' => 'Election created successfully!',
-            'alert-type' => 'success'
-        );
-        return Redirect::to('admin/dashboard')->with($notification);
+      $a = User::azad();
+
+      return getElection();
+        return $request->all();
     }
 
     /**

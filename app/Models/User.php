@@ -44,4 +44,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public static function azad(){
+      return Election::where('user_id', 1)->first();
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -36,5 +37,19 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    public function logout(Request $request)
+    {
+
+
+
+        if($request->role_id == 2){
+            $this->guard()->logout();
+            return redirect('admin/login');
+        }
+//else{
+//            $this->guard()->logout();
+//            return redirect('user/registration');
+//        }
     }
 }
