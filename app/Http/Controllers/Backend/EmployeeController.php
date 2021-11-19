@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Image;
 
 class EmployeeController extends Controller
 {
@@ -15,7 +18,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('backend.modules.employee.index');
+        $data =  Employee::get();
+        return view('backend.modules.employee.index', compact('data'));
     }
 
     /**
@@ -36,10 +40,33 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-      $a = User::azad();
+//       getElection();
+        $data = $request->all();
+        $employeeImgeFile = $request->file('employee_image');
+        $nidImageFile = $request->file('nid_image');
 
-      return getElection();
-        return $request->all();
+        $EmpFileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $employeeImgeFile->getClientOriginalExtension();
+        // return $fileName;
+        Image::make($employeeImgeFile)->resize(200, 150)->save('backend/uploads/employee/profile/'.$EmpFileName);
+        $data['employee_image'] = $EmpFileName;
+        $nidFileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $nidImageFile->getClientOriginalExtension();
+        // return $fileName;
+        Image::make($nidImageFile)->resize(300, 300)->save('backend/uploads/employee/nid/'.$nidFileName);
+        $data['nid_image'] = $nidFileName;
+
+        $data['user_id'] = auth()->user()->id;
+        $data['election_id'] = getElection()->id;
+        $data['employee_id'] = mt_rand(0, 655);
+        $data['department_id'] = 4;
+        $data['designation_id'] = 6;
+        Employee::create($data);
+        $notification = array(
+            'message' => 'Employee has been successfully added!',
+            'alert-type' => 'success'
+        );
+
+           return Redirect::to('employee/create')->with( $notification);
+
     }
 
     /**

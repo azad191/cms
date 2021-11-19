@@ -14,23 +14,28 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Rendering engine</th>
+                        <th>Image</th>
+                        <th>Name</th>
                         <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
+                        <th>Email</th>
+                        <th>Employee Id</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                            Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                        <td>X</td>
-                    </tr>
+                    @foreach ($data as $item)
+                        <tr>
+                            <td><img class="" style="width:50px; height: 50px; border-radius:50%" src="{{asset('backend/uploads/employee/'.$item->employee_image)}}" alt="img"></td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->email}}</td>
+                            <td>{{$item->employee_id}}</td>
+                            <td>{{$item->email}}</td>
+                            <td><button class="btn btn-info btn-sm">view</button></td>
+
+
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

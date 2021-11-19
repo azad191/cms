@@ -25,19 +25,18 @@
                                     <label for="dept">Department</label>
                                     <select id="dept" name="department_id" class="form-control">
                                         <option value="">Choose...</option>
-                                        <option value="1">Marketing</option>
-                                        <option value="2">HR</option>
-                                        <option value="3">Software Development</option>
+                                        <option value="{{1}}">Marketing</option>
+                                        <option value="{{2}}">HR</option>
+                                        <option value="{{3}}">Software Development</option>
                                     </select>
-
                             </div>
                             <div class="form-group w-50">
                                 <label for="desg">Designation</label>
                                 <select id="desg" name="designation_id" class="form-control">
                                     <option value="">Choose...</option>
-                                    <option value="50-100">Managing Director</option>
-                                    <option value="100-250">Marketing Manager</option>
-                                    <option value="150-200">Team Leader</option>
+                                    <option value="{{4}}">Managing Director</option>
+                                    <option value="{{6}}">Marketing Manager</option>
+                                    <option value="{{7}}">Team Leader</option>
                                 </select>
                             </div>
                         </div>
