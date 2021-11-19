@@ -9,5 +9,5 @@ class Election extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'election_name', 'start_date', 'end_date', 'status', 'slug'];
+    protected $fillable = ['user_id', 'election_name', 'start_date', 'end_date', 'status','election_activity', 'slug'];
 }

@@ -20,6 +20,7 @@ class CreateElectionsTable extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('election_activity')->default('building');
             $table->string('slug');
             $table->timestamps();
         });

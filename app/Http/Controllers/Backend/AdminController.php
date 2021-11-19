@@ -8,6 +8,8 @@ use App\Models\Election;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -18,7 +20,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-       $data = Election::where('user_id', 1)->orderBy('id', 'DESC')->get();
+       $data = Election::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->get();
         return view('backend.modules.admin.admin_dashboard', compact('data'));
     }
 
@@ -40,6 +42,15 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required'],
+            'email' => 'required|unique:users,email',
+            'organization' => 'required|unique:admins,organization',
+            'election_per_year' => ['required'],
+            'password' => 'required|same:confirm_password|min:6',
+            'confirm_password' => ['required'],
+        ]);
+
         $data = $request->all();
         $data['role_id'] = 2;
         $data['password'] = Hash::make($request->password);
@@ -48,7 +59,15 @@ class AdminController extends Controller
          $data['user_id'] = $userId->id;
 
          Admin::create($data);
-         return redirect()->back();
+
+        $notification = array(
+            'message' => 'Registration has been successfully added!',
+            'alert-type' => 'success'
+        );
+
+      //   return Redirect::to('admin/login')->with( $notification);
+        Session::flash('alert-class', 'alert-success');
+        return back()->with('success','Registration has been successfully added!');
     }
 
     /**

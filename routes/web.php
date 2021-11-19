@@ -34,6 +34,7 @@ Route::get('/admin/register', function () {
     //  return view('welcome');
     return view('register');
 });
+Route::post('admin/store', [AdminController::class, 'store'])->name('admin.store');
 Route::group(['middleware' => 'auth'], function(){
 
     Route::get('cats', [CategoryController::class, 'index']);
@@ -58,7 +59,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::prefix('admin')->name('admin.')->group(function(){
 
         Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
-        Route::post('/store', [AdminController::class, 'store'])->name('store');
         Route::get('/election', [ElectionController::class, 'create'])->name('election.create');
         Route::post('/election/store/{id}', [ElectionController::class, 'store'])->name('election.store');
         Route::get('/election/dashboard/{id}', [ElectionController::class, 'index'])->name('election.dashboard');

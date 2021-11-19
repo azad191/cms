@@ -20,7 +20,7 @@
         <a href="../../index2.html">Admin Login</a>
     </div>
     <div class="col-md-6" style="margin: auto">
-        <form action="{{route('admin.election.store', base64_encode(1))}}" method="post">
+        <form action="{{route('admin.election.store', base64_encode(auth()->user()->id))}}" method="post">
             @csrf
             <div class="form-group">
                 <label for="name">Election Name</label>
