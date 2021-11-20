@@ -22,7 +22,7 @@ class CreateSendProposalsTable extends Migration
             $table->dateTime('expire_date')->nullable();
             $table->text('description');
             $table->string('proposal_file')->nullable();
-            $table->enum('status', ['pending', 'approve', 'ongoing', 'completed'])->default('pending');
+            $table->enum('status', ['pending', 'approve', 'cancel', 'completed'])->default('pending');
             $table->softDeletes();
             $table->timestamps();
         });

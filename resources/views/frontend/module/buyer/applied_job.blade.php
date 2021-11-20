@@ -10,7 +10,7 @@
                     <!-- ------------------------------ -->
                     <div class="wt-proposalholder">
                         <div class=" ">
-                            <h2>Saved Item List </h2>
+                            <h2>Freelancer applied under a posted job</h2>
                         </div>
                     </div>
                     <!-- ------------------------------ -->
@@ -21,11 +21,13 @@
                             <tbody>
 
                                 <!-- ---------------------------- -->
-                                @foreach ($data as $item)
+                                @foreach ($data as $i => $item)
+                                    @php
+                                        $freelancerProfile = \App\Models\freelancer_profile::where('user_id', $item->freelancer_id)->select('profile_image')->get();
+                                    @endphp
                                     <tr style="padding:10px; vertical-align:middle">
-
                                         <td>
-                                            <img src="{{isset($item->profile_image) ? asset('backend/uploads/freelancer/profile/'.$item->profile_image) : asset('backend/uploads/freelancer/profile/default.png')}}" alt="" style="width:85px">
+                                            <img src="{{isset($freelancerProfile[$i]['profile_image']) ? asset('backend/uploads/freelancer/profile/'.$freelancerProfile[$i]['profile_image']) : asset('backend/uploads/freelancer/profile/default.png')}}" alt="" style="width:85px">
                                             <p class="text-center text-warning mt-1" style="font-size:9px;color:red">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -36,8 +38,11 @@
                                                 5 Star
                                             </p>
                                         </td>
-                                        <td style="vertical-align:middle">{{$item->title}}</td>
-                                        <td style="vertical-align:middle"> $37.00</td>
+                                        <td style="vertical-align:middle">{{$item->user->name}}</td>
+                                        <td style="vertical-align:middle">{{$item->user->email}}</td>
+
+                                        <td style="vertical-align:middle">{{$item->duration}}</td>
+                                        <td style="vertical-align:middle">&#2547;{{$item->amount}}</td>
                                         <td style="vertical-align:middle">
                                             <div class="wt-btnarea">
                                                 <a href=""><span class="badge badge-danger p-1" title="status">Pending</span></a>
@@ -45,7 +50,7 @@
                                         </td>
                                         <td style="vertical-align:middle">
                                             <div class="wt-btnarea">
-                                                <a href="javascript:;" class="btn btn-warning btn-sm"
+                                                <a href="javascript:;" class="btn btn-warning btn-sm text-white"
                                                     title="freelancer profle view" data-id="0" data-post="156">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
@@ -93,8 +98,6 @@
             text-transform: uppercase;
             font: 700 13px/50px 'Poppins', Arial, Helvetica, sans-serif;
         }
-
-        
 
     </style>
     <!-- ************* Css Style Part  End *************-->

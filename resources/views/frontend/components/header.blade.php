@@ -85,7 +85,7 @@
 
             <ul class="sub-menu">
                <li class="toolip-wrapo ">
-                  <a href="#">
+                  <a href="{{route('buyer.profile.view', auth()->user()->id)}}">
                   <span>Edit my profile</span>
                   </a>
                </li>
@@ -120,6 +120,39 @@
                </li>
             </ul>
          </li>
+         <li class="menu-item-has-children toolip-wrapo ">
+            <span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
+            <a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; event_preventDefault(event);">
+            <i class="ti-bag"></i>
+            <span>Manage Jobs</span>
+            </a>
+            <ul class="sub-menu">
+               <li class="">
+                  <hr>
+                  <a href="{{route('buyer.job.post')}}">Post a Job</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="{{route('buyer.all.job.post', base64_encode(auth()->user()->id))}}">Posted Job</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="#">Applied Job</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="#">Ongoing Job</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="#">Completed Job</a>
+               </li>
+               <li class="">
+                  <hr>
+                  <a href="#">Cancelled Job</a>
+               </li>
+            </ul>
+         </li>
 
          <li class="menu-item-has-children toolip-wrapo ">
             <span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
@@ -147,7 +180,7 @@
             </ul>
          </li>
          <li class="toolip-wrapo ">
-            <a href="#">
+            <a href="{{route('buyer.show.wishlist', base64_encode(auth()->user()->id))}}">
             <i class="ti-heart"></i>
             <span>Saved items</span>
             </a>

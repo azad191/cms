@@ -4,7 +4,9 @@
    <div class="row">
       <div class="container">
          <div class="wt-haslayout page-data re-send-email">
-            <div class="wt-jobalerts"></div>
+            <div class="wt-jobalerts">
+
+            </div>
          </div>
       </div>
 
@@ -12,6 +14,13 @@
 
       <div class="wt-moredetailsholder">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+         <div class="wt-proposalholder">
+                        <div class=" ">
+                            <h2>Welcome to Buyer Dashboard</h2>
+                        </div>
+                    </div>
+
             <div class="row">
                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
                   <div class="wt-insightsitem wt-dashboardbox">

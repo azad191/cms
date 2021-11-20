@@ -12,6 +12,7 @@ use App\Models\Skill;
 use App\Models\specialization;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Image;
 
 class BuyerDashboardController extends Controller
@@ -149,13 +150,20 @@ class BuyerDashboardController extends Controller
     //show all post in buyer dashboard
     public function showJobPost($id){
         $buyerId = base64_decode($id);
+        $data = jobPost::where('user_id', $buyerId)->where('project_status', 'pending')->get();
 
-        return jobPost::where('user_id', $buyerId)->get();
+        $count = SendProposal::select("job_post_id", DB::raw("count(job_post_id) as total"))
+            ->groupBy(DB::raw("job_post_id"))
+            ->get();
+        return view('frontend.module.buyer.latest_job_post', compact('data', 'count'));
     }
     //applied job list with
     public function appliedJob($jobId){
-    //   $jobId = base64_decode($jobId);
-      return  SendProposal::where('job_post_id',$jobId)->get();
+        $jobId = base64_decode($jobId);
+        $data=  SendProposal::with('user')->where('job_post_id',$jobId)->get();
+       // return $data;
+
+        return view('frontend.module.buyer.applied_job', compact('data'));
     }
 
 }

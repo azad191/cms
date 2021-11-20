@@ -10,7 +10,7 @@
                     <!-- ------------------------------ -->
                     <div class="wt-proposalholder">
                         <div class=" ">
-                            <h2>Saved Item List </h2>
+                            <h2>Your posted job list</h2>
                         </div>
                     </div>
                     <!-- ------------------------------ -->
@@ -21,23 +21,12 @@
                             <tbody>
 
                                 <!-- ---------------------------- -->
-                                @foreach ($data as $item)
+                                @foreach ($data as $i => $item)
                                     <tr style="padding:10px; vertical-align:middle">
-
-                                        <td>
-                                            <img src="{{isset($item->profile_image) ? asset('backend/uploads/freelancer/profile/'.$item->profile_image) : asset('backend/uploads/freelancer/profile/default.png')}}" alt="" style="width:85px">
-                                            <p class="text-center text-warning mt-1" style="font-size:9px;color:red">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-
-                                                5 Star
-                                            </p>
-                                        </td>
-                                        <td style="vertical-align:middle">{{$item->title}}</td>
-                                        <td style="vertical-align:middle"> $37.00</td>
+                                        <td style="vertical-align:middle">{{$item->project_level}}</td>
+                                        <td style="vertical-align:middle">{{$item->job_title}}</td>
+                                        <td style="vertical-align:middle">{{$item->job_type}}</td>
+                                        <td style="vertical-align:middle">&#2547;{{$item->price_min}} - &#2547;{{$item->price_max}}</td>
                                         <td style="vertical-align:middle">
                                             <div class="wt-btnarea">
                                                 <a href=""><span class="badge badge-danger p-1" title="status">Pending</span></a>
@@ -45,7 +34,12 @@
                                         </td>
                                         <td style="vertical-align:middle">
                                             <div class="wt-btnarea">
-                                                <a href="javascript:;" class="btn btn-warning btn-sm"
+                                                <a href="{{route('buyer.all.applied.job', base64_encode($item->id))}}"><span class="badge badge-info p-1" title="status">Applied ({{$count[$i]->total}})</span></a>
+                                            </div>
+                                        </td>
+                                        <td style="vertical-align:middle">
+                                            <div class="wt-btnarea">
+                                                <a href="javascript:;" class="btn btn-warning btn-sm text-white"
                                                     title="freelancer profle view" data-id="0" data-post="156">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
@@ -93,8 +87,6 @@
             text-transform: uppercase;
             font: 700 13px/50px 'Poppins', Arial, Helvetica, sans-serif;
         }
-
-        
 
     </style>
     <!-- ************* Css Style Part  End *************-->

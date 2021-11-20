@@ -85,7 +85,7 @@
                                        <!-- fa fa-check-circle wt-viewjobdollar -->
                                        <li>
                                           <span>
-                                          <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.png')}}" alt="country"></em>United Emirates															</span>
+                                          <em><img class="wt-checkflag" src="{{asset('frontend/wp-content/uploads/2019/03/img-05-1.png')}}" alt="country"></em>Bangladesh															</span>
                                        </li>
                                        <li><span><i class="fa fa-folder wt-viewjobfolder"></i>Type:{{$getJob->job_type}}</span></li>
                                        <li><span><i class="fa fa-clock-o wt-viewjobclock"></i>{{$getJob->duration}}Month</span></li>
