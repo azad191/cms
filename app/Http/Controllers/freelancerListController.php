@@ -106,8 +106,8 @@ class freelancerListController extends Controller
         //
     }
     public function details($id){
-
-        $data = User::with('freelancerProfile', 'skill', 'faq', 'project', 'education', 'experience')->find($id);
+          $ids =  base64_decode($id);
+        $data = User::with('freelancerProfile', 'skill', 'faq', 'project', 'education', 'experience')->find($ids);
 
         return view('frontend.pages.freelancer_details', compact('data'));
     }

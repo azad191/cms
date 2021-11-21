@@ -106,6 +106,22 @@ class BuyerDashboardController extends Controller
 
     public function jobPostStore(Request $request, $id){
       // return sprintf("%06d", mt_rand(1, 999999);
+        $request->validate([
+            'job_title' => ['required'],
+            'project_level' => ['required'],
+            'freelancer_type' => ['required'],
+            'english_level' => ['required'],
+            'experience_preferred' => ['required'],
+            'duration' => ['required'],
+            'job_type' => ['required'],
+            'project_expire' => ['required'],
+            'price_min' => ['required'],
+            'skills' => ['required'],
+            'category_id' => ['required'],
+            'description' => ['required'],
+            'project_file' => 'max:500 |mimes:jpeg,jpg,png,pdf,docx|'
+        ]);
+
          $data = $request->all();
           //  return $data;
          $data['job_id']= random_int(100000, 999999);
@@ -116,10 +132,11 @@ class BuyerDashboardController extends Controller
          $checkBuyer = User::find($id);
          $projectFile = $request->file('project_file');
          //dd($projectFile);
+
          if($request->hasFile('project_file')){
              $fileName = rand(0, 999999999) . '_' . date('Ymdhis').'_' . rand(100, 999999999) . '.' . $projectFile->getClientOriginalExtension();
-             Image::make($projectFile)->resize(500, 300)->save(public_path('backend/uploads/buyer/jobPost/').$fileName );
-
+             $projectFile->move('backend/uploads/buyer/jobPost', $fileName );
+            // Image::make($projectFile)->resize(500, 300)->save(public_path('backend/uploads/buyer/jobPost/').$fileName );
              $data['project_file'] = $fileName;
          }
 

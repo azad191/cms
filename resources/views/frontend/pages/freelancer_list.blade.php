@@ -347,7 +347,7 @@
                                             <div class="wt-title">
                                                 <a href="#">
                                                     <i class="fa fa-check-circle"></i>&nbsp;{{$item->name}}  </a>
-                                                <h2><a href="{{route('freelancer.details',$item->id)}}">E-commerce design & developer</a></h2>
+                                                <h2><a href="{{route('freelancer.details',base64_encode($item->id))}}">{{$item->freelancerProfile->title !=null ? $item->freelancerProfile->title:'Empty'}}</a></h2>
                                             </div>
                                             <ul class="wt-userlisting-breadcrumb ">
 {{--                                                <li><span><i class="fa fa-money"></i>Tk. 500.00 &nbsp;/&nbsp;hr</span></li>--}}

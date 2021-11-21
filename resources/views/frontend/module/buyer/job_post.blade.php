@@ -44,15 +44,18 @@
                                                    <fieldset>
                                                       <div class="form-group toolip-wrapo">
                                                          <input type="text" name="job_title" class="form-control" placeholder="Project title">
+                                                         <p class="text-danger" class="error">{{$errors->first('job_title')}}</p>
                                                       </div>
 
                                                       <div class="form-group form-group-half">
                                                          <span class="wt-select">
                                                             <select name="project_level" class="chosen-select" >
+                                                                <option value="">Select One</option>
                                                                <option value="basic" >Basic</option>
                                                                <option value="medium">Medium</option>
                                                                <option value="expensive">Expensive</option>
                                                             </select>
+                                                            <p class="text-danger" class="error">{{$errors->first('project_level')}}</p>
                                                          </span>
                                                       </div>
 
@@ -65,17 +68,19 @@
                                                                <option value="3-6">03 to 06 months</option>
                                                                <option value="6-12">06 to 12 months</option>
                                                             </select>
+                                                            <p class="text-danger" class="error">{{$errors->first('duration')}}</p>
                                                          </span>
                                                       </div>
 
                                                       <div class="form-group form-group-half">
                                                          <span class="wt-select">
                                                             <select name="freelancer_type" class="chosen-select" style="display: none;">
-                                                               <option selected="selected" value="Selece freelancer type">Selece freelancer type</option>
+                                                               <option  value="">Selece freelancer type</option>
                                                                <option value="Independent Freelancers">Independent Freelancers</option>
                                                                <option value="New Rising Talent">New Rising Talent</option>
                                                                <option value="Professional Freelancers">Professional Freelancers</option>
                                                             </select>
+                                                            <p class="text-danger" class="error">{{$errors->first('freelancer_type')}}</p>
                                                          </span>
                                                       </div>
 
@@ -87,6 +92,7 @@
                                                                <option value="medium">Medium</option>
                                                                <option value="advance">Advance</option>
                                                             </select>
+                                                            <p class="text-danger" class="error">{{$errors->first('english_level')}}</p>
                                                          </span>
                                                       </div>
 
@@ -100,18 +106,19 @@
                                                                <option value="4">4 Years</option>
 
                                                             </select>
+                                                            <p class="text-danger" class="error">{{$errors->first('experience_preferred')}}</p>
                                                          </span>
                                                       </div>
 
 
                                                       <div class="form-group form-group-half toolip-wrapo">
                                                          <input type="datetime-local" name="project_expire" class="form-control" placeholder="Project Expiry Date (Required)">
-                                                         <span class="wt-element-hint"></span>
+                                                         <p class="text-danger" class="error">{{$errors->first('project_expire')}}</p>
                                                       </div>
 
                                                       <div class="form-group form-group-half toolip-wrapo">
                                                          <input type="datetime-local" name="project_deadline" class="form-control" placeholder="Project deadline date (Optional)">
-                                                         <span class="wt-element-hint"></span>
+
                                                       </div>
                                                    </fieldset>
                                                 </div>
@@ -132,11 +139,13 @@
                                                                <option value="fixed">Fixed Project</option>
                                                                <option value="hourly">Hourly Based Project</option>
                                                             </select>
+                                                            <p class="text-danger" class="error">{{$errors->first('job_type')}}</p>
                                                          </span>
                                                       </div>
 
                                                       <div class="form-group form-group-half">
                                                          <input type="text" name="price_min" class="form-control" placeholder="Minimum Price">
+                                                         <p class="text-danger" class="error">{{$errors->first('price_min')}}</p>
                                                       </div>
 
                                                       <div class="form-group form-group-half">
@@ -165,6 +174,7 @@
                                                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                                                 @endforeach
                                                             </select>
+                                                            <p class="text-danger" class="error">{{$errors->first('skills')}}</p>
                                                          </span>
                                                       </div>
 
@@ -186,6 +196,7 @@
                                                                  <div class="form-group form-group-label" id="wt-image-container-1426" style="position: relative;">
                                                                      <div class="wt-labelgroup" id="image-drag-1426" style="position: relative;">
                                                                          <input type="file"  name="project_file">
+                                                                         <p class="text-danger" class="error">{{$errors->first('project_file')}}</p>
                                                                      </div>
                                                                  </div>
 
@@ -218,6 +229,7 @@
                                                                     @endforeach
                                                                 @endforeach
                                                             </select>
+                                                            <p class="text-danger" class="error">{{$errors->first('category_id')}}</p>
                                                          </span>
                                                       </div>
                                                    </fieldset>
@@ -236,6 +248,7 @@
                                                 <div class="form-group">
                                                   <label for="exampleFormControlTextarea1">Large textarea</label>
                                                    <textarea class="form-control rounded-0" placeholder="description" id="exampleFormControlTextarea1" rows="5" name="description"></textarea>
+                                                   <p class="text-danger" class="error">{{$errors->first('duration')}}</p>
                                                 </div>
                                              </div>
                                              <div class="wt-location wt-tabsinfo">

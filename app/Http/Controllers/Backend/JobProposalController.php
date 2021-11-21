@@ -44,4 +44,8 @@ class JobProposalController extends Controller
         return redirect()->back()->with( $notification);
 
     }
+    public function viewProposal($id){
+        $ids = base64_decode($id);
+       return SendProposal::find($ids);
+    }
 }

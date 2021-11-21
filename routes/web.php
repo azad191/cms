@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\jobListController;
 use App\Http\Controllers\freelancerListController;
+use App\Http\Controllers\freelancerDashboardController;
 
 use App\Http\Controllers\userRegistrationController;
 use App\Http\Controllers\FreelancerProfileController;
@@ -14,6 +15,9 @@ use App\Http\Controllers\Backend\sliderController;
 use App\Http\Controllers\Backend\logoCongtroller;
 use App\Http\Controllers\Backend\JobProposalController;
 use App\Http\Controllers\Backend\WishlistController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,6 +73,9 @@ Route::get('wish/list/{id}/{userId}/{type}', [WishlistController::class, 'wishLi
              Route::get('/all/skill', [FreelancerProfileController::class, 'allSkills']);
              Route::get('/skill/{id}', [FreelancerProfileController::class, 'SkillsById']);
 
+             //freelancer dashboard
+             Route::get('/dashboard', [freelancerDashboardController::class, 'dashboard'])->name('dashboard');
+             Route::get('/send/proposal', [freelancerDashboardController::class, 'sendProposal'])->name('proposal');
              //job proposal
              Route::post('/job/send/proposal/{id}/{jobId}', [JobProposalController::class, 'sendProposal'])->name('send.proposal');
 
@@ -98,6 +105,9 @@ Route::group(['middleware' => 'auth'], function(){
             //wish list
             Route::get('show/wishlist/{id}', [WishlistController::class, 'showWishList'])->name('show.wishlist');
 
+            //freelancer proposal
+            Route::get('view/proposal/{id}', [JobProposalController::class, 'viewProposal'])->name('proposal.view');
+
     });
 
 });
@@ -108,11 +118,6 @@ Route::group(['middleware' => 'auth'], function(){
 
 Route::get('user/registration', [userRegistrationController::class, 'create'])->name('user.reg');
 Route::post('user/registration', [userRegistrationController::class, 'store'])->name('user.store');
-
-
-
-
-
 
 
 //***************************** start backend side *****************************

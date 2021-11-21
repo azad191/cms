@@ -10,7 +10,7 @@
                     <!-- ------------------------------ -->
                     <div class="wt-proposalholder">
                         <div class=" ">
-                            <h2>Your posted job list</h2>
+                            <h2>Freelancer applied under a posted job</h2>
                         </div>
                     </div>
                     <!-- ------------------------------ -->
@@ -22,35 +22,33 @@
 
                                 <!-- ---------------------------- -->
                                 @foreach ($data as $i => $item)
+
                                     <tr style="padding:10px; vertical-align:middle">
-                                        <td style="vertical-align:middle">{{$item->project_level}}</td>
-                                        <td style="vertical-align:middle">{{$item->job_title}}</td>
-                                        <td style="vertical-align:middle">{{$item->job_type}}</td>
-                                        <td style="vertical-align:middle">&#2547;{{$item->price_min}} - &#2547;{{$item->price_max}}</td>
+
+                                        <td style="vertical-align:middle">&#2547;{{$item->amount}}</td>
+                                        <td style="vertical-align:middle">{{$item->duration}}</td>
+
+                                        <td style="vertical-align:middle">{{Str::substr($item->description, 0, 50)}}...</td>
+                                        <td style="vertical-align:middle"><a href="{{route('job.file.download', $item->id)}}" class="d-flex align-item-center"><p>Document</p><i class="fas fa-download"></i></a></td>
                                         <td style="vertical-align:middle">
                                             <div class="wt-btnarea">
-                                                <a href=""><span class="badge badge-danger p-1" title="status">Pending</span></a>
+                                                <a href=""><span class="badge badge-danger p-1" title="status">{{$item->status}}</span></a>
                                             </div>
                                         </td>
                                         <td style="vertical-align:middle">
                                             <div class="wt-btnarea">
-                                                <a href="{{route('buyer.all.applied.job', base64_encode($item->id))}}"><span class="badge badge-info p-1" title="status">Applied ({{isset($count[$i]->total)?$count[$i]->total:'0'}})</span></a>
-                                            </div>
-                                        </td>
-                                        <td style="vertical-align:middle">
-                                            <div class="wt-btnarea">
-                                                <a href="" class="btn btn-warning btn-sm text-white"
+                                                <a href="{{route('freelancer.details',base64_encode($item->freelancer_id))}}" class="btn btn-warning btn-sm text-white"
                                                     title="freelancer profle view" data-id="0" data-post="156">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
-                                                <a href="javascript:;" class="btn btn-success btn-sm" data-id="0"
+                                                {{-- <a href="javascript:;" class="btn btn-success btn-sm" data-id="0"
                                                     data-post="156" title="accept">
                                                     <i class="fas fa-check" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="javascript:;" class="btn btn-danger btn-sm" data-id="0"
-                                                    data-post="156" title="cancel">
-                                                    <i class="fas fa-times" aria-hidden="true"></i>
-                                                </a>
+                                                <a href="{{route('buyer.proposal.view', base64_encode($item->id))}}" class="btn btn-info btn-sm" data-id="0"
+                                                    data-post="156" title="Proposal View">
+                                                    <i class="fas fa-eye"></i>
+                                                </a> --}}
                                             </div>
                                         </td>
                                     </tr>
@@ -67,9 +65,14 @@
                 </div>
             </div>
         </div>
+            <!-- Button trigger modal -->
+
+
 
     </div>
+
     </main>
+
     <!-- ************** Main Part End********************* -->
 
     <!-- ************* Css Style Part **************-->

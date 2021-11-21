@@ -44,12 +44,12 @@
       <img src="{{asset('frontend/wp-content/themes/workreap/images/user.png')}}">
    </figure>
    <div class="wt-username">
-      <h3>al bakin Tushar</h3>
+      <h3>{{auth()->user()->name}}</h3>
    </div>
    <nav class="wt-usernav">
       <ul class="dashboard-menu-top">
          <li class="toolip-wrapo wt-active">
-            <a href="{{route('buyer.dashboard')}}">
+            <a href="{{auth()->user()->role_id==2 ? route('buyer.dashboard'):route('freelancer.dashboard')}}">
             <i class="ti-dashboard"></i>
             <span>Dashboard</span>
             </a>
@@ -153,7 +153,7 @@
                </li>
             </ul>
          </li>
-
+         @if (auth()->user()->role_id == 3)
          <li class="menu-item-has-children toolip-wrapo ">
             <span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
             <a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; event_preventDefault(event);">
@@ -163,7 +163,7 @@
             <ul class="sub-menu">
                <li class="">
                   <hr>
-                  <a href="#">Proposals</a>
+                  <a href="{{route('freelancer.proposal')}}">Proposals</a>
                </li>
                <li class="">
                   <hr>
@@ -179,6 +179,8 @@
                </li>
             </ul>
          </li>
+         @endif
+
          <li class="toolip-wrapo ">
             <a href="{{route('buyer.show.wishlist', base64_encode(auth()->user()->id))}}">
             <i class="ti-heart"></i>
