@@ -47,11 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::prefix('logo')->name('logo.')->group(function(){
         Route::get('/all', [logoCongtroller::class, 'index'])->name('index');
     });
-    Route::prefix('user')->name('user.')->group(function(){
-        Route::get('/all', [userController::class, 'index'])->name('index');
-        Route::post('/store', [userController::class, 'store']);
-        Route::get('/test', [userController::class, 'testData']);
-    });
+
     Route::get('/roles', [userController::class, 'roles']);
 
     //***************** Admin *********************
@@ -64,7 +60,14 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/election/dashboard/{id}', [ElectionController::class, 'index'])->name('election.dashboard');
 
     });
-    //***************** Voter *********************
+    //***************** User *********************
+    Route::prefix('user')->name('user.')->group(function(){
+        Route::get('/all', [userController::class, 'index'])->name('index');
+        Route::get('/create', [userController::class, 'create'])->name('create');
+        Route::post('/store', [userController::class, 'store'])->name('store');
+        Route::get('/test', [userController::class, 'testData']);
+    });
+    //***************** Employee *********************
     Route::prefix('employee')->name('employee.')->group(function(){
         Route::get('/all', [EmployeeController::class, 'index'])->name('index');
         Route::get('/create', [EmployeeController::class, 'create'])->name('create');
@@ -79,7 +82,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/approve', [VoterController::class, 'approved'])->name('approved');
 
     });
-    //***************** Voter *********************
+    //***************** candidate *********************
     Route::prefix('candidate')->name('candidate.')->group(function(){
         Route::get('/pending', [CandidateController::class, 'index'])->name('index');
         Route::get('/approve', [CandidateController::class, 'approved'])->name('approved');

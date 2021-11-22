@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserAccess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class userController extends Controller
 {
@@ -31,7 +33,7 @@ class userController extends Controller
      */
     public function create()
     {
-
+        return view('backend.modules.user.create');
     }
 
     /**
@@ -42,11 +44,33 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
+       // return $request->all();
+        $request->validate([
+            'name' => ['required'],
+            'email' => 'required|unique:users,email',
+            'employee_id' => 'required|exists:employees,employee_id',
+            'password' => 'required|same:confirm_password|min:6',
+            'confirm_password' => 'required',
+            'permission' => ['required'],
+        ]);
       $data =  $request->all();
+      $data['role_id'] = 3;
       $data['password'] = Hash::make($request->password);
       User::create($data);
+        if(isset($request->permission)){
+            $userId = User::latest()->first();
+            UserAccess::create([
+                'election_id' => getElection()->id,
+                'user_id' =>$userId->id,
+                'permission' => json_encode($request->permission),
+            ]);
+        }
 
-      return response()->json(['result'=>$request->name]);
+        $notification = array(
+            'message' => 'User has been successfully added!',
+            'alert-type' => 'success'
+        );
+        return Redirect::to('user/create')->with( $notification);
     }
 
     /**

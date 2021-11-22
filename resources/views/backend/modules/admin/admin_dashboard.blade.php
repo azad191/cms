@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{asset('backend/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('backend/dist/css/adminlte.min.css')}}">
+    {{--   toastr--}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
 </head>
 <body >
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
@@ -81,6 +83,8 @@
                                     </thead>
                                     <tbody>
                                     @foreach($data as $item)
+
+                                    @if (auth()->user()->role_id == 2)
                                         <tr>
                                             <td>{{$item->election_name}}</td>
                                             <td>{{\Carbon\Carbon::parse($item->start_date)->format('d M Y, H:i a')}}</td>
@@ -88,6 +92,9 @@
                                             <td class="text-center"><span class="badge badge-success">{{$item->election_activity}}</span></td>
                                             <td class="text-center"><a href="{{route('admin.election.dashboard', $item->id)}}" class="btn btn-info btn-sm">Open</a></td>
                                         </tr>
+
+                                    @endif
+
                                     @endforeach
 
 
@@ -128,6 +135,8 @@
 <script src="{{asset('backend/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('backend/dist/js/adminlte.min.js')}}"></script>
+{{--Toastr--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 <script>
     $(function () {
         $("#example1").DataTable({
@@ -144,6 +153,28 @@
             "responsive": true,
         });
     });
+</script>
+<script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+    @endif
 </script>
 </body>
 </html>

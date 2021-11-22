@@ -26,6 +26,8 @@ class HomeController extends Controller
 //        return view('home');
         if (auth()->user()->role_id == 2){
             return redirect()->to('/admin/dashboard');
+        }else{
+            return redirect()->to('admin/election/dashboard/'.getUserPermission()->election_id);
         }
     }
 }

@@ -43,7 +43,7 @@ class LoginController extends Controller
 
 
 
-        if($request->role_id == 2){
+        if($request->role_id == 2 or $request->role_id==3){
             $this->guard()->logout();
             return redirect('admin/login');
         }

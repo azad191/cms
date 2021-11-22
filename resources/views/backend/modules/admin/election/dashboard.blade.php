@@ -64,7 +64,33 @@
     <!-- /.row -->
     <!-- Main row -->
     <div class="row">
-       
+       </div>
+       <div class="form-group">
+            <label for="name">Election Registration URL</label>
+            <input class="form-control w-100" id="myInput" type="text" value="{{url()->current().'/'.$data->slug}}">
+            <button class="btn btn-info btn-sm mt-2" onclick="myFunction()">Copy url</button>
+       </div>
+       <div class="form-group">
+        <label for="name">Voting Polling URL</label>
+        <input class="form-control w-100" id="voting" type="text" value="{{url()->current().'/'.$data->slug.'/polling'}}">
+        <button class="btn btn-info btn-sm mt-2" onclick="myFunctions()">Copy url</button>
+   </div>
     </div>
     <!-- /.row (main row) -->
+    <script>
+        function myFunction() {
+  /* Get the text field */
+    var copyText = document.getElementById("myInput");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+    }
+    </script>
 @endsection

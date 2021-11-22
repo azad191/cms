@@ -18,7 +18,12 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $data =  Employee::get();
+        if(auth()->user()->role_id == 2){
+            $data =  Employee::where('user_id', auth()->user()->id)->get();
+        }else{
+            $data =  Employee::where('user_id', auth()->user()->id)->orWhere('election_id', getUserPermission()->election_id)->get();
+        }
+
         return view('backend.modules.employee.index', compact('data'));
     }
 
@@ -41,6 +46,22 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
 //       getElection();
+//        $request->validate([
+//            'name' => ['required'],
+//            'email' => 'required|unique:employees,email',
+//            'department_id' => ['required'],
+//            'designation_id' => ['required'],
+//            'father_name' => ['required'],
+//            'mother_name' => ['required'],
+//            'city' => ['required'],
+//            'district   ' => ['required'],
+//            'zip_code' => ['required'],
+//            'nid_no' => 'required|unique:employees,nid_no',
+//            'present_address' => ['required'],
+//            'employee_image' => ['required'],
+//            'nid_image' => ['required'],
+//
+//        ]);
         $data = $request->all();
         $employeeImgeFile = $request->file('employee_image');
         $nidImageFile = $request->file('nid_image');

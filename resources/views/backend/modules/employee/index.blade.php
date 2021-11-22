@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h3 class="card-title">All User List</h3>
+                <h3 class="card-title">All Employee List</h3>
                 <a href="{{route('employee.create')}}" class="btn btn-info">Add New Employee</a>
 
             </div>
@@ -16,7 +16,6 @@
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Browser</th>
                         <th>Email</th>
                         <th>Employee Id</th>
                         <th>Action</th>
@@ -25,11 +24,11 @@
                 <tbody>
                     @foreach ($data as $item)
                         <tr>
-                            <td><img class="" style="width:50px; height: 50px; border-radius:50%" src="{{asset('backend/uploads/employee/'.$item->employee_image)}}" alt="img"></td>
+                            <td><img class="" style="width:50px; height: 50px; border-radius:50%" src="{{asset('backend/uploads/employee/profile/'.$item->employee_image)}}" alt="img"></td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->employee_id}}</td>
-                            <td>{{$item->email}}</td>
+                        
                             <td><button class="btn btn-info btn-sm">view</button></td>
 
 

@@ -4,7 +4,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="card-title">All User List</h3>
-                <a href="{{route('employee.create')}}" class="btn btn-info">Add New User</a>
+                <a href="{{route('user.create')}}" class="btn btn-info">Add New User</a>
 
             </div>
         </div>

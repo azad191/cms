@@ -13,7 +13,9 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" title="{{getElection()->election_name}}" class="d-block">{{substr(getElection()->election_name, 0,20)}}</a>
+                @if (auth()->user()->role_id == 2)
+                  <a href="{{route('admin.election.dashboard',getElection()->id )}}" title="{{getElection()->election_name}}" class="d-block">{{substr(getElection()->election_name, 0,20)}}</a>
+                @endif
             </div>
         </div>
 
@@ -42,6 +44,7 @@
                     </ul>
                 </li><!--End slider--> --}}
                 <!--Start User-->
+                @if (auth()->user()->role_id ==2)
                 <li class="nav-item">
                     <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -50,15 +53,18 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('user.index')}}" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add User</p>
-                            </a>
-                        </li>
-                    </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('user.index')}}" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add User</p>
+                                </a>
+                            </li>
+                        </ul>
+
+
                 </li><!--End user-->
+                @endif
                 <!--Start voter-->
                 <li class="nav-item">
                     <a href="#" class="nav-link ">

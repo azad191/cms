@@ -21,6 +21,7 @@ class AdminController extends Controller
     public function index()
     {
        $data = Election::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->get();
+       //   return  Election::with('userAccess')->whereHas('userAccess')->get();
         return view('backend.modules.admin.admin_dashboard', compact('data'));
     }
 

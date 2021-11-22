@@ -16,8 +16,9 @@ class ElectionController extends Controller
      */
     public function index($id)
     {
+     $data = Election::find($id);
 
-        return view('backend.modules.admin.election.dashboard');
+        return view('backend.modules.admin.election.dashboard', compact('data'));
     }
 
     /**
