@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\CandidateController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\ElectionController;
 use App\Http\Controllers\Backend\EmployeeController;
+use App\Http\Controllers\CandidateNominationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::get('/admin/register', function () {
     return view('register');
 });
 Route::post('admin/store', [AdminController::class, 'store'])->name('admin.store');
+
+Route::get('nomination/register', [CandidateNominationController::class, 'index'])->name('register');
 Route::group(['middleware' => 'auth'], function(){
 
     Route::get('cats', [CategoryController::class, 'index']);
