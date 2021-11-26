@@ -12,23 +12,23 @@
                         <div class="d-flex">
                             <div class="form-group w-50">
                                 <label for="id">Minimum Vote</label>
-                                <input type="number" class="form-control" id="id" name="employee_id" aria-describedby="emailHelp">
-                                <p class="text-danger" class="error">{{ $errors->first('employee_id') }}</p>
+                                <input type="number" class="form-control" id="id" name="min_vote" aria-describedby="emailHelp">
+                                <p class="text-danger" class="error">{{ $errors->first('min_vote') }}</p>
                             </div>
                             <div class="form-group w-50">
                                 <label for="id">Maximum Vote</label>
-                                <input type="number" class="form-control" id="id" name="employee_id" aria-describedby="emailHelp">
-                                <p class="text-danger" class="error">{{ $errors->first('employee_id') }}</p>
+                                <input type="number" class="form-control" id="id" name="max_vote" aria-describedby="emailHelp">
+                                <p class="text-danger" class="error">{{ $errors->first('max_vote') }}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="name">Position Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
-                            <p class="text-danger" class="error">{{ $errors->first('name') }}</p>
+                            <input type="text" class="form-control" id="name" name="position_name">
+                            <p class="text-danger" class="error">{{ $errors->first('position_name') }}</p>
                         </div>
                         <div class="form-group">
                             <label for="email">Sort Description</label>
-                            <textarea name="present_address" id="present_address" class="form-control" cols="30" rows="5"></textarea>
+                            <textarea name="description" id="present_address" class="form-control" cols="30" rows="5"></textarea>
                             <p class="text-danger" class="error">{{ $errors->first('email') }}</p>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>

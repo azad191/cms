@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePositionsTable extends Migration
+class CreateBallotsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreatePositionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('positions', function (Blueprint $table) {
+        Schema::create('ballots', function (Blueprint $table) {
             $table->id();
             $table->foreignId('election_id');
             $table->foreignId('user_id');
-            $table->string('position_name');
-            $table->tinyInteger('min_vote')->default('1');
-            $table->tinyInteger('max_vote')->default('1');
-            $table->tinyInteger('priority')->default('0');
+            $table->foreignId('position_id');
+            $table->foreignId('candidate_nomination_id');
+            $table->string('symbol');
             $table->string('description');
+            $table->tinyInteger('priority')->default('0');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class CreatePositionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('positions');
+        Schema::dropIfExists('ballots');
     }
 }

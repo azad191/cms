@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\position;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PositionController extends Controller
 {
@@ -33,9 +34,20 @@ class PositionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+
+        $data = $request->all();
+        $data['election_id'] = $id;
+        $data['user_id'] = auth()->user()->id;
+        position::create($data);
+
+        $notification = array(
+            'message' => 'Position created successfully!',
+            'alert-type' => 'success'
+        );
+        return redirect()->to('admin/election/ballot/'.$id)->with($notification);
+
     }
 
     /**

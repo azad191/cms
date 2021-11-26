@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\ElectionController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\BallotSettingController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\BallotController;
 use App\Http\Controllers\CandidateNominationController;
 
 /*
@@ -66,7 +67,10 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/election/store/{id}', [ElectionController::class, 'store'])->name('election.store');
         Route::get('/election/dashboard/{id}', [ElectionController::class, 'index'])->name('election.dashboard');
         //ballot setting
-        Route::get('/election/ballot/{id}', [BallotSettingController::class, 'index'])->name('election.ballot.setting');
+        Route::get('/election/ballot/{id}', [BallotSettingController::class, 'index'])->name('election.ballot');
+        //ballot symbol add
+        Route::get('/election/ballot/create/{id}', [BallotController::class, 'create'])->name('election.ballot.create');
+        Route::post('/election/ballot/store/{id}', [BallotController::class, 'store'])->name('election.ballot.store');
 
         Route::get('/election/position/create/{id}', [PositionController::class, 'create'])->name('election.ballot.position');
         Route::post('/election/position/store/{id}', [PositionController::class, 'store'])->name('election.position.store');
