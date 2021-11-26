@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CandidateNomination;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
@@ -14,7 +15,13 @@ class CandidateController extends Controller
      */
     public function index()
     {
-        return view('backend.modules.candidate.pending');
+        if(auth()->user()->role_id == 2){
+            $data = CandidateNomination::where('election_id', getElection()->id)->where('status','pending')->get();
+            //  return $data[0]['name'];
+        }else{
+            $data = CandidateNomination::Where('election_id', getUserPermission()->election_id)->where('status','pending')->get();
+        }
+        return view('backend.modules.candidate.pending', compact('data'));
     }
 
     /**

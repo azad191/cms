@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class CandidateNomination extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'election_id',
+        'verify_user_id',
+        'employee_id_no',
+        'token_code',
+        'voter_no',
+        'voted',
+        'name',
+        'email',
+        'position',
+        'vote_count',
+        'status',
+    ];
 }

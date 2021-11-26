@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CandidateNomination;
-use App\Models\Election;
+use App\Models\position;
 use Illuminate\Http\Request;
 
-class CandidateNominationController extends Controller
+class PositionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class CandidateNominationController extends Controller
      */
     public function index()
     {
-        return view('nomonation_registration');
+        //
     }
 
     /**
@@ -23,11 +22,9 @@ class CandidateNominationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id, $slug)
+    public function create()
     {
-
-
-
+        return view('backend.modules.ballot.create');
     }
 
     /**
@@ -36,18 +33,18 @@ class CandidateNominationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CandidateNomination  $candidateNomination
+     * @param  \App\Models\position  $position
      * @return \Illuminate\Http\Response
      */
-    public function show(CandidateNomination $candidateNomination)
+    public function show(position $position)
     {
         //
     }
@@ -55,10 +52,10 @@ class CandidateNominationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CandidateNomination  $candidateNomination
+     * @param  \App\Models\position  $position
      * @return \Illuminate\Http\Response
      */
-    public function edit(CandidateNomination $candidateNomination)
+    public function edit(position $position)
     {
         //
     }
@@ -67,10 +64,10 @@ class CandidateNominationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CandidateNomination  $candidateNomination
+     * @param  \App\Models\position  $position
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CandidateNomination $candidateNomination)
+    public function update(Request $request, position $position)
     {
         //
     }
@@ -78,10 +75,10 @@ class CandidateNominationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CandidateNomination  $candidateNomination
+     * @param  \App\Models\position  $position
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CandidateNomination $candidateNomination)
+    public function destroy(position $position)
     {
         //
     }

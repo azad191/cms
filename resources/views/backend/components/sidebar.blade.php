@@ -151,6 +151,24 @@
                         </li>
                     </ul>
                 </li><!--End Election-->
+                 <!-- start Setting-->
+                 <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Ballot
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.election.ballot.setting', getElection()->id)}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>add ballot</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End Setting-->
                 <!-- start Setting-->
                 <li class="nav-item">
                     <a href="#" class="nav-link ">

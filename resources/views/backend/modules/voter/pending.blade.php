@@ -15,25 +15,24 @@
                 <tr>
                     <th>Sl No</th>
                     <th>Name</th>
-                    <th>Department</th>
-                    <th>Id-cart No</th>
-                    <th>Nid No</th>
+                    <th>Email</th>
+                    <th>Employee Id-no</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr >
-                    <td>1</td>
-                    <td>Trident</td>
-                    <td>Internet
-                        Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>Win 95+</td>
-                    <td><span class="badge badge-pending">Pending</span></td>
-                    <td><button class="btn btn-success   btn-sm text-white" data-toggle="modal" id="ok" data-target="#modal-lg" >View</button></td>
-                </tr>
+                    @foreach ($data as $i=>$item)
+                        <tr>
+                            <td>{{$i+1}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->email}}</td>
+                            <td>{{$item->employee_id_no}}</td>
+                            <td><span class="badge badge-danger">{{$item->status}}</span></td>
+                            <td><button class="btn btn-success   btn-sm text-white" data-toggle="modal" id="ok" data-target="#modal-lg" >View</button></td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

@@ -15,15 +15,16 @@ class CreateVoterNominationsTable extends Migration
     {
         Schema::create('voter_nominations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('election_id');
             $table->foreignId('user_id')->nullable();
-            $table->foreignId('candidate_id')->unique();
-            $table->string('employee_id_no')->unique();
+            $table->foreignId('election_id');
+            $table->foreignId('verify_user_id')->nullable();
+            $table->string('employee_id_no');
             $table->string('token_code')->nullable();
+            $table->string('voter_no')->nullable();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('department');
-            $table->enum('status', ['cancel', 'approve']);
+            $table->enum('voted', ['yes', 'no'])->default('no');
+            $table->enum('status', ['cancel', 'approve', 'pending'])->default('pending');
             $table->timestamps();
         });
     }

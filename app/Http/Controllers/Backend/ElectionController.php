@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Election;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class ElectionController extends Controller
 {
@@ -16,7 +17,8 @@ class ElectionController extends Controller
      */
     public function index($id)
     {
-     $data = Election::find($id);
+        Session::put('electionId', $id);
+       $data = Election::find($id);
 
         return view('backend.modules.admin.election.dashboard', compact('data'));
     }

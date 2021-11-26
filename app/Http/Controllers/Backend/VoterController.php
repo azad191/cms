@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
+use App\Models\VoterNomination;
 use Illuminate\Http\Request;
 
 class VoterController extends Controller
@@ -14,7 +16,14 @@ class VoterController extends Controller
      */
     public function index()
     {
-        return view('backend.modules.voter.pending');
+        if(auth()->user()->role_id == 2){
+        $data = VoterNomination::where('election_id', getElection()->id)->where('status','pending')->get();
+      //  return $data[0]['name'];
+    }else{
+        $data = VoterNomination::Where('election_id', getUserPermission()->election_id)->where('status','pending')->get();
+    }
+
+        return view('backend.modules.voter.pending', compact('data'));
     }
 
     /**

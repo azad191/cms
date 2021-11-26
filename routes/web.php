@@ -6,12 +6,15 @@ use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\sliderController;
 use App\Http\Controllers\Backend\logoCongtroller;
 use App\Http\Controllers\Backend\loginController;
+use App\Http\Controllers\NominationController;
 use App\Http\Controllers\Backend\userController;
 use App\Http\Controllers\Backend\VoterController;
 use App\Http\Controllers\Backend\CandidateController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\ElectionController;
 use App\Http\Controllers\Backend\EmployeeController;
+use App\Http\Controllers\Backend\BallotSettingController;
+use App\Http\Controllers\PositionController;
 use App\Http\Controllers\CandidateNominationController;
 
 /*
@@ -37,7 +40,8 @@ Route::get('/admin/register', function () {
 });
 Route::post('admin/store', [AdminController::class, 'store'])->name('admin.store');
 
-Route::get('nomination/register', [CandidateNominationController::class, 'index'])->name('register');
+Route::get('admin/election/dashboard/{id}/{slug}', [NominationController::class, 'create']);
+Route::post('nomination/register/{id}/{slug}', [NominationController::class, 'store'])->name('nomination.register');
 Route::group(['middleware' => 'auth'], function(){
 
     Route::get('cats', [CategoryController::class, 'index']);
@@ -61,6 +65,13 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/election', [ElectionController::class, 'create'])->name('election.create');
         Route::post('/election/store/{id}', [ElectionController::class, 'store'])->name('election.store');
         Route::get('/election/dashboard/{id}', [ElectionController::class, 'index'])->name('election.dashboard');
+        //ballot setting
+        Route::get('/election/ballot/{id}', [BallotSettingController::class, 'index'])->name('election.ballot.setting');
+
+        Route::get('/election/position/create/{id}', [PositionController::class, 'create'])->name('election.ballot.position');
+        Route::post('/election/position/store/{id}', [PositionController::class, 'store'])->name('election.position.store');
+
+
 
     });
     //***************** User *********************

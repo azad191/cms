@@ -83,18 +83,13 @@
                                     </thead>
                                     <tbody>
                                     @foreach($data as $item)
-
-                                    @if (auth()->user()->role_id == 2)
                                         <tr>
                                             <td>{{$item->election_name}}</td>
                                             <td>{{\Carbon\Carbon::parse($item->start_date)->format('d M Y, H:i a')}}</td>
                                             <td>{{\Carbon\Carbon::parse($item->end_date)->format('d M Y, H:i a')}}</td>
                                             <td class="text-center"><span class="badge badge-success">{{$item->election_activity}}</span></td>
-                                            <td class="text-center"><a href="{{route('admin.election.dashboard', $item->id)}}" class="btn btn-info btn-sm">Open</a></td>
+                                            <td class="text-center" ><a href="{{route('admin.election.dashboard', $item->id)}}" class="btn btn-info btn-sm">Open</a></td>
                                         </tr>
-
-                                    @endif
-
                                     @endforeach
 
 

@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Register Approved List</h3>
+                <h3 class="card-title">Register Approdfgdfgdfgdfgdgved List</h3>
                 <button class="btn btn-info" data-toggle="modal"  data-target="#modal-lg" id="ok">Add New User</button>
             </div>
         </div>
