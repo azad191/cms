@@ -34,16 +34,25 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
+<<<<<<< HEAD
+=======
+                <!--Start Menu-->
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
+<<<<<<< HEAD
                             Dashboard
+=======
+                            Menu
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+<<<<<<< HEAD
                             <a href="./index.html" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dashboard v1</p>
@@ -63,6 +72,69 @@
                         </li>
                     </ul>
                 </li>
+=======
+                            <a href="{{route('menu')}}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Menu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End Menu-->
+                <!--Start slider-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Slider
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('slider.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End slider-->
+                <!--Start User-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            User
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('user.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add User</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End user-->
+                <!--Start Others-->
+                <li class="{{request()->is('logo/all') ? 'nav-item  menu-open' : ''}}">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Others
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                                <a href="{{route('logo.index')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Logo</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!--End Others-->
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
@@ -132,6 +204,7 @@
                         </li>
                     </ul>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -290,6 +363,9 @@
                         </li>
                     </ul>
                 </li>
+=======
+
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
                 <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
@@ -300,6 +376,7 @@
                         </p>
                     </a>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item">
                     <a href="pages/gallery.html" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
@@ -665,6 +742,9 @@
                         <p>Informational</p>
                     </a>
                 </li>
+=======
+
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

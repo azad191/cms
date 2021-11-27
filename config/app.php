@@ -165,7 +165,11 @@ return [
         /*
          * Package Service Providers...
          */
+<<<<<<< HEAD
 
+=======
+        Intervention\Image\ImageServiceProvider::class,
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
         /*
          * Application Service Providers...
          */
@@ -228,6 +232,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
+=======
+        'Image' => Intervention\Image\Facades\Image::class
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
 
     ],
 

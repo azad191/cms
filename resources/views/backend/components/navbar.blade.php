@@ -122,6 +122,20 @@
             </div>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
+=======
+            <a class="nav-link"  href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+               document.getElementById('logout-form').submit();" role="button">
+                logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+                <input type="hidden" name="role_id" value="{{auth()->user()->role_id}}">
+            </form>
+        </li>
+        <li class="nav-item">
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>

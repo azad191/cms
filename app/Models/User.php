@@ -19,8 +19,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+<<<<<<< HEAD
         'email',
         'password',
+=======
+        'role_id',
+        'status',
+        'email',
+        'password',
+        'gender',
+        'verify_code'
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
     ];
 
     /**
@@ -41,4 +50,43 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+<<<<<<< HEAD
+=======
+//start for freelancer
+    function freelancerProfile(){
+        return $this->hasOne(freelancer_profile::class, 'user_id');
+    }
+    public function specialization(){
+        return $this->hasOne(specialization::class, 'user_id');
+    }
+    public function skill(){
+        return $this->hasMany(freelancerSkill::class, 'user_id');
+    }
+    public function faq(){
+        return $this->hasMany(freelancer_faq::class, 'user_id');
+    }
+    public function project(){
+        return $this->hasMany(preelancer_project::class, 'user_id');
+    }
+    public function education(){
+        return $this->hasMany(freelancerEducation::class, 'user_id');
+    }
+    public function experience(){
+        return $this->hasMany(freelancerExperience::class, 'user_id');
+    }
+
+    //start for buyer
+    public function buyerProfile(){
+        return $this->hasOne(buyerProfile::class, 'user_id');
+    }
+    public function jobPost(){
+        return $this->hasMany(jobPost::class, 'user_id');
+    }
+    public function jobPostFilter(){
+        return $this->hasMany(jobPost::class, 'user_id');
+    }
+
+
+
+>>>>>>> 8b71f0b5417b4f2e43fb2edfdbb8267735cb2016
 }
