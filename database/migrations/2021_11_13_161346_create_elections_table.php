@@ -19,6 +19,8 @@ class CreateElectionsTable extends Migration
             $table->string('election_name');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->dateTime('reg_start')->nullable();
+            $table->dateTime('reg_end')->nullable();
             $table->dateTime('registration_date')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('election_activity')->default('building');

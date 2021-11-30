@@ -17,6 +17,7 @@ class CreateCandidateNominationsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable();
             $table->foreignId('election_id');
+            $table->foreignId('position_id');
             $table->foreignId('verify_user_id')->nullable();
             $table->string('employee_id_no')->unique();
             $table->string('token_code')->nullable();
@@ -24,7 +25,6 @@ class CreateCandidateNominationsTable extends Migration
             $table->enum('voted', ['yes', 'no'])->default('no');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('position');
             $table->string('vote_count')->nullable();
             $table->enum('status', ['cancel', 'approve', 'pending'])->default('pending');
             $table->timestamps();

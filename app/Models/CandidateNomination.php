@@ -18,7 +18,7 @@ class CandidateNomination extends Model
         'voted',
         'name',
         'email',
-        'position',
+        'position_id',
         'vote_count',
         'status',
     ];

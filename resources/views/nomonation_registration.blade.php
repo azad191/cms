@@ -58,11 +58,13 @@
                 </div>
                 <div class="form-group w-100" id="position" style="display: none">
                     <label for="inputState">Select for position</label>
-                    <select id="inputState" name="position" class="form-control">
+                    <select id="inputState" name="position_id" class="form-control">
                         <option value="">Choose...</option>
-                        <option value="1">president</option>
-                        <option value="2">vice president</option>
-                        <option value="3">general member</option>
+                        @foreach ($allPosition as $item)
+                            <option value="{{$item->id}}">{{$item->position_name}}</option>
+                        @endforeach
+
+
                     </select>
                     <p class="text-danger" class="error">{{ $errors->first('election_per_voter') }}</p>
                 </div>

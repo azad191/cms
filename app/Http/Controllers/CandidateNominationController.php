@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CandidateNomination;
 use App\Models\Election;
+use App\Models\position;
 use Illuminate\Http\Request;
 
 class CandidateNominationController extends Controller
@@ -15,7 +16,8 @@ class CandidateNominationController extends Controller
      */
     public function index()
     {
-        return view('nomonation_registration');
+
+        return view('nomonation_registration', compact('allPosition'));
     }
 
     /**

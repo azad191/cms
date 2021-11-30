@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\BallotSettingController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\BallotController;
+use App\Http\Controllers\PollingController;
 use App\Http\Controllers\CandidateNominationController;
 
 /*
@@ -43,6 +44,11 @@ Route::post('admin/store', [AdminController::class, 'store'])->name('admin.store
 
 Route::get('admin/election/dashboard/{id}/{slug}', [NominationController::class, 'create']);
 Route::post('nomination/register/{id}/{slug}', [NominationController::class, 'store'])->name('nomination.register');
+
+Route::get('admin/election/dashboard/{id}/{slug}/polling', [PollingController::class, 'polling'])->name('vote.polling');
+Route::post('admin/election/dashboard/{id}/vote/cast', [PollingController::class, 'pollingCast'])->name('vote.polling.cast');
+
+
 Route::group(['middleware' => 'auth'], function(){
 
     Route::get('cats', [CategoryController::class, 'index']);
