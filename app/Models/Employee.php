@@ -25,6 +25,8 @@ class Employee extends Model
         'present_address',
         'permanent_address',
         'employee_image',
+        'admin_id',
+        'election_permission',
         'nid_image',
         'status',
     ];

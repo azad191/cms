@@ -61,6 +61,7 @@ class userController extends Controller
             $userId = User::latest()->first();
             UserAccess::create([
                 'election_id' => getElection()->id,
+                'admin_id' => organization()->user_id,
                 'user_id' =>$userId->id,
                 'permission' => json_encode($request->permission),
             ]);

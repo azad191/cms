@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserAccessesTable extends Migration
+class AddEmpPermissionToEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateUserAccessesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_accesses', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('election_id');
+        Schema::table('employees', function (Blueprint $table) {
             $table->foreignId('admin_id');
-            $table->string('permission');
             $table->string('election_permission')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -31,6 +26,8 @@ class CreateUserAccessesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_accesses');
+        Schema::table('employees', function (Blueprint $table) {
+            //
+        });
     }
 }

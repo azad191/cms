@@ -28,8 +28,12 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->employee_id}}</td>
-                        
-                            <td><button class="btn btn-info btn-sm">view</button></td>
+
+                            <td>
+                                <button class="btn btn-warning btn-sm"><i class="fas fa-eye-slash"></i></button>
+                                <a href="{{route('employee.edit', $item->id)}}"><button class="btn btn-info btn-sm"><i class="fas fa-edit"></i></button></a>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                            </td>
 
 
                         </tr>

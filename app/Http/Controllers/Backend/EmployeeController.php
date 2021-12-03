@@ -34,6 +34,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+
         return view('backend.modules.employee.create');
     }
 
@@ -45,23 +46,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-//       getElection();
-//        $request->validate([
-//            'name' => ['required'],
-//            'email' => 'required|unique:employees,email',
-//            'department_id' => ['required'],
-//            'designation_id' => ['required'],
-//            'father_name' => ['required'],
-//            'mother_name' => ['required'],
-//            'city' => ['required'],
-//            'district   ' => ['required'],
-//            'zip_code' => ['required'],
-//            'nid_no' => 'required|unique:employees,nid_no',
-//            'present_address' => ['required'],
-//            'employee_image' => ['required'],
-//            'nid_image' => ['required'],
-//
-//        ]);
+
         $data = $request->all();
         $employeeImgeFile = $request->file('employee_image');
         $nidImageFile = $request->file('nid_image');
@@ -77,6 +62,7 @@ class EmployeeController extends Controller
 
         $data['user_id'] = auth()->user()->id;
         $data['election_id'] = getElection()->id;
+        $data['admin_id'] = organization()->user_id;
         $data['employee_id'] = mt_rand(0, 655);
         $data['department_id'] = 4;
         $data['designation_id'] = 6;
@@ -98,7 +84,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -109,7 +95,7 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('backend.modules.employee.update');
     }
 
     /**
@@ -121,7 +107,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request->all();
     }
 
     /**
